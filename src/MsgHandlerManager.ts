@@ -4,7 +4,7 @@ export class MsgHandlerManager {
     private _handlers: { [key: string]: Function[] | undefined } = {}
 
     /**
-     * @return handlers count
+     * @returns handlers count
      */
     forEachHandler(key: string, logger: Logger | undefined, ...args: any[]): (any | Promise<any>)[] {
         let handlers = this._handlers[key];

@@ -2088,7 +2088,7 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!MsgHandlerManager#forEachHandler:member(1)",
-              "docComment": "/**\n * @return handlers count\n */\n",
+              "docComment": "/**\n * @returns handlers count\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

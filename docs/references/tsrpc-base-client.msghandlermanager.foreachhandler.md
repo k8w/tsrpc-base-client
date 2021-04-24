@@ -4,8 +4,6 @@
 
 ## MsgHandlerManager.forEachHandler() method
 
- handlers count
-
 <b>Signature:</b>
 
 ```typescript
@@ -23,4 +21,6 @@ forEachHandler(key: string, logger: Logger | undefined, ...args: any[]): (any | 
 <b>Returns:</b>
 
 (any \| Promise&lt;any&gt;)\[\]
+
+handlers count
 

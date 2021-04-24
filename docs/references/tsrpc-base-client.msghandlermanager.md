@@ -15,6 +15,6 @@ export declare class MsgHandlerManager
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
 |  [addHandler(key, handler)](./tsrpc-base-client.msghandlermanager.addhandler.md) |  |  |
-|  [forEachHandler(key, logger, args)](./tsrpc-base-client.msghandlermanager.foreachhandler.md) |  |  handlers count |
+|  [forEachHandler(key, logger, args)](./tsrpc-base-client.msghandlermanager.foreachhandler.md) |  |  |
 |  [removeHandler(key, handler)](./tsrpc-base-client.msghandlermanager.removehandler.md) |  |  |
 
