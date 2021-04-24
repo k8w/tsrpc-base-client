@@ -108,7 +108,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         });
 
         // Finally clear pendings
-        promise.finally(() => {
+        promise.catch().then(() => {
             this._pendingApis.removeOne(v => v.sn === pendingItem.sn);
         })
 

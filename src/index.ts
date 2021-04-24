@@ -1,6 +1,3 @@
-import 'core-js/es/array/find';
-import 'core-js/es/array/find-index';
-import 'core-js/es/promise/finally';
 import 'k8w-extend-native';
 
 export * from './BaseClient';
