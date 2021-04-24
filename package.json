@@ -1,6 +1,6 @@
 {
   "name": "tsrpc-base-client",
-  "version": "1.0.2-dev.0",
+  "version": "1.0.2-dev.4",
   "description": "TSRPC Base Client",
   "main": "index.cjs",
   "exports": {
@@ -8,7 +8,7 @@
     "import": "./index.mjs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx ts-node test/test.ts",
     "build": "npm run build:js && npm run build:dts && npm run build:doc && cp package.json LICENSE README.md dist/",
     "build:js": "rm -rf dist && npx rollup -c",
     "build:dts": "rm -rf lib && npx tsc && npx api-extractor run --local --verbose && node scripts/removePrivate.js && rm -rf lib",

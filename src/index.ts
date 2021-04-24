@@ -1,12 +1,14 @@
 import 'core-js/es/array/find';
 import 'core-js/es/array/find-index';
-import 'core-js/es/promise/finnaly';
+import 'core-js/es/promise/finally';
 import 'k8w-extend-native';
 
-export { BaseClient, BaseClientOptions, PendingApiItem } from './BaseClient';
-export { Counter } from './Counter';
-export { Flow } from './Flow';
-export { MsgHandlerManager } from './MsgHandlerManager';
-export { ApiService, MsgService, ServiceMapUtil } from './ServiceMapUtil';
-export { TransportDataUtil } from './TransportDataUtil';
-export { TransportOptions } from './TransportOptions';
+export * from './BaseClient';
+export * from './ClientFlowData';
+export * from './Counter';
+export * from './Flow';
+export * from './MsgHandlerManager';
+export * from './ServiceMapUtil';
+export * from './TransportDataUtil';
+export * from './TransportOptions';
+

@@ -14,7 +14,7 @@ export declare class Flow<T>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [nodes](./tsrpc-base-client.flow.nodes.md) |  | FlowNode&lt;T&gt;\[\] |  |
+|  [nodes](./tsrpc-base-client.flow.nodes.md) |  | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;T&gt;\[\] |  |
 |  [onError](./tsrpc-base-client.flow.onerror.md) |  | (e: Error \| TsrpcError, last: T, input: T, logger: Logger \| undefined) =&gt; void |  |
 
 ## Methods

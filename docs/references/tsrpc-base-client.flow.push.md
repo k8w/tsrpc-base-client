@@ -14,7 +14,7 @@ push(node: FlowNode<T>): number;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | FlowNode&lt;T&gt; |  |
+|  node | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;T&gt; |  |
 
 <b>Returns:</b>
 

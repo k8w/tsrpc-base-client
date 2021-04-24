@@ -15,7 +15,7 @@ listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHand
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  msgName | T |  |
-|  handler | ClientMsgHandler&lt;ServiceType\['msg'\]\[T\], this&gt; |  |
+|  handler | [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md)<!-- -->&lt;ServiceType\['msg'\]\[T\], this&gt; |  |
 
 <b>Returns:</b>
 

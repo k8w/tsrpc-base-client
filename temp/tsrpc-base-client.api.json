@@ -170,6 +170,71 @@
       "name": "",
       "members": [
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!ApiReturnFlowData:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type ApiReturnFlowData<ServiceType extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseServiceType",
+              "canonicalReference": "tsrpc-proto!BaseServiceType:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [K in keyof ServiceType['api']]: {\n        apiName: K;\n        req: ServiceType['api'][K]['req'];\n        options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TransportOptions",
+              "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        return: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiReturn",
+              "canonicalReference": "tsrpc-proto!ApiReturn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<ServiceType['api'][K]['res']>;\n    };\n}[keyof ServiceType['api']]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ApiReturnFlowData",
+          "typeParameters": [
+            {
+              "typeParameterName": "ServiceType",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 8
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "tsrpc-base-client!ApiService:interface",
           "docComment": "",
@@ -1827,6 +1892,155 @@
           "extendsTokenRanges": []
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!CallApiFlowData:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type CallApiFlowData<ServiceType extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseServiceType",
+              "canonicalReference": "tsrpc-proto!BaseServiceType:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [K in keyof ServiceType['api']]: {\n        apiName: K;\n        req: ServiceType['api'][K]['req'];\n        options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TransportOptions",
+              "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n        return?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiReturn",
+              "canonicalReference": "tsrpc-proto!ApiReturn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<ServiceType['api'][K]['res']>;\n    };\n}[keyof ServiceType['api']]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "CallApiFlowData",
+          "typeParameters": [
+            {
+              "typeParameterName": "ServiceType",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!ClientMsgHandler:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type ClientMsgHandler<Msg, Client extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseClient",
+              "canonicalReference": "tsrpc-base-client!BaseClient:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> "
+            },
+            {
+              "kind": "Content",
+              "text": "= "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseClient",
+              "canonicalReference": "tsrpc-base-client!BaseClient:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "(msg: Msg, client: Client) => void | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ClientMsgHandler",
+          "typeParameters": [
+            {
+              "typeParameterName": "Msg",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Client",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 6
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 10
+          }
+        },
+        {
           "kind": "Class",
           "canonicalReference": "tsrpc-base-client!Counter:class",
           "docComment": "",
@@ -1971,6 +2185,28 @@
             }
           ],
           "implementsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "tsrpc-base-client!defaultBaseClientOptions:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "defaultBaseClientOptions: "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseClientOptions",
+              "canonicalReference": "tsrpc-base-client!BaseClientOptions:interface"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "defaultBaseClientOptions",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "Class",
@@ -2215,6 +2451,109 @@
             }
           ],
           "implementsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!FlowNode:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type FlowNode<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "(item: T) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowNodeReturn",
+              "canonicalReference": "tsrpc-base-client!FlowNodeReturn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FlowNodeReturn",
+              "canonicalReference": "tsrpc-base-client!FlowNodeReturn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "FlowNode",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!FlowNodeReturn:type",
+          "docComment": "/**\n * @returns `T` represents succ & continue, `null | undefined` represents break. If error is throwed, `TsrpcError` would be returned to client, `Error` would be converted to \"Internal Server Error\".\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type FlowNodeReturn<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T | null | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "FlowNodeReturn",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "Class",
@@ -2500,6 +2839,101 @@
           ]
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!ParsedServerInput:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type ParsedServerInput = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    type: 'api';\n    service: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiService",
+              "canonicalReference": "tsrpc-base-client!ApiService:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    req: any;\n    sn?: number;\n} | {\n    type: 'msg';\n    service: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MsgService",
+              "canonicalReference": "tsrpc-base-client!MsgService:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    msg: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ParsedServerInput",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!ParsedServerOutput:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type ParsedServerOutput = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    type: 'api';\n    service: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiService",
+              "canonicalReference": "tsrpc-base-client!ApiService:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    sn?: number;\n    ret: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiReturn",
+              "canonicalReference": "tsrpc-proto!ApiReturn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>;\n} | {\n    type: 'msg';\n    service: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MsgService",
+              "canonicalReference": "tsrpc-base-client!MsgService:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    msg: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ParsedServerOutput",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "tsrpc-base-client!PendingApiItem:interface",
           "docComment": "",
@@ -2650,6 +3084,192 @@
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "tsrpc-base-client!SendMsgFlowData:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type SendMsgFlowData<ServiceType extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseServiceType",
+              "canonicalReference": "tsrpc-proto!BaseServiceType:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [K in keyof ServiceType['msg']]: {\n        msgName: K;\n        msg: ServiceType['msg'][K];\n        options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TransportOptions",
+              "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    };\n}[keyof ServiceType['msg']]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "SendMsgFlowData",
+          "typeParameters": [
+            {
+              "typeParameterName": "ServiceType",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "tsrpc-base-client!ServiceMap:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ServiceMap "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ServiceMap",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!ServiceMap#apiName2Service:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "apiName2Service: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [apiName: string]: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiService",
+                  "canonicalReference": "tsrpc-base-client!ApiService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "apiName2Service",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!ServiceMap#id2Service:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "id2Service: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [serviceId: number]: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiService",
+                  "canonicalReference": "tsrpc-base-client!ApiService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MsgService",
+                  "canonicalReference": "tsrpc-base-client!MsgService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "id2Service",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!ServiceMap#msgName2Service:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "msgName2Service: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [msgName: string]: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MsgService",
+                  "canonicalReference": "tsrpc-base-client!MsgService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "msgName2Service",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
               }
             }
           ],

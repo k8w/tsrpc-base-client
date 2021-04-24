@@ -18,5 +18,5 @@ static getServiceMap(proto: ServiceProto): ServiceMap;
 
 <b>Returns:</b>
 
-ServiceMap
+[ServiceMap](./tsrpc-base-client.servicemap.md)
 

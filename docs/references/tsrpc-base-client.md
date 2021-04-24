@@ -23,5 +23,25 @@
 |  [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
 |  [MsgService](./tsrpc-base-client.msgservice.md) |  |
 |  [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
+|  [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
 |  [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
+
+## Variables
+
+|  Variable | Description |
+|  --- | --- |
+|  [defaultBaseClientOptions](./tsrpc-base-client.defaultbaseclientoptions.md) |  |
+
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md) |  |
+|  [CallApiFlowData](./tsrpc-base-client.callapiflowdata.md) |  |
+|  [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md) |  |
+|  [FlowNode](./tsrpc-base-client.flownode.md) |  |
+|  [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md) |  |
+|  [ParsedServerInput](./tsrpc-base-client.parsedserverinput.md) |  |
+|  [ParsedServerOutput](./tsrpc-base-client.parsedserveroutput.md) |  |
+|  [SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md) |  |
 

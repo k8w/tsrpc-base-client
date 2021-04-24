@@ -19,5 +19,5 @@ exec(input: T, logger: Logger | undefined): Promise<FlowNodeReturn<T>>;
 
 <b>Returns:</b>
 
-Promise&lt;FlowNodeReturn&lt;T&gt;&gt;
+Promise&lt;[FlowNodeReturn](./tsrpc-base-client.flownodereturn.md)<!-- -->&lt;T&gt;&gt;
 

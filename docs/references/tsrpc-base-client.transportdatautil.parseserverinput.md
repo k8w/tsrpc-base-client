@@ -21,10 +21,10 @@ static parseServerInput(tsbuffer: TSBuffer, serviceMap: ServiceMap, buf: Uint8Ar
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  tsbuffer | TSBuffer |  |
-|  serviceMap | ServiceMap |  |
+|  serviceMap | [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
 |  buf | Uint8Array |  |
 
 <b>Returns:</b>
 
-{ isSucc: true; result: ParsedServerInput; } \| { isSucc: false; errMsg: string; }
+{ isSucc: true; result: [ParsedServerInput](./tsrpc-base-client.parsedserverinput.md)<!-- -->; } \| { isSucc: false; errMsg: string; }
 
