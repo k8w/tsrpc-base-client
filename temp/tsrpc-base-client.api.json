@@ -1,0 +1,2929 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.14.0",
+    "schemaVersion": 1004,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      }
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "tsrpc-base-client!",
+  "docComment": "",
+  "name": "tsrpc-base-client",
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "tsrpc-base-client!",
+      "name": "",
+      "members": [
+        {
+          "kind": "Class",
+          "canonicalReference": "tsrpc-base-client!BaseClient:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare abstract class BaseClient<ServiceType extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "BaseServiceType",
+              "canonicalReference": "tsrpc-proto!BaseServiceType:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
+            }
+          ],
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "ServiceType",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "BaseClient",
+          "members": [
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_doCallApi:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _doCallApi<T extends "
+                },
+                {
+                  "kind": "Content",
+                  "text": "keyof ServiceType['api']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">(apiName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", req: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "ServiceType['api'][T]['req']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", options: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TransportOptions",
+                  "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", pendingItem: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PendingApiItem",
+                  "canonicalReference": "tsrpc-base-client!PendingApiItem:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturn",
+                  "canonicalReference": "tsrpc-proto!ApiReturn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType['api'][T]['res']>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 12,
+                "endIndex": 16
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "apiName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "req",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                },
+                {
+                  "parameterName": "options",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 9
+                  }
+                },
+                {
+                  "parameterName": "pendingItem",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 10,
+                    "endIndex": 11
+                  }
+                }
+              ],
+              "typeParameters": [
+                {
+                  "typeParameterName": "T",
+                  "constraintTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "defaultTypeTokenRange": {
+                    "startIndex": 0,
+                    "endIndex": 0
+                  }
+                }
+              ],
+              "name": "_doCallApi"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_encodeApiReq:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _encodeApiReq(service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiService",
+                  "canonicalReference": "tsrpc-base-client!ApiService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", req: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", pendingItem: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PendingApiItem",
+                  "canonicalReference": "tsrpc-base-client!PendingApiItem:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EncodeOutput",
+                  "canonicalReference": "tsbuffer!EncodeOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "req",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "pendingItem",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "name": "_encodeApiReq"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_encodeClientMsg:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _encodeClientMsg(service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MsgService",
+                  "canonicalReference": "tsrpc-base-client!MsgService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", msg: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EncodeOutput",
+                  "canonicalReference": "tsbuffer!EncodeOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "msg",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "_encodeClientMsg"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_msgHandlers:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _msgHandlers: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MsgHandlerManager",
+                  "canonicalReference": "tsrpc-base-client!MsgHandlerManager:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_msgHandlers",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_onRecvBuf:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _onRecvBuf(buf: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array",
+                  "canonicalReference": "!Uint8Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", pendingApiItem?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PendingApiItem",
+                  "canonicalReference": "tsrpc-base-client!PendingApiItem:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 7
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "buf",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "pendingApiItem",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "_onRecvBuf"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_pendingApis:member",
+              "docComment": "/**\n * 请求中的API\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _pendingApis: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PendingApiItem",
+                  "canonicalReference": "tsrpc-base-client!PendingApiItem:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_pendingApis",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_sendBuf:member(1)",
+              "docComment": "/**\n * Send buffer Long connection: wait res by listenning `conn.onmessage` Short connection: wait res by waitting response\n *\n * @param buf - \n *\n * @param options - \n *\n * @param sn - \n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected abstract _sendBuf(buf: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array",
+                  "canonicalReference": "!Uint8Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", options: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TransportOptions",
+                  "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", serviceId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", pendingApiItem?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PendingApiItem",
+                  "canonicalReference": "tsrpc-base-client!PendingApiItem:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n        err?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TsrpcError",
+                  "canonicalReference": "tsrpc-proto!TsrpcError:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 13
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "buf",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "options",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "serviceId",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                },
+                {
+                  "parameterName": "pendingApiItem",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  }
+                }
+              ],
+              "name": "_sendBuf"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_waitApiReturn:member(1)",
+              "docComment": "/**\n * @param sn - \n *\n * @param timeout - \n *\n * @returns `undefined` 代表 canceled\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _waitApiReturn(pendingItem: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PendingApiItem",
+                  "canonicalReference": "tsrpc-base-client!PendingApiItem:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", timeout?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturn",
+                  "canonicalReference": "tsrpc-proto!ApiReturn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 9
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "pendingItem",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "timeout",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "_waitApiReturn"
+            },
+            {
+              "kind": "Constructor",
+              "canonicalReference": "tsrpc-base-client!BaseClient:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `BaseClient` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(proto: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ServiceProto",
+                  "canonicalReference": "tsrpc-proto!ServiceProto:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", options: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BaseClientOptions",
+                  "canonicalReference": "tsrpc-base-client!BaseClientOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "proto",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 3
+                  }
+                },
+                {
+                  "parameterName": "options",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 4,
+                    "endIndex": 5
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#abort:member(1)",
+              "docComment": "/**\n * 中断请求\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "abort(sn: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "sn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                }
+              ],
+              "name": "abort"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#abortAll:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "abortAll(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [],
+              "name": "abortAll"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#callApi:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "callApi<T extends "
+                },
+                {
+                  "kind": "Content",
+                  "text": "keyof ServiceType['api']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">(apiName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", req: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "ServiceType['api'][T]['req']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", options?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TransportOptions",
+                  "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturn",
+                  "canonicalReference": "tsrpc-proto!ApiReturn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType['api'][T]['res']>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 13
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "apiName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "req",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                },
+                {
+                  "parameterName": "options",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  }
+                }
+              ],
+              "typeParameters": [
+                {
+                  "typeParameterName": "T",
+                  "constraintTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "defaultTypeTokenRange": {
+                    "startIndex": 0,
+                    "endIndex": 0
+                  }
+                }
+              ],
+              "name": "callApi"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#flows:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly flows: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        readonly preCallApiFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CallApiFlowData",
+                  "canonicalReference": "tsrpc-base-client!CallApiFlowData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType>>;\n        readonly preApiReturnFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturnFlowData",
+                  "canonicalReference": "tsrpc-base-client!ApiReturnFlowData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType>>;\n        readonly postApiReturnFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturnFlowData",
+                  "canonicalReference": "tsrpc-base-client!ApiReturnFlowData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType>>;\n        readonly preSendMsgFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SendMsgFlowData",
+                  "canonicalReference": "tsrpc-base-client!SendMsgFlowData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType>>;\n        readonly postSendMsgFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SendMsgFlowData",
+                  "canonicalReference": "tsrpc-base-client!SendMsgFlowData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType>>;\n        readonly preSendBufferFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n            buf: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array",
+                  "canonicalReference": "!Uint8Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n            sn?: number | undefined;\n        }>;\n        readonly preRecvBufferFlow: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Flow",
+                  "canonicalReference": "tsrpc-base-client!Flow:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n            buf: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array",
+                  "canonicalReference": "!Uint8Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n            sn?: number | undefined;\n        }>;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "flows",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 30
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#lastSN:member",
+              "docComment": "/**\n * 最后一次 callAPI 的SN 可用于中断请求\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get lastSN(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "lastSN",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#listenMsg:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "listenMsg<T extends "
+                },
+                {
+                  "kind": "Content",
+                  "text": "keyof ServiceType['msg']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">(msgName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", handler: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ClientMsgHandler",
+                  "canonicalReference": "tsrpc-base-client!ClientMsgHandler:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<ServiceType['msg'][T], this>"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msgName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "handler",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 7
+                  }
+                }
+              ],
+              "typeParameters": [
+                {
+                  "typeParameterName": "T",
+                  "constraintTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "defaultTypeTokenRange": {
+                    "startIndex": 0,
+                    "endIndex": 0
+                  }
+                }
+              ],
+              "name": "listenMsg"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#logger:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly logger?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Logger",
+                  "canonicalReference": "tsrpc-proto!Logger:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "logger",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#options:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly options: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BaseClientOptions",
+                  "canonicalReference": "tsrpc-base-client!BaseClientOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "options",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#sendMsg:member(1)",
+              "docComment": "/**\n * @param msgName - \n *\n * @param msg - \n *\n * @param options - \n *\n * @returns 异步返回的结果仅代表成功将数据发送出去，不代表服务器收到或处理了请求\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "sendMsg<T extends "
+                },
+                {
+                  "kind": "Content",
+                  "text": "keyof ServiceType['msg']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">(msgName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", msg: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "ServiceType['msg'][T]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", options?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TransportOptions",
+                  "canonicalReference": "tsrpc-base-client!TransportOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n        isSucc: true;\n    } | {\n        isSucc: false;\n        err: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TsrpcError",
+                  "canonicalReference": "tsrpc-proto!TsrpcError:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 13
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msgName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "msg",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                },
+                {
+                  "parameterName": "options",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  }
+                }
+              ],
+              "typeParameters": [
+                {
+                  "typeParameterName": "T",
+                  "constraintTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "defaultTypeTokenRange": {
+                    "startIndex": 0,
+                    "endIndex": 0
+                  }
+                }
+              ],
+              "name": "sendMsg"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#serviceMap:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly serviceMap: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ServiceMap",
+                  "canonicalReference": "tsrpc-base-client!ServiceMap:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "serviceMap",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#tsbuffer:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "tsbuffer",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#type:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "abstract readonly type: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'SHORT' | 'LONG'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#unlistenMsg:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "unlistenMsg<T extends "
+                },
+                {
+                  "kind": "Content",
+                  "text": "keyof ServiceType['msg']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">(msgName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", handler?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Function",
+                  "canonicalReference": "!Function:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msgName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "handler",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "typeParameters": [
+                {
+                  "typeParameterName": "T",
+                  "constraintTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "defaultTypeTokenRange": {
+                    "startIndex": 0,
+                    "endIndex": 0
+                  }
+                }
+              ],
+              "name": "unlistenMsg"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "tsrpc-base-client!Counter:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class Counter "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "Counter",
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "tsrpc-base-client!Counter:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `Counter` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(min?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", max?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "min",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "max",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!Counter#getNext:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getNext(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [],
+              "name": "getNext"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!Counter#last:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get last(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "last",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!Counter#reset:member(1)",
+              "docComment": "/**\n * 复位：从新从0开始计数\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "reset(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [],
+              "name": "reset"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "tsrpc-base-client!Flow:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class Flow<T> "
+            }
+          ],
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "Flow",
+          "members": [
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!Flow#exec:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "exec(input: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", logger: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Logger",
+                  "canonicalReference": "tsrpc-proto!Logger:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FlowNodeReturn",
+                  "canonicalReference": "tsrpc-base-client!FlowNodeReturn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T>>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 10
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "input",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "logger",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 5
+                  }
+                }
+              ],
+              "name": "exec"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!Flow#nodes:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nodes: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FlowNode",
+                  "canonicalReference": "tsrpc-base-client!FlowNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T>[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nodes",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!Flow#onError:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onError: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(e: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Error",
+                  "canonicalReference": "!Error:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TsrpcError",
+                  "canonicalReference": "tsrpc-proto!TsrpcError:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", last: T, input: T, logger: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Logger",
+                  "canonicalReference": "tsrpc-proto!Logger:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "onError",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              },
+              "isStatic": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!Flow#push:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "push(node: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FlowNode",
+                  "canonicalReference": "tsrpc-base-client!FlowNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T>"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "node",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 3
+                  }
+                }
+              ],
+              "name": "push"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "tsrpc-base-client!MsgHandlerManager:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class MsgHandlerManager "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "MsgHandlerManager",
+          "members": [
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!MsgHandlerManager#addHandler:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "addHandler(key: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", handler: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Function",
+                  "canonicalReference": "!Function:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "handler",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "addHandler"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!MsgHandlerManager#forEachHandler:member(1)",
+              "docComment": "/**\n * @return handlers count\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "forEachHandler(key: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", logger: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Logger",
+                  "canonicalReference": "tsrpc-proto!Logger:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", ...args: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(any | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>)[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 11
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "logger",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 5
+                  }
+                },
+                {
+                  "parameterName": "args",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 6,
+                    "endIndex": 7
+                  }
+                }
+              ],
+              "name": "forEachHandler"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!MsgHandlerManager#removeHandler:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "removeHandler(key: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", handler?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Function",
+                  "canonicalReference": "!Function:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "handler",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "name": "removeHandler"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "tsrpc-base-client!ServiceMapUtil:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ServiceMapUtil "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ServiceMapUtil",
+          "members": [
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!ServiceMapUtil.getServiceMap:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static getServiceMap(proto: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ServiceProto",
+                  "canonicalReference": "tsrpc-proto!ServiceProto:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ServiceMap",
+                  "canonicalReference": "tsrpc-base-client!ServiceMap:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "proto",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                }
+              ],
+              "name": "getServiceMap"
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "tsrpc-base-client!TransportDataUtil:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class TransportDataUtil "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "TransportDataUtil",
+          "members": [
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.encodeApiReq:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static encodeApiReq(tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiService",
+                  "canonicalReference": "tsrpc-base-client!ApiService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", req: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", sn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EncodeOutput",
+                  "canonicalReference": "tsbuffer!EncodeOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "tsbuffer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "req",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                },
+                {
+                  "parameterName": "sn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  }
+                }
+              ],
+              "name": "encodeApiReq"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.encodeApiReturn:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static encodeApiReturn(tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiService",
+                  "canonicalReference": "tsrpc-base-client!ApiService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", apiReturn: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturn",
+                  "canonicalReference": "tsrpc-proto!ApiReturn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", sn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EncodeOutput",
+                  "canonicalReference": "tsbuffer!EncodeOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 11
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "tsbuffer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "apiReturn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 7
+                  }
+                },
+                {
+                  "parameterName": "sn",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 8,
+                    "endIndex": 9
+                  }
+                }
+              ],
+              "name": "encodeApiReturn"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.encodeClientMsg:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static encodeClientMsg(tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MsgService",
+                  "canonicalReference": "tsrpc-base-client!MsgService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", msg: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EncodeOutput",
+                  "canonicalReference": "tsbuffer!EncodeOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "tsbuffer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "msg",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "name": "encodeClientMsg"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.encodeServerMsg:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static encodeServerMsg(tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MsgService",
+                  "canonicalReference": "tsrpc-base-client!MsgService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", msg: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "EncodeOutput",
+                  "canonicalReference": "tsbuffer!EncodeOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "tsbuffer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "service",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "msg",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "name": "encodeServerMsg"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.parseServerInput:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static parseServerInput(tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", serviceMap: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ServiceMap",
+                  "canonicalReference": "tsrpc-base-client!ServiceMap:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", buf: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array",
+                  "canonicalReference": "!Uint8Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        isSucc: true;\n        result: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ParsedServerInput",
+                  "canonicalReference": "tsrpc-base-client!ParsedServerInput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    } | {\n        isSucc: false;\n        errMsg: string;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 10
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "tsbuffer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "serviceMap",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "buf",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                }
+              ],
+              "name": "parseServerInput"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.parseServerOutout:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static parseServerOutout(tsbuffer: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", serviceMap: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ServiceMap",
+                  "canonicalReference": "tsrpc-base-client!ServiceMap:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", buf: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Uint8Array",
+                  "canonicalReference": "!Uint8Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", serviceId?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        isSucc: true;\n        result: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ParsedServerOutput",
+                  "canonicalReference": "tsrpc-base-client!ParsedServerOutput:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    } | {\n        isSucc: false;\n        errMsg: string;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": true,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 12
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "tsbuffer",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                },
+                {
+                  "parameterName": "serviceMap",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                },
+                {
+                  "parameterName": "buf",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  }
+                },
+                {
+                  "parameterName": "serviceId",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  }
+                }
+              ],
+              "name": "parseServerOutout"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!TransportDataUtil.tsbuffer:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static get tsbuffer(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TSBuffer",
+                  "canonicalReference": "tsbuffer!TSBuffer:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "tsbuffer",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": true
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "tsrpc-base-client!TransportOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface TransportOptions "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "TransportOptions",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!TransportOptions#timeout:member",
+              "docComment": "/**\n * callApi超时时间（单位：毫秒） `undefined` 代表不限 默认：`undefined`\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "timeout?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "timeout",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        }
+      ]
+    }
+  ]
+}
