@@ -35,7 +35,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         preRecvBufferFlow: new Flow<{ buf: Uint8Array, sn?: number }>(),
     } as const;
 
-    private _apiSnCounter = new Counter(1);
+    protected _apiSnCounter = new Counter(1);
     /**
      * 最后一次 callAPI 的SN
      * 可用于中断请求

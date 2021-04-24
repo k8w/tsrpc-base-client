@@ -14,9 +14,9 @@ protected _encodeApiReq(service: ApiService, req: any, pendingItem: PendingApiIt
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  service | ApiService |  |
+|  service | [ApiService](./tsrpc-base-client.apiservice.md) |  |
 |  req | any |  |
-|  pendingItem | PendingApiItem |  |
+|  pendingItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 
 <b>Returns:</b>
 

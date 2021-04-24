@@ -15,7 +15,7 @@ static encodeApiReturn(tsbuffer: TSBuffer, service: ApiService, apiReturn: ApiRe
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  tsbuffer | TSBuffer |  |
-|  service | ApiService |  |
+|  service | [ApiService](./tsrpc-base-client.apiservice.md) |  |
 |  apiReturn | ApiReturn&lt;any&gt; |  |
 |  sn | number |  |
 

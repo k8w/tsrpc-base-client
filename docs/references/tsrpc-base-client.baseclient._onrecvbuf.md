@@ -15,7 +15,7 @@ protected _onRecvBuf(buf: Uint8Array, pendingApiItem?: PendingApiItem): Promise<
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  buf | Uint8Array |  |
-|  pendingApiItem | PendingApiItem |  |
+|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 
 <b>Returns:</b>
 

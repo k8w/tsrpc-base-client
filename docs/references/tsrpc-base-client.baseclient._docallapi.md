@@ -17,7 +17,7 @@ protected _doCallApi<T extends keyof ServiceType['api']>(apiName: T, req: Servic
 |  apiName | T |  |
 |  req | ServiceType\['api'\]\[T\]\['req'\] |  |
 |  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) \| undefined |  |
-|  pendingItem | PendingApiItem |  |
+|  pendingItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 
 <b>Returns:</b>
 

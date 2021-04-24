@@ -170,6 +170,88 @@
       "name": "",
       "members": [
         {
+          "kind": "Interface",
+          "canonicalReference": "tsrpc-base-client!ApiService:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ApiService extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiServiceDef",
+              "canonicalReference": "tsrpc-proto!ApiServiceDef:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ApiService",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!ApiService#reqSchemaId:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "reqSchemaId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "reqSchemaId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!ApiService#resSchemaId:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "resSchemaId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "resSchemaId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 3
+            }
+          ]
+        },
+        {
           "kind": "Class",
           "canonicalReference": "tsrpc-base-client!BaseClient:class",
           "docComment": "",
@@ -204,6 +286,34 @@
           ],
           "name": "BaseClient",
           "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "tsrpc-base-client!BaseClient#_apiSnCounter:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "protected _apiSnCounter: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Counter",
+                  "canonicalReference": "tsrpc-base-client!Counter:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "_apiSnCounter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false
+            },
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!BaseClient#_doCallApi:member(1)",
@@ -1622,6 +1732,101 @@
           "implementsTokenRanges": []
         },
         {
+          "kind": "Interface",
+          "canonicalReference": "tsrpc-base-client!BaseClientOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface BaseClientOptions "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "BaseClientOptions",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!BaseClientOptions#debugBuf:member",
+              "docComment": "/**\n * 为true时将会把buf信息打印在log中\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "debugBuf?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "debugBuf",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!BaseClientOptions#logger:member",
+              "docComment": "/**\n * 打印日志使用的 Logger 为 `undefined` 时会隐藏所有日志 默认：`console`\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "logger?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Logger",
+                  "canonicalReference": "tsrpc-proto!Logger:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "logger",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!BaseClientOptions#timeout:member",
+              "docComment": "/**\n * 请求超时时间（毫秒） 为 `undefined` 即为不限时间 默认：`undefined`\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "timeout?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "timeout",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
           "kind": "Class",
           "canonicalReference": "tsrpc-base-client!Counter:class",
           "docComment": "",
@@ -2237,6 +2442,218 @@
             }
           ],
           "implementsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "tsrpc-base-client!MsgService:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface MsgService extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "MsgServiceDef",
+              "canonicalReference": "tsrpc-proto!MsgServiceDef:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "MsgService",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!MsgService#msgSchemaId:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "msgSchemaId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "msgSchemaId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 3
+            }
+          ]
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "tsrpc-base-client!PendingApiItem:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface PendingApiItem "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PendingApiItem",
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!PendingApiItem#isAborted:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isAborted?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "isAborted",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!PendingApiItem#onAbort:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onAbort?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "onAbort",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!PendingApiItem#onReturn:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onReturn?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(ret: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiReturn",
+                  "canonicalReference": "tsrpc-proto!ApiReturn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "onReturn",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!PendingApiItem#service:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "service: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ApiService",
+                  "canonicalReference": "tsrpc-base-client!ApiService:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "service",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "tsrpc-base-client!PendingApiItem#sn:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "sn: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "sn",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
         },
         {
           "kind": "Class",

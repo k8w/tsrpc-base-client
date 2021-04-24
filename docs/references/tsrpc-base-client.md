@@ -19,5 +19,9 @@
 
 |  Interface | Description |
 |  --- | --- |
+|  [ApiService](./tsrpc-base-client.apiservice.md) |  |
+|  [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
+|  [MsgService](./tsrpc-base-client.msgservice.md) |  |
+|  [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 |  [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
 

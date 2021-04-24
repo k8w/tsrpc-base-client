@@ -21,7 +21,7 @@ protected abstract _sendBuf(buf: Uint8Array, options: TransportOptions, serviceI
 |  buf | Uint8Array |  |
 |  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
 |  serviceId | number |  |
-|  pendingApiItem | PendingApiItem |  |
+|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 
 <b>Returns:</b>
 

@@ -17,5 +17,5 @@ constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions);
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  proto | ServiceProto&lt;ServiceType&gt; |  |
-|  options | BaseClientOptions |  |
+|  options | [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
 

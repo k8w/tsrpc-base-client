@@ -14,7 +14,7 @@ protected _waitApiReturn(pendingItem: PendingApiItem, timeout?: number): Promise
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  pendingItem | PendingApiItem |  |
+|  pendingItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 |  timeout | number |  |
 
 <b>Returns:</b>

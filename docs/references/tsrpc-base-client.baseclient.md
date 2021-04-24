@@ -20,12 +20,13 @@ export declare abstract class BaseClient<ServiceType extends BaseServiceType>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
+|  [\_apiSnCounter](./tsrpc-base-client.baseclient._apisncounter.md) |  | [Counter](./tsrpc-base-client.counter.md) |  |
 |  [\_msgHandlers](./tsrpc-base-client.baseclient._msghandlers.md) |  | [MsgHandlerManager](./tsrpc-base-client.msghandlermanager.md) |  |
-|  [\_pendingApis](./tsrpc-base-client.baseclient._pendingapis.md) |  | PendingApiItem\[\] | 请求中的API |
+|  [\_pendingApis](./tsrpc-base-client.baseclient._pendingapis.md) |  | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md)<!-- -->\[\] | 请求中的API |
 |  [flows](./tsrpc-base-client.baseclient.flows.md) |  | { readonly preCallApiFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;CallApiFlowData&lt;ServiceType&gt;&gt;; readonly preApiReturnFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;ApiReturnFlowData&lt;ServiceType&gt;&gt;; readonly postApiReturnFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;ApiReturnFlowData&lt;ServiceType&gt;&gt;; readonly preSendMsgFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;SendMsgFlowData&lt;ServiceType&gt;&gt;; readonly postSendMsgFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;SendMsgFlowData&lt;ServiceType&gt;&gt;; readonly preSendBufferFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;{ buf: Uint8Array; sn?: number \| undefined; }&gt;; readonly preRecvBufferFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;{ buf: Uint8Array; sn?: number \| undefined; }&gt;; } |  |
 |  [lastSN](./tsrpc-base-client.baseclient.lastsn.md) |  | number | 最后一次 callAPI 的SN 可用于中断请求 |
 |  [logger?](./tsrpc-base-client.baseclient.logger.md) |  | Logger | <i>(Optional)</i> |
-|  [options](./tsrpc-base-client.baseclient.options.md) |  | BaseClientOptions |  |
+|  [options](./tsrpc-base-client.baseclient.options.md) |  | [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
 |  [serviceMap](./tsrpc-base-client.baseclient.servicemap.md) |  | ServiceMap |  |
 |  [tsbuffer](./tsrpc-base-client.baseclient.tsbuffer.md) |  | TSBuffer |  |
 |  [type](./tsrpc-base-client.baseclient.type.md) |  | 'SHORT' \| 'LONG' |  |

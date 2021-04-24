@@ -14,7 +14,7 @@ protected _encodeClientMsg(service: MsgService, msg: any): EncodeOutput;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  service | MsgService |  |
+|  service | [MsgService](./tsrpc-base-client.msgservice.md) |  |
 |  msg | any |  |
 
 <b>Returns:</b>

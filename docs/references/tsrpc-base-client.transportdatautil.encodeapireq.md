@@ -15,7 +15,7 @@ static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, sn?: numb
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  tsbuffer | TSBuffer |  |
-|  service | ApiService |  |
+|  service | [ApiService](./tsrpc-base-client.apiservice.md) |  |
 |  req | any |  |
 |  sn | number |  |
 

@@ -15,7 +15,7 @@ static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any): Encod
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  tsbuffer | TSBuffer |  |
-|  service | MsgService |  |
+|  service | [MsgService](./tsrpc-base-client.msgservice.md) |  |
 |  msg | any |  |
 
 <b>Returns:</b>
