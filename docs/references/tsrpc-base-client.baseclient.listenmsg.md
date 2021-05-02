@@ -4,6 +4,8 @@
 
 ## BaseClient.listenMsg() method
 
+Add message handler, duplicate handlers to the same `msgName` would be ignored.
+
 <b>Signature:</b>
 
 ```typescript
@@ -20,4 +22,5 @@ listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHand
 <b>Returns:</b>
 
 void
+
 

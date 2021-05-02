@@ -4,7 +4,7 @@
 
 ## BaseClientOptions.logger property
 
-打印日志使用的 Logger 为 `undefined` 时会隐藏所有日志 默认：`console`
+`Logger` to process API Request/Response, send message, send buffer... If it is assigned to `undefined`<!-- -->, all log would be hidden. (It may be useful when you want to encrypt the transportation)
 
 <b>Signature:</b>
 

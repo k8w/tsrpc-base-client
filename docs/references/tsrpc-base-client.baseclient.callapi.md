@@ -4,6 +4,8 @@
 
 ## BaseClient.callApi() method
 
+Send request and wait for the return
+
 <b>Signature:</b>
 
 ```typescript
@@ -15,10 +17,12 @@ callApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  apiName | T |  |
-|  req | ServiceType\['api'\]\[T\]\['req'\] |  |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
+|  req | ServiceType\['api'\]\[T\]\['req'\] | Request body |
+|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | Transport options |
 
 <b>Returns:</b>
 
 Promise&lt;ApiReturn&lt;ServiceType\['api'\]\[T\]\['res'\]&gt;&gt;
+
+`ApiReturn`<!-- -->, all error (network error, business error, code exception...) is unified as `TsrpcError`<!-- -->. You just need to process error once.
 

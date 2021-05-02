@@ -4,6 +4,8 @@
 
 ## BaseClient.flows property
 
+[Flow](./tsrpc-base-client.flow.md) to process `callApi`<!-- -->, `sendMsg`<!-- -->, and buffer input/output
+
 <b>Signature:</b>
 
 ```typescript

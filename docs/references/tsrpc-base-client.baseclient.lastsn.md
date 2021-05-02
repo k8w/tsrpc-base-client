@@ -4,7 +4,7 @@
 
 ## BaseClient.lastSN property
 
-最后一次 callAPI 的SN 可用于中断请求
+The `SN` of last `callApi()`<!-- -->, which can be passed to `abort()` to abort API request.
 
 <b>Signature:</b>
 

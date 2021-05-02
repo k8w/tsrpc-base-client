@@ -4,20 +4,23 @@
 
 ## MsgHandlerManager.addHandler() method
 
+Add message handler, duplicate handlers to the same `msgName` would be ignored.
+
 <b>Signature:</b>
 
 ```typescript
-addHandler(key: string, handler: Function): void;
+addHandler(msgName: string, handler: Function): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  key | string |  |
+|  msgName | string |  |
 |  handler | Function |  |
 
 <b>Returns:</b>
 
 void
+
 

@@ -4,7 +4,7 @@
 
 ## BaseClient.abort() method
 
-中断请求
+Abort a pending API request, it would let the promise returned by `callApi` neither resolved nor rejected forever.
 
 <b>Signature:</b>
 
@@ -16,7 +16,7 @@ abort(sn: number): void;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  sn | number |  |
+|  sn | number | Every api request has a unique <code>sn</code>, you can get this by <code>this.lastSN</code> |
 
 <b>Returns:</b>
 

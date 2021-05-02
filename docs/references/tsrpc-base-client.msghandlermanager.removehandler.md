@@ -4,20 +4,23 @@
 
 ## MsgHandlerManager.removeHandler() method
 
+Remove handler from the specific `msgName`
+
 <b>Signature:</b>
 
 ```typescript
-removeHandler(key: string, handler?: Function): void;
+removeHandler(msgName: string, handler: Function): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  key | string |  |
+|  msgName | string |  |
 |  handler | Function |  |
 
 <b>Returns:</b>
 
 void
+
 

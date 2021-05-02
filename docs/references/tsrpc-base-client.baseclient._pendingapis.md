@@ -4,7 +4,7 @@
 
 ## BaseClient.\_pendingApis property
 
-请求中的API
+Pending API Requests
 
 <b>Signature:</b>
 

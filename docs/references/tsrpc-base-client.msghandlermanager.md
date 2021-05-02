@@ -14,7 +14,8 @@ export declare class MsgHandlerManager
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [addHandler(key, handler)](./tsrpc-base-client.msghandlermanager.addhandler.md) |  |  |
-|  [forEachHandler(key, logger, args)](./tsrpc-base-client.msghandlermanager.foreachhandler.md) |  |  |
-|  [removeHandler(key, handler)](./tsrpc-base-client.msghandlermanager.removehandler.md) |  |  |
+|  [addHandler(msgName, handler)](./tsrpc-base-client.msghandlermanager.addhandler.md) |  | Add message handler, duplicate handlers to the same <code>msgName</code> would be ignored. |
+|  [forEachHandler(msgName, logger, args)](./tsrpc-base-client.msghandlermanager.foreachhandler.md) |  |  |
+|  [removeAllHandlers(msgName)](./tsrpc-base-client.msghandlermanager.removeallhandlers.md) |  | Remove all handlers for the specific <code>msgName</code> |
+|  [removeHandler(msgName, handler)](./tsrpc-base-client.msghandlermanager.removehandler.md) |  | Remove handler from the specific <code>msgName</code> |
 

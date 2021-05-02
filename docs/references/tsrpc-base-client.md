@@ -8,7 +8,7 @@
 
 |  Class | Description |
 |  --- | --- |
-|  [BaseClient](./tsrpc-base-client.baseclient.md) |  |
+|  [BaseClient](./tsrpc-base-client.baseclient.md) | Base TSRPC Client<!-- -->It can be extended to achieve on a specific transportation protocol (like HTTP, WebSocket, QUIP) |
 |  [Counter](./tsrpc-base-client.counter.md) |  |
 |  [Flow](./tsrpc-base-client.flow.md) |  |
 |  [MsgHandlerManager](./tsrpc-base-client.msghandlermanager.md) |  |

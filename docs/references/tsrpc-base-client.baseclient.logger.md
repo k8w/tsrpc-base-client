@@ -4,6 +4,8 @@
 
 ## BaseClient.logger property
 
+`Logger` to process API Request/Response, send message, send buffer...
+
 <b>Signature:</b>
 
 ```typescript

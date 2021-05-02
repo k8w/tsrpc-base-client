@@ -4,7 +4,7 @@
 
 ## BaseClientOptions.debugBuf property
 
-为true时将会把buf信息打印在log中
+If `true`<!-- -->, all sent and received raw buffer would be print into the log. It may be useful when you do something for buffer encryption/decryption, and want to debug them.
 
 <b>Signature:</b>
 

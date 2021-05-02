@@ -275,19 +275,23 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     /**
-     * {@inheritDoc MsgHandlerManager.addHandler}
+     * Listen received message,
+     * duplicate handlers to the same `msgName` would be ignored.
+     * @param msgName
+     * @param handler
+     * @returns
      */
     listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType['msg'][T], this>) {
         this._msgHandlers.addHandler(msgName as string, handler)
     }
     /**
-     * {@inheritDoc MsgHandlerManager.removeHandler}
+     * Remove message handler
      */
     unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: Function) {
         this._msgHandlers.removeHandler(msgName as string, handler)
     }
     /**
-     * {@inheritDoc MsgHandlerManager.removeAllHandlers}
+     * Remove all handlers to a message
      */
     unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T) {
         this._msgHandlers.removeAllHandlers(msgName as string)
@@ -314,6 +318,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         // onAbort
         pendingItem.onAbort?.();
     }
+    /**
+     * Abort all pending API requests,
+     * it would let the promise returned by `callApi` neither resolved nor rejected forever.
+     */
     abortAll() {
         for (let i = this._pendingApis.length - 1; i > -1; --i) {
             this.abort(this._pendingApis[i].sn);

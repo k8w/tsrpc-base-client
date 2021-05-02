@@ -4,6 +4,10 @@
 
 ## BaseClient class
 
+Base TSRPC Client
+
+It can be extended to achieve on a specific transportation protocol (like HTTP, WebSocket, QUIP)
+
 <b>Signature:</b>
 
 ```typescript
@@ -22,10 +26,10 @@ export declare abstract class BaseClient<ServiceType extends BaseServiceType>
 |  --- | --- | --- | --- |
 |  [\_apiSnCounter](./tsrpc-base-client.baseclient._apisncounter.md) |  | [Counter](./tsrpc-base-client.counter.md) |  |
 |  [\_msgHandlers](./tsrpc-base-client.baseclient._msghandlers.md) |  | [MsgHandlerManager](./tsrpc-base-client.msghandlermanager.md) |  |
-|  [\_pendingApis](./tsrpc-base-client.baseclient._pendingapis.md) |  | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md)<!-- -->\[\] | 请求中的API |
-|  [flows](./tsrpc-base-client.baseclient.flows.md) |  | { readonly preCallApiFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[CallApiFlowData](./tsrpc-base-client.callapiflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly preApiReturnFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly postApiReturnFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly preSendMsgFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly postSendMsgFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly preSendBufferFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;{ buf: Uint8Array; sn?: number \| undefined; }&gt;; readonly preRecvBufferFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;{ buf: Uint8Array; sn?: number \| undefined; }&gt;; } |  |
-|  [lastSN](./tsrpc-base-client.baseclient.lastsn.md) |  | number | 最后一次 callAPI 的SN 可用于中断请求 |
-|  [logger?](./tsrpc-base-client.baseclient.logger.md) |  | Logger | <i>(Optional)</i> |
+|  [\_pendingApis](./tsrpc-base-client.baseclient._pendingapis.md) |  | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md)<!-- -->\[\] | Pending API Requests |
+|  [flows](./tsrpc-base-client.baseclient.flows.md) |  | { readonly preCallApiFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[CallApiFlowData](./tsrpc-base-client.callapiflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly preApiReturnFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly postApiReturnFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly preSendMsgFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly postSendMsgFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;[SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md)<!-- -->&lt;ServiceType&gt;&gt;; readonly preSendBufferFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;{ buf: Uint8Array; sn?: number \| undefined; }&gt;; readonly preRecvBufferFlow: [Flow](./tsrpc-base-client.flow.md)<!-- -->&lt;{ buf: Uint8Array; sn?: number \| undefined; }&gt;; } | [Flow](./tsrpc-base-client.flow.md) to process <code>callApi</code>, <code>sendMsg</code>, and buffer input/output |
+|  [lastSN](./tsrpc-base-client.baseclient.lastsn.md) |  | number | The <code>SN</code> of last <code>callApi()</code>, which can be passed to <code>abort()</code> to abort API request. |
+|  [logger?](./tsrpc-base-client.baseclient.logger.md) |  | Logger | <i>(Optional)</i> <code>Logger</code> to process API Request/Response, send message, send buffer... |
 |  [options](./tsrpc-base-client.baseclient.options.md) |  | [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
 |  [serviceMap](./tsrpc-base-client.baseclient.servicemap.md) |  | [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
 |  [tsbuffer](./tsrpc-base-client.baseclient.tsbuffer.md) |  | TSBuffer |  |
@@ -41,10 +45,11 @@ export declare abstract class BaseClient<ServiceType extends BaseServiceType>
 |  [\_onRecvBuf(buf, pendingApiItem)](./tsrpc-base-client.baseclient._onrecvbuf.md) |  |  |
 |  [\_sendBuf(buf, options, serviceId, pendingApiItem)](./tsrpc-base-client.baseclient._sendbuf.md) |  | Send buffer Long connection: wait res by listenning <code>conn.onmessage</code> Short connection: wait res by waitting response |
 |  [\_waitApiReturn(pendingItem, timeout)](./tsrpc-base-client.baseclient._waitapireturn.md) |  |  |
-|  [abort(sn)](./tsrpc-base-client.baseclient.abort.md) |  | 中断请求 |
+|  [abort(sn)](./tsrpc-base-client.baseclient.abort.md) |  | Abort a pending API request, it would let the promise returned by <code>callApi</code> neither resolved nor rejected forever. |
 |  [abortAll()](./tsrpc-base-client.baseclient.abortall.md) |  |  |
-|  [callApi(apiName, req, options)](./tsrpc-base-client.baseclient.callapi.md) |  |  |
-|  [listenMsg(msgName, handler)](./tsrpc-base-client.baseclient.listenmsg.md) |  |  |
+|  [callApi(apiName, req, options)](./tsrpc-base-client.baseclient.callapi.md) |  | Send request and wait for the return |
+|  [listenMsg(msgName, handler)](./tsrpc-base-client.baseclient.listenmsg.md) |  | Add message handler, duplicate handlers to the same <code>msgName</code> would be ignored. |
 |  [sendMsg(msgName, msg, options)](./tsrpc-base-client.baseclient.sendmsg.md) |  |  |
-|  [unlistenMsg(msgName, handler)](./tsrpc-base-client.baseclient.unlistenmsg.md) |  |  |
+|  [unlistenMsg(msgName, handler)](./tsrpc-base-client.baseclient.unlistenmsg.md) |  | Remove handler from the specific <code>msgName</code> |
+|  [unlistenMsgAll(msgName)](./tsrpc-base-client.baseclient.unlistenmsgall.md) |  | Remove all handlers for the specific <code>msgName</code> |
 

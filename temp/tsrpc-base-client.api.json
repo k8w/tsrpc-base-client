@@ -319,7 +319,7 @@
         {
           "kind": "Class",
           "canonicalReference": "tsrpc-base-client!BaseClient:class",
-          "docComment": "",
+          "docComment": "/**\n * Base TSRPC Client\n *\n * It can be extended to achieve on a specific transportation protocol (like HTTP, WebSocket, QUIP)\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -748,7 +748,7 @@
             {
               "kind": "Property",
               "canonicalReference": "tsrpc-base-client!BaseClient#_pendingApis:member",
-              "docComment": "/**\n * 请求中的API\n */\n",
+              "docComment": "/**\n * Pending API Requests\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1013,7 +1013,7 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!BaseClient#abort:member(1)",
-              "docComment": "/**\n * 中断请求\n */\n",
+              "docComment": "/**\n * Abort a pending API request, it would let the promise returned by `callApi` neither resolved nor rejected forever.\n *\n * @param sn - Every api request has a unique `sn`, you can get this by `this.lastSN`\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1087,7 +1087,7 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!BaseClient#callApi:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Send request and wait for the return\n *\n * @param apiName - \n *\n * @param req - Request body\n *\n * @param options - Transport options\n *\n * @returns `ApiReturn`, all error (network error, business error, code exception...) is unified as `TsrpcError`. You just need to process error once.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1198,7 +1198,7 @@
             {
               "kind": "Property",
               "canonicalReference": "tsrpc-base-client!BaseClient#flows:member",
-              "docComment": "",
+              "docComment": "/**\n * {@link Flow} to process `callApi`, `sendMsg`, and buffer input/output\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1351,7 +1351,7 @@
             {
               "kind": "Property",
               "canonicalReference": "tsrpc-base-client!BaseClient#lastSN:member",
-              "docComment": "/**\n * 最后一次 callAPI 的SN 可用于中断请求\n */\n",
+              "docComment": "/**\n * The `SN` of last `callApi()`, which can be passed to `abort()` to abort API request.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1378,7 +1378,7 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!BaseClient#listenMsg:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Add message handler, duplicate handlers to the same `msgName` would be ignored.\n *\n * @param msgName - \n *\n * @param handler - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1464,7 +1464,7 @@
             {
               "kind": "Property",
               "canonicalReference": "tsrpc-base-client!BaseClient#logger:member",
-              "docComment": "",
+              "docComment": "/**\n * `Logger` to process API Request/Response, send message, send buffer...\n *\n * @defaultValue\n *\n * `console`\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1520,7 +1520,7 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!BaseClient#sendMsg:member(1)",
-              "docComment": "/**\n * @param msgName - \n *\n * @param msg - \n *\n * @param options - \n *\n * @returns 异步返回的结果仅代表成功将数据发送出去，不代表服务器收到或处理了请求\n */\n",
+              "docComment": "/**\n * @param msgName - \n *\n * @param msg - Message body\n *\n * @param options - Transport options\n *\n * @returns If the promise is resolved, it means the request is sent to system kernal successfully. It not means that the server is received and processed the message correctly.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1714,7 +1714,7 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!BaseClient#unlistenMsg:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Remove handler from the specific `msgName`\n *\n * @param msgName - \n *\n * @param handler - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1734,7 +1734,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": ", handler?: "
+                  "text": ", handler: "
                 },
                 {
                   "kind": "Reference",
@@ -1792,6 +1792,72 @@
                 }
               ],
               "name": "unlistenMsg"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!BaseClient#unlistenMsgAll:member(1)",
+              "docComment": "/**\n * Remove all handlers for the specific `msgName`\n *\n * @param msgName - \n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "unlistenMsgAll<T extends "
+                },
+                {
+                  "kind": "Content",
+                  "text": "keyof ServiceType['msg']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">(msgName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msgName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  }
+                }
+              ],
+              "typeParameters": [
+                {
+                  "typeParameterName": "T",
+                  "constraintTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "defaultTypeTokenRange": {
+                    "startIndex": 0,
+                    "endIndex": 0
+                  }
+                }
+              ],
+              "name": "unlistenMsgAll"
             }
           ],
           "implementsTokenRanges": []
@@ -1812,7 +1878,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "tsrpc-base-client!BaseClientOptions#debugBuf:member",
-              "docComment": "/**\n * 为true时将会把buf信息打印在log中\n */\n",
+              "docComment": "/**\n * If `true`, all sent and received raw buffer would be print into the log. It may be useful when you do something for buffer encryption/decryption, and want to debug them.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1838,7 +1904,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "tsrpc-base-client!BaseClientOptions#logger:member",
-              "docComment": "/**\n * 打印日志使用的 Logger 为 `undefined` 时会隐藏所有日志 默认：`console`\n */\n",
+              "docComment": "/**\n * `Logger` to process API Request/Response, send message, send buffer... If it is assigned to `undefined`, all log would be hidden. (It may be useful when you want to encrypt the transportation)\n *\n * @defaultValue\n *\n * `console`\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1865,7 +1931,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "tsrpc-base-client!BaseClientOptions#timeout:member",
-              "docComment": "/**\n * 请求超时时间（毫秒） 为 `undefined` 即为不限时间 默认：`undefined`\n */\n",
+              "docComment": "/**\n * Timeout time for `callApi` (ms) `undefined` or `0` means unlimited\n *\n * @defaultValue\n *\n * `undefined`\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2571,11 +2637,11 @@
             {
               "kind": "Method",
               "canonicalReference": "tsrpc-base-client!MsgHandlerManager#addHandler:member(1)",
-              "docComment": "",
+              "docComment": "/**\n * Add message handler, duplicate handlers to the same `msgName` would be ignored.\n *\n * @param msgName - \n *\n * @param handler - \n *\n * @returns \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "addHandler(key: "
+                  "text": "addHandler(msgName: "
                 },
                 {
                   "kind": "Content",
@@ -2613,7 +2679,7 @@
               "overloadIndex": 1,
               "parameters": [
                 {
-                  "parameterName": "key",
+                  "parameterName": "msgName",
                   "parameterTypeTokenRange": {
                     "startIndex": 1,
                     "endIndex": 2
@@ -2636,7 +2702,7 @@
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "forEachHandler(key: "
+                  "text": "forEachHandler(msgName: "
                 },
                 {
                   "kind": "Content",
@@ -2695,7 +2761,7 @@
               "overloadIndex": 1,
               "parameters": [
                 {
-                  "parameterName": "key",
+                  "parameterName": "msgName",
                   "parameterTypeTokenRange": {
                     "startIndex": 1,
                     "endIndex": 2
@@ -2720,12 +2786,12 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "tsrpc-base-client!MsgHandlerManager#removeHandler:member(1)",
-              "docComment": "",
+              "canonicalReference": "tsrpc-base-client!MsgHandlerManager#removeAllHandlers:member(1)",
+              "docComment": "/**\n * Remove all handlers for the specific `msgName`\n *\n * @param msgName - \n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "removeHandler(key: "
+                  "text": "removeAllHandlers(msgName: "
                 },
                 {
                   "kind": "Content",
@@ -2733,7 +2799,52 @@
                 },
                 {
                   "kind": "Content",
-                  "text": ", handler?: "
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "msgName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  }
+                }
+              ],
+              "name": "removeAllHandlers"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "tsrpc-base-client!MsgHandlerManager#removeHandler:member(1)",
+              "docComment": "/**\n * Remove handler from the specific `msgName`\n *\n * @param msgName - \n *\n * @param handler - \n *\n * @returns \n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "removeHandler(msgName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", handler: "
                 },
                 {
                   "kind": "Reference",
@@ -2763,7 +2874,7 @@
               "overloadIndex": 1,
               "parameters": [
                 {
-                  "parameterName": "key",
+                  "parameterName": "msgName",
                   "parameterTypeTokenRange": {
                     "startIndex": 1,
                     "endIndex": 2

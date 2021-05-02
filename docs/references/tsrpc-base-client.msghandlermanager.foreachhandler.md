@@ -7,14 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-forEachHandler(key: string, logger: Logger | undefined, ...args: any[]): (any | Promise<any>)[];
+forEachHandler(msgName: string, logger: Logger | undefined, ...args: any[]): (any | Promise<any>)[];
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  key | string |  |
+|  msgName | string |  |
 |  logger | Logger \| undefined |  |
 |  args | any\[\] |  |
 

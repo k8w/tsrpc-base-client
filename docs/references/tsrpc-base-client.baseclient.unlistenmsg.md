@@ -4,10 +4,12 @@
 
 ## BaseClient.unlistenMsg() method
 
+Remove handler from the specific `msgName`
+
 <b>Signature:</b>
 
 ```typescript
-unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler?: Function): void;
+unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: Function): void;
 ```
 
 ## Parameters
@@ -20,4 +22,5 @@ unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler?: Function):
 <b>Returns:</b>
 
 void
+
 

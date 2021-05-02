@@ -20,12 +20,12 @@ sendMsg<T extends keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  msgName | T |  |
-|  msg | ServiceType\['msg'\]\[T\] |  |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
+|  msg | ServiceType\['msg'\]\[T\] | Message body |
+|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | Transport options |
 
 <b>Returns:</b>
 
 Promise&lt;{ isSucc: true; } \| { isSucc: false; err: TsrpcError; }&gt;
 
-异步返回的结果仅代表成功将数据发送出去，不代表服务器收到或处理了请求
+If the promise is resolved, it means the request is sent to system kernal successfully. It not means that the server is received and processed the message correctly.
 

@@ -4,7 +4,7 @@
 
 ## BaseClientOptions.timeout property
 
-请求超时时间（毫秒） 为 `undefined` 即为不限时间 默认：`undefined`
+Timeout time for `callApi` (ms) `undefined` or `0` means unlimited
 
 <b>Signature:</b>
 

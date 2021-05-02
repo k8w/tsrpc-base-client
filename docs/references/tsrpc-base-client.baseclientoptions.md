@@ -14,7 +14,7 @@ export interface BaseClientOptions
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [debugBuf?](./tsrpc-base-client.baseclientoptions.debugbuf.md) | boolean | <i>(Optional)</i> 为true时将会把buf信息打印在log中 |
-|  [logger?](./tsrpc-base-client.baseclientoptions.logger.md) | Logger | <i>(Optional)</i> 打印日志使用的 Logger 为 <code>undefined</code> 时会隐藏所有日志 默认：<code>console</code> |
-|  [timeout?](./tsrpc-base-client.baseclientoptions.timeout.md) | number | <i>(Optional)</i> 请求超时时间（毫秒） 为 <code>undefined</code> 即为不限时间 默认：<code>undefined</code> |
+|  [debugBuf?](./tsrpc-base-client.baseclientoptions.debugbuf.md) | boolean | <i>(Optional)</i> If <code>true</code>, all sent and received raw buffer would be print into the log. It may be useful when you do something for buffer encryption/decryption, and want to debug them. |
+|  [logger?](./tsrpc-base-client.baseclientoptions.logger.md) | Logger | <i>(Optional)</i> <code>Logger</code> to process API Request/Response, send message, send buffer... If it is assigned to <code>undefined</code>, all log would be hidden. (It may be useful when you want to encrypt the transportation) |
+|  [timeout?](./tsrpc-base-client.baseclientoptions.timeout.md) | number | <i>(Optional)</i> Timeout time for <code>callApi</code> (ms) <code>undefined</code> or <code>0</code> means unlimited |
 
