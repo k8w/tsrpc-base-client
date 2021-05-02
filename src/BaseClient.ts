@@ -1,13 +1,18 @@
 import { EncodeOutput, TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
+import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "./ClientFlowData";
 import { Counter } from './Counter';
 import { Flow } from "./Flow";
 import { MsgHandlerManager } from "./MsgHandlerManager";
 import { ApiService, MsgService, ServiceMap, ServiceMapUtil } from './ServiceMapUtil';
 import { TransportDataUtil } from "./TransportDataUtil";
 import { TransportOptions } from "./TransportOptions";
-import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "./ClientFlowData";
 
+/**
+ * Base TSRPC Client
+ * 
+ * It can be extended to achieve on a specific transportation protocol (like HTTP, WebSocket, QUIP)
+ */
 export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     abstract readonly type: 'SHORT' | 'LONG';
@@ -16,10 +21,18 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     readonly serviceMap: ServiceMap;
     readonly tsbuffer: TSBuffer;
+
+    /**
+     * `Logger` to process API Request/Response, send message, send buffer...
+     * @defaultValue `console`
+     */
     readonly logger?: Logger;
 
     protected _msgHandlers = new MsgHandlerManager();
 
+    /**
+     * {@link Flow} to process `callApi`, `sendMsg`, and buffer input/output
+     */
     readonly flows = {
         // callApi
         preCallApiFlow: new Flow<CallApiFlowData<ServiceType>>(),
@@ -37,15 +50,15 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     protected _apiSnCounter = new Counter(1);
     /**
-     * 最后一次 callAPI 的SN
-     * 可用于中断请求
+     * The `SN` of last `callApi()`,
+     * which can be passed to `abort()` to abort API request.
      */
     get lastSN() {
         return this._apiSnCounter.last;
     }
 
     /**
-     * 请求中的API
+     * Pending API Requests
      */
     protected _pendingApis: PendingApiItem[] = [];
 
@@ -56,6 +69,14 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         this.logger = this.options.logger;
     }
 
+    /**
+     * Send request and wait for the return
+     * @param apiName
+     * @param req - Request body
+     * @param options - Transport options
+     * @returns `ApiReturn`, all error (network error, business error, code exception...) is unified as `TsrpcError`.
+     * You just need to process error once.
+     */
     async callApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
         // Add pendings
         let sn = this._apiSnCounter.getNext();
@@ -181,10 +202,11 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     /**
-     * @param msgName 
-     * @param msg 
-     * @param options 
-     * @returns 异步返回的结果仅代表成功将数据发送出去，不代表服务器收到或处理了请求
+     * @param msgName
+     * @param msg - Message body
+     * @param options - Transport options
+     * @returns If the promise is resolved, it means the request is sent to system kernal successfully.
+     * It not means that the server is received and processed the message correctly.
      */
     sendMsg<T extends keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options: TransportOptions = {}): Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }> {
         let promise = new Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }>(async rs => {
@@ -252,14 +274,29 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         return TransportDataUtil.encodeClientMsg(this.tsbuffer, service, msg);
     }
 
+    /**
+     * {@inheritDoc MsgHandlerManager.addHandler}
+     */
     listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType['msg'][T], this>) {
         this._msgHandlers.addHandler(msgName as string, handler)
     }
-    unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler?: Function) {
+    /**
+     * {@inheritDoc MsgHandlerManager.removeHandler}
+     */
+    unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: Function) {
         this._msgHandlers.removeHandler(msgName as string, handler)
     }
+    /**
+     * {@inheritDoc MsgHandlerManager.removeAllHandlers}
+     */
+    unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T) {
+        this._msgHandlers.removeAllHandlers(msgName as string)
+    }
 
-    /** 中断请求 */
+    /**
+     * Abort a pending API request, it would let the promise returned by `callApi` neither resolved nor rejected forever.
+     * @param sn - Every api request has a unique `sn`, you can get this by `this.lastSN` 
+     */
     abort(sn: number): void {
         // Find
         let index = this._pendingApis.findIndex(v => v.sn === sn);
@@ -368,19 +405,22 @@ export const defaultBaseClientOptions: BaseClientOptions = {
 }
 
 export interface BaseClientOptions {
-    /** 
-     * 打印日志使用的 Logger
-     * 为 `undefined` 时会隐藏所有日志
-     * 默认：`console`
+    /**
+     * `Logger` to process API Request/Response, send message, send buffer...
+     * If it is assigned to `undefined`, all log would be hidden. (It may be useful when you want to encrypt the transportation)
+     * @defaultValue `console`
      */
     logger?: Logger;
     /** 
-     * 请求超时时间（毫秒）
-     * 为 `undefined` 即为不限时间
-     * 默认：`undefined`
+     * Timeout time for `callApi` (ms)
+     * `undefined` or `0` means unlimited
+     * @defaultValue `undefined`
      */
     timeout?: number;
-    /** 为true时将会把buf信息打印在log中 */
+    /**
+     * If `true`, all sent and received raw buffer would be print into the log.
+     * It may be useful when you do something for buffer encryption/decryption, and want to debug them.
+     */
     debugBuf?: boolean
 }
 
