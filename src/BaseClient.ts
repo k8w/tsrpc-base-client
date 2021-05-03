@@ -9,17 +9,27 @@ import { TransportDataUtil } from "./TransportDataUtil";
 import { TransportOptions } from "./TransportOptions";
 
 /**
- * Base TSRPC Client
+ * An abstract base class for TSRPC Client,
+ * which includes some common buffer process flows.
  * 
- * It can be extended to achieve on a specific transportation protocol (like HTTP, WebSocket, QUIP)
+ * @remarks
+ * You can implement a client on a specific transportation protocol (like HTTP, WebSocket, QUIP) by extend this.
+ * 
+ * @see
+ * {@link https://github.com/k8w/tsrpc}
+ * {@link https://github.com/k8w/tsrpc-browser}
+ * {@link https://github.com/k8w/tsrpc-miniapp}
  */
 export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
+    /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';
 
     readonly options: BaseClientOptions;
 
+    /** The map of all services */
     readonly serviceMap: ServiceMap;
+    /** The `TSBuffer` instance for encoding, decoding, and type checking */
     readonly tsbuffer: TSBuffer;
 
     /**
@@ -31,7 +41,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     protected _msgHandlers = new MsgHandlerManager();
 
     /**
-     * {@link Flow} to process `callApi`, `sendMsg`, and buffer input/output
+     * {@link Flow} to process `callApi`, `sendMsg`, buffer input/output, etc...
      */
     readonly flows = {
         // callApi
@@ -50,8 +60,8 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     protected _apiSnCounter = new Counter(1);
     /**
-     * The `SN` of last `callApi()`,
-     * which can be passed to `abort()` to abort API request.
+     * The `SN` number of last `callApi()`,
+     * which can be passed to `abort()` to abort an API request.
      */
     get lastSN() {
         return this._apiSnCounter.last;
@@ -74,8 +84,8 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @param apiName
      * @param req - Request body
      * @param options - Transport options
-     * @returns `ApiReturn`, all error (network error, business error, code exception...) is unified as `TsrpcError`.
-     * You just need to process error once.
+     * @returns return a `ApiReturn`, all error (network error, business error, code exception...) is unified as `TsrpcError`.
+     * The promise is never rejected, so you just need to process all error in one place.
      */
     async callApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
         // Add pendings
@@ -202,11 +212,12 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     /**
+     * Send message, without response, not ensuring the server is received and processed correctly.
      * @param msgName
      * @param msg - Message body
      * @param options - Transport options
-     * @returns If the promise is resolved, it means the request is sent to system kernal successfully.
-     * It not means that the server is received and processed the message correctly.
+     * @returns If the promise is resolved, it means the request is sent to system kernel successfully.
+     * Notice that not means the server received and processed the message correctly.
      */
     sendMsg<T extends keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options: TransportOptions = {}): Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }> {
         let promise = new Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }>(async rs => {
@@ -275,7 +286,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     /**
-     * Listen received message,
+     * Add a message handler,
      * duplicate handlers to the same `msgName` would be ignored.
      * @param msgName
      * @param handler
@@ -285,21 +296,21 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         this._msgHandlers.addHandler(msgName as string, handler)
     }
     /**
-     * Remove message handler
+     * Remove a message handler
      */
     unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: Function) {
         this._msgHandlers.removeHandler(msgName as string, handler)
     }
     /**
-     * Remove all handlers to a message
+     * Remove all handlers from a message
      */
     unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T) {
         this._msgHandlers.removeAllHandlers(msgName as string)
     }
 
     /**
-     * Abort a pending API request, it would let the promise returned by `callApi` neither resolved nor rejected forever.
-     * @param sn - Every api request has a unique `sn`, you can get this by `this.lastSN` 
+     * Abort a pending API request, it makes the promise returned by `callApi()` neither resolved nor rejected forever.
+     * @param sn - Every api request has a unique `sn` number, you can get it by `this.lastSN` 
      */
     abort(sn: number): void {
         // Find
@@ -320,7 +331,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
     /**
      * Abort all pending API requests,
-     * it would let the promise returned by `callApi` neither resolved nor rejected forever.
+     * it makes the promise returned by `callApi` neither resolved nor rejected forever.
      */
     abortAll() {
         for (let i = this._pendingApis.length - 1; i > -1; --i) {
@@ -330,6 +341,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     /**
      * Send buffer
+     * @remarks
      * Long connection: wait res by listenning `conn.onmessage`
      * Short connection: wait res by waitting response
      * @param buf 
@@ -370,7 +382,6 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     /**
-     * 
      * @param sn 
      * @param timeout 
      * @returns `undefined` 代表 canceled

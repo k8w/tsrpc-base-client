@@ -1,5 +1,8 @@
 import { Logger } from "tsrpc-proto";
 
+/**
+ * A manager for TSRPC receiving messages
+ */
 export class MsgHandlerManager {
     private _handlers: { [msgName: string]: Function[] | undefined } = {}
 

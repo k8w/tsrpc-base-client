@@ -1,5 +1,6 @@
 import { ApiServiceDef, MsgServiceDef, ServiceProto } from "tsrpc-proto";
 
+/** A utility for generate `ServiceMap` */
 export class ServiceMapUtil {
     static getServiceMap(proto: ServiceProto): ServiceMap {
         let map: ServiceMap = {

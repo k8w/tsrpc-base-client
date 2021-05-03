@@ -19,7 +19,7 @@
     "url": "git+https://github.com/k8w/tsrpc-base-client.git"
   },
   "author": "",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/k8w/tsrpc-base-client/issues"
   },
