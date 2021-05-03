@@ -7,6 +7,7 @@ export class MsgHandlerManager {
     private _handlers: { [msgName: string]: Function[] | undefined } = {}
 
     /**
+     * Execute all handlers parallelly
      * @returns handlers count
      */
     forEachHandler(msgName: string, logger: Logger | undefined, ...args: any[]): (any | Promise<any>)[] {
