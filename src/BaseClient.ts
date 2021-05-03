@@ -15,7 +15,7 @@ import { TransportOptions } from "./TransportOptions";
  * @remarks
  * You can implement a client on a specific transportation protocol (like HTTP, WebSocket, QUIP) by extend this.
  * 
- * @typeParam - `ServiceType` from generated `proto.ts`
+ * @typeParam ServiceType - `ServiceType` from generated `proto.ts`
  * 
  * @see
  * {@link https://github.com/k8w/tsrpc}
