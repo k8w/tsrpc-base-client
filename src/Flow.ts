@@ -76,8 +76,8 @@ export class Flow<T> {
      * @param node 
      * @returns 
      */
-    push(node: FlowNode<T>): number {
-        return this.nodes.push(node);
+    push<K extends T>(node: FlowNode<K>): number {
+        return this.nodes.push(node as any);
     }
 
 }

@@ -9,14 +9,14 @@ Append a node function to the last
 <b>Signature:</b>
 
 ```typescript
-push(node: FlowNode<T>): number;
+push<K extends T>(node: FlowNode<K>): number;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;T&gt; |  |
+|  node | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt; |  |
 
 <b>Returns:</b>
 
