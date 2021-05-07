@@ -64,6 +64,13 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     /**
      * The `SN` number of the last `callApi()`,
      * which can be passed to `abort()` to abort an API request.
+     * @example
+     * ```ts
+     * client.callApi('xxx', { value: 'xxx' })
+     *   .then(ret=>{ console.log('succ', ret) });
+     * let lastSN = client.lastSN;
+     * client.abort(lastSN);
+     * ```
      */
     get lastSN() {
         return this._apiSnCounter.last;
@@ -71,9 +78,14 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     /**
      * The `SN` number of the next `callApi()`,
      * which can be passed to `abort()` to abort an API request.
+     * @example
+     * ```ts
+     * let nextSN = client.nextSN;
+     * client.callApi('xxx', { value: 'xxx' })
+     * ```
      */
     get nextSN() {
-        return this._apiSnCounter.getNext;
+        return this._apiSnCounter.getNext(true);
     }
 
     /**
@@ -101,6 +113,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         let sn = this._apiSnCounter.getNext();
         let pendingItem: PendingApiItem = {
             sn: sn,
+            abortKey: options.abortKey,
             service: this.serviceMap.apiName2Service[apiName as string]!
         };
         this._pendingApis.push(pendingItem);
@@ -341,10 +354,13 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     /**
      * Abort all pending API requests,
      * it makes the promise returned by `callApi` neither resolved nor rejected forever.
+     * @param abortKey - The `abortKey` of options when `callApi()`, see {@link TransportOptions.abortKey}.
      */
-    abortAll() {
+    abortAll(abortKey?: string) {
         for (let i = this._pendingApis.length - 1; i > -1; --i) {
-            this.abort(this._pendingApis[i].sn);
+            if (abortKey === undefined || this._pendingApis[i].abortKey === abortKey) {
+                this.abort(this._pendingApis[i].sn);
+            }
         }
     }
 
@@ -454,6 +470,7 @@ export interface BaseClientOptions {
 
 export interface PendingApiItem {
     sn: number,
+    abortKey: string | undefined,
     service: ApiService,
     isAborted?: boolean,
     onAbort?: () => void,
