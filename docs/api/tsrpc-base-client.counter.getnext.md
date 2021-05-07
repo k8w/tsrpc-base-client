@@ -9,8 +9,15 @@ Get next counter value, and auto increment `1`
 <b>Signature:</b>
 
 ```typescript
-getNext(): number;
+getNext(notInc?: boolean): number;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  notInc | boolean | Just get the next possible value, not actually increasing the sequence |
+
 <b>Returns:</b>
 
 number

@@ -62,11 +62,18 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     protected _apiSnCounter = new Counter(1);
     /**
-     * The `SN` number of last `callApi()`,
+     * The `SN` number of the last `callApi()`,
      * which can be passed to `abort()` to abort an API request.
      */
     get lastSN() {
         return this._apiSnCounter.last;
+    }
+    /**
+     * The `SN` number of the next `callApi()`,
+     * which can be passed to `abort()` to abort an API request.
+     */
+    get nextSN() {
+        return this._apiSnCounter.getNext;
     }
 
     /**

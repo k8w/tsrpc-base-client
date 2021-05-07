@@ -22,9 +22,10 @@ export class Counter {
 
     /**
      * Get next counter value, and auto increment `1`
+     * @param notInc - Just get the next possible value, not actually increasing the sequence
      */
-    getNext() {
-        return this._last >= this._max ? (this._last = this._min) : ++this._last;
+    getNext(notInc?: boolean) {
+        return this._last >= this._max ? (this._last = this._min) : (notInc ? this._last : ++this._last);
     }
 
     /**

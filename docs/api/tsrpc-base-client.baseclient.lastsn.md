@@ -4,7 +4,7 @@
 
 ## BaseClient.lastSN property
 
-The `SN` number of last `callApi()`<!-- -->, which can be passed to `abort()` to abort an API request.
+The `SN` number of the last `callApi()`<!-- -->, which can be passed to `abort()` to abort an API request.
 
 <b>Signature:</b>
 

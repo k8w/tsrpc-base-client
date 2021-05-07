@@ -28,6 +28,6 @@ export declare class Counter
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [getNext()](./tsrpc-base-client.counter.getnext.md) |  | Get next counter value, and auto increment <code>1</code> |
+|  [getNext(notInc)](./tsrpc-base-client.counter.getnext.md) |  | Get next counter value, and auto increment <code>1</code> |
 |  [reset()](./tsrpc-base-client.counter.reset.md) |  | Reset the counter, makes <code>getNext()</code> restart from <code>0</code> |
 
