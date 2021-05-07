@@ -14,6 +14,7 @@ export interface PendingApiItem
 
 |  Property | Type | Description |
 |  --- | --- | --- |
+|  [abortKey](./tsrpc-base-client.pendingapiitem.abortkey.md) | string \| undefined |  |
 |  [isAborted?](./tsrpc-base-client.pendingapiitem.isaborted.md) | boolean | <i>(Optional)</i> |
 |  [onAbort?](./tsrpc-base-client.pendingapiitem.onabort.md) | () =&gt; void | <i>(Optional)</i> |
 |  [onReturn?](./tsrpc-base-client.pendingapiitem.onreturn.md) | (ret: ApiReturn&lt;any&gt;) =&gt; void | <i>(Optional)</i> |

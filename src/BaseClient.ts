@@ -352,7 +352,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         pendingItem.onAbort?.();
     }
     /**
-     * Abort all pending API requests,
+     * Abort all pending API requests, or requests with the specificed `abortKey`.
      * it makes the promise returned by `callApi` neither resolved nor rejected forever.
      * @param abortKey - The `abortKey` of options when `callApi()`, see {@link TransportOptions.abortKey}.
      */

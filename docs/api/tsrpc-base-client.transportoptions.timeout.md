@@ -4,7 +4,7 @@
 
 ## TransportOptions.timeout property
 
-callApi超时时间（单位：毫秒） `undefined` 代表不限 默认：`undefined`
+Timeout of this request（ms） `undefined` represents no timeout
 
 <b>Signature:</b>
 

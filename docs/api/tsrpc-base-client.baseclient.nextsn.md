@@ -9,5 +9,15 @@ The `SN` number of the next `callApi()`<!-- -->, which can be passed to `abort()
 <b>Signature:</b>
 
 ```typescript
-get nextSN(): (notInc?: boolean | undefined) => number;
+get nextSN(): number;
 ```
+
+## Example
+
+
+```ts
+let nextSN = client.nextSN;
+client.callApi('xxx', { value: 'xxx' })
+
+```
+

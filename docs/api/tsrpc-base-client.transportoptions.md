@@ -14,5 +14,6 @@ export interface TransportOptions
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [timeout?](./tsrpc-base-client.transportoptions.timeout.md) | number | <i>(Optional)</i> callApi超时时间（单位：毫秒） <code>undefined</code> 代表不限 默认：<code>undefined</code> |
+|  [abortKey?](./tsrpc-base-client.transportoptions.abortkey.md) | string | <i>(Optional)</i> Which can be passed to <code>client.abortAll(abortKey)</code>. Many requests can share the same <code>abortKey</code>, so that they can be aborted at once. |
+|  [timeout?](./tsrpc-base-client.transportoptions.timeout.md) | number | <i>(Optional)</i> Timeout of this request（ms） <code>undefined</code> represents no timeout |
 

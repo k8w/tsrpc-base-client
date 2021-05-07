@@ -4,13 +4,20 @@
 
 ## BaseClient.abortAll() method
 
-Abort all pending API requests, it makes the promise returned by `callApi` neither resolved nor rejected forever.
+Abort all pending API requests, or requests with the specificed `abortKey`<!-- -->. it makes the promise returned by `callApi` neither resolved nor rejected forever.
 
 <b>Signature:</b>
 
 ```typescript
-abortAll(): void;
+abortAll(abortKey?: string): void;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  abortKey | string | The <code>abortKey</code> of options when <code>callApi()</code>, see [TransportOptions.abortKey](./tsrpc-base-client.transportoptions.abortkey.md)<!-- -->. |
+
 <b>Returns:</b>
 
 void

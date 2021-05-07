@@ -11,3 +11,15 @@ The `SN` number of the last `callApi()`<!-- -->, which can be passed to `abort()
 ```typescript
 get lastSN(): number;
 ```
+
+## Example
+
+
+```ts
+client.callApi('xxx', { value: 'xxx' })
+  .then(ret=>{ console.log('succ', ret) });
+let lastSN = client.lastSN;
+client.abort(lastSN);
+
+```
+
