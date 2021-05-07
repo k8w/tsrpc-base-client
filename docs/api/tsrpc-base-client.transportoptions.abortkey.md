@@ -4,7 +4,7 @@
 
 ## TransportOptions.abortKey property
 
-Which can be passed to `client.abortAll(abortKey)`<!-- -->. Many requests can share the same `abortKey`<!-- -->, so that they can be aborted at once.
+Which can be passed to `client.abortByKey(abortKey)`<!-- -->. Many requests can share the same `abortKey`<!-- -->, so that they can be aborted at once.
 
 <b>Signature:</b>
 
@@ -26,7 +26,7 @@ client.callApi('SendData', { data: 'BBB' }, { abortKey: 'Session#123' });
 client.callApi('SendData', { data: 'CCC' }, { abortKey: 'Session#123' });
 
 // And abort the at once
-client.abortAll('Session#123');
+client.abortByKey('Session#123');
 
 ```
 

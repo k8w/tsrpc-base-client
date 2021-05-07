@@ -352,16 +352,29 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         pendingItem.onAbort?.();
     }
     /**
-     * Abort all pending API requests, or requests with the specificed `abortKey`.
-     * it makes the promise returned by `callApi` neither resolved nor rejected forever.
+     * Abort all API requests that has the `abortKey`.
+     * It makes the promise returned by `callApi` neither resolved nor rejected forever.
      * @param abortKey - The `abortKey` of options when `callApi()`, see {@link TransportOptions.abortKey}.
+     * @example
+     * ```ts
+     * // Send API request many times
+     * client.callApi('SendData', { data: 'AAA' }, { abortKey: 'Session#123' });
+     * client.callApi('SendData', { data: 'BBB' }, { abortKey: 'Session#123' });
+     * client.callApi('SendData', { data: 'CCC' }, { abortKey: 'Session#123' });
+     *
+     * // And abort the at once
+     * client.abortByKey('Session#123');
+     * ```
      */
-    abortAll(abortKey?: string) {
-        for (let i = this._pendingApis.length - 1; i > -1; --i) {
-            if (abortKey === undefined || this._pendingApis[i].abortKey === abortKey) {
-                this.abort(this._pendingApis[i].sn);
-            }
-        }
+    abortByKey(abortKey: string) {
+        this._pendingApis.filter(v => v.abortKey === abortKey).forEach(v => { this.abort(v.sn) });
+    }
+    /**
+     * Abort all pending API requests.
+     * It makes the promise returned by `callApi` neither resolved nor rejected forever.
+     */
+    abortAll() {
+        this._pendingApis.slice().forEach(v => this.abort(v.sn));
     }
 
     /**

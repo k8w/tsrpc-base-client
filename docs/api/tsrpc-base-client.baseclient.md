@@ -49,7 +49,8 @@ You can implement a client on a specific transportation protocol (like HTTP, Web
 |  [\_sendBuf(buf, options, serviceId, pendingApiItem)](./tsrpc-base-client.baseclient._sendbuf.md) |  | Send buffer |
 |  [\_waitApiReturn(pendingItem, timeout)](./tsrpc-base-client.baseclient._waitapireturn.md) |  |  |
 |  [abort(sn)](./tsrpc-base-client.baseclient.abort.md) |  | Abort a pending API request, it makes the promise returned by <code>callApi()</code> neither resolved nor rejected forever. |
-|  [abortAll(abortKey)](./tsrpc-base-client.baseclient.abortall.md) |  | Abort all pending API requests, or requests with the specificed <code>abortKey</code>. it makes the promise returned by <code>callApi</code> neither resolved nor rejected forever. |
+|  [abortAll()](./tsrpc-base-client.baseclient.abortall.md) |  | Abort all pending API requests. It makes the promise returned by <code>callApi</code> neither resolved nor rejected forever. |
+|  [abortByKey(abortKey)](./tsrpc-base-client.baseclient.abortbykey.md) |  | Abort all API requests that has the <code>abortKey</code>. It makes the promise returned by <code>callApi</code> neither resolved nor rejected forever. |
 |  [callApi(apiName, req, options)](./tsrpc-base-client.baseclient.callapi.md) |  | Send request and wait for the return |
 |  [listenMsg(msgName, handler)](./tsrpc-base-client.baseclient.listenmsg.md) |  | Add a message handler, duplicate handlers to the same <code>msgName</code> would be ignored. |
 |  [sendMsg(msgName, msg, options)](./tsrpc-base-client.baseclient.sendmsg.md) |  | Send message, without response, not ensuring the server is received and processed correctly. |

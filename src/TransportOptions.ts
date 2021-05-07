@@ -7,7 +7,7 @@ export interface TransportOptions {
     timeout?: number;
 
     /**
-     * Which can be passed to `client.abortAll(abortKey)`.
+     * Which can be passed to `client.abortByKey(abortKey)`.
      * Many requests can share the same `abortKey`, so that they can be aborted at once.
      * @remarks
      * This may be useful in frontend within React or VueJS.
@@ -20,7 +20,7 @@ export interface TransportOptions {
      * client.callApi('SendData', { data: 'CCC' }, { abortKey: 'Session#123' });
      * 
      * // And abort the at once
-     * client.abortAll('Session#123');
+     * client.abortByKey('Session#123');
      * ```
      */
     abortKey?: string;
