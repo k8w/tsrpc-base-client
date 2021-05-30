@@ -316,8 +316,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType, EventData 
      * @param handler
      * @returns
      */
-    listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType['msg'][T], this>) {
+    listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType['msg'][T], this>): ClientMsgHandler<ServiceType['msg'][T], this> {
         this._msgHandlers.addHandler(msgName as string, handler)
+        return handler;
     }
     /**
      * Remove a message handler
