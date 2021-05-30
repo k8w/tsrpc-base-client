@@ -23,7 +23,7 @@ import { TransportOptions } from "./TransportOptions";
  * {@link https://github.com/k8w/tsrpc-browser}
  * {@link https://github.com/k8w/tsrpc-miniapp}
  */
-export abstract class BaseClient<ServiceType extends BaseServiceType, EventData = {}> extends EventEmitter<EventData>{
+export abstract class BaseClient<ServiceType extends BaseServiceType, EventData = any> extends EventEmitter<EventData>{
 
     /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';

@@ -9,7 +9,7 @@ An abstract base class for TSRPC Client, which includes some common buffer proce
 <b>Signature:</b>
 
 ```typescript
-export declare abstract class BaseClient<ServiceType extends BaseServiceType, EventData = {}> extends EventEmitter<EventData> 
+export declare abstract class BaseClient<ServiceType extends BaseServiceType, EventData = any> extends EventEmitter<EventData> 
 ```
 <b>Extends:</b> EventEmitter&lt;EventData&gt;
 

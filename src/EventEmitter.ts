@@ -28,19 +28,21 @@ export class EventEmitter<EventData extends { [key: string]: any }> {
         handlers.push(item);
     }
 
-    on<T extends keyof EventData>(eventName: T, handler: (data: EventData[T]) => void, thisContext?: any) {
+    on<T extends keyof EventData>(eventName: T, handler: (data: EventData[T]) => void, thisContext?: any): (data: EventData[T]) => void {
         this._addHandlerItem(eventName, {
             handler: handler,
             this: thisContext
         })
+        return handler;
     }
 
-    once<T extends keyof EventData>(eventName: T, handler: (data: EventData[T]) => void, thisContext?: any) {
+    once<T extends keyof EventData>(eventName: T, handler: (data: EventData[T]) => void, thisContext?: any): (data: EventData[T]) => void {
         this._addHandlerItem(eventName, {
             handler: handler,
             once: true,
             this: thisContext
         })
+        return handler;
     }
 
     off<T extends keyof EventData>(eventName: T, handler?: (data: EventData[T]) => void) {
