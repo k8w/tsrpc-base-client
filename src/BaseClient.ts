@@ -2,6 +2,7 @@ import { EncodeOutput, TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "./ClientFlowData";
 import { Counter } from './Counter';
+import { EventEmitter } from "./EventEmitter";
 import { Flow } from "./Flow";
 import { MsgHandlerManager } from "./MsgHandlerManager";
 import { ApiService, MsgService, ServiceMap, ServiceMapUtil } from './ServiceMapUtil';
@@ -22,7 +23,7 @@ import { TransportOptions } from "./TransportOptions";
  * {@link https://github.com/k8w/tsrpc-browser}
  * {@link https://github.com/k8w/tsrpc-miniapp}
  */
-export abstract class BaseClient<ServiceType extends BaseServiceType> {
+export abstract class BaseClient<ServiceType extends BaseServiceType, EventData = {}> extends EventEmitter<EventData>{
 
     /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';
@@ -94,6 +95,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     protected _pendingApis: PendingApiItem[] = [];
 
     constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions) {
+        super();
         this.options = options;
         this.serviceMap = ServiceMapUtil.getServiceMap(proto);
         this.tsbuffer = new TSBuffer(proto.types);
