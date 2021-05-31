@@ -2,7 +2,6 @@ import { EncodeOutput, TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "./ClientFlowData";
 import { Counter } from './Counter';
-import { EventEmitter } from "./EventEmitter";
 import { Flow } from "./Flow";
 import { MsgHandlerManager } from "./MsgHandlerManager";
 import { ApiService, MsgService, ServiceMap, ServiceMapUtil } from './ServiceMapUtil';
@@ -23,7 +22,7 @@ import { TransportOptions } from "./TransportOptions";
  * {@link https://github.com/k8w/tsrpc-browser}
  * {@link https://github.com/k8w/tsrpc-miniapp}
  */
-export abstract class BaseClient<ServiceType extends BaseServiceType, EventData = any> extends EventEmitter<EventData>{
+export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';
@@ -59,6 +58,20 @@ export abstract class BaseClient<ServiceType extends BaseServiceType, EventData 
         // buffer
         preSendBufferFlow: new Flow<{ buf: Uint8Array, sn?: number }>(),
         preRecvBufferFlow: new Flow<{ buf: Uint8Array, sn?: number }>(),
+
+        // Connection Flows (Only for WebSocket)
+        /** After WebSocket connect successfully */
+        postConnectFlow: new Flow<{}>(),
+        /** After WebSocket disconnected (from connected) */
+        postDisconnectFlow: new Flow<{
+            /** reason parameter from server-side `conn.close(reason)` */
+            reason?: string,
+            /** 
+             * Disconnected because `client.disconnect()` is called manually,
+             * otherwise is disconnected by accidently. (e.g. network error, server closed...)
+             */
+            isByClient?: boolean
+        }>(),
     } as const;
 
     protected _apiSnCounter = new Counter(1);
@@ -95,7 +108,6 @@ export abstract class BaseClient<ServiceType extends BaseServiceType, EventData 
     protected _pendingApis: PendingApiItem[] = [];
 
     constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions) {
-        super();
         this.options = options;
         this.serviceMap = ServiceMapUtil.getServiceMap(proto);
         this.tsbuffer = new TSBuffer(proto.types);

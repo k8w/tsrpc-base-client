@@ -29,4 +29,5 @@ export declare class Flow<T>
 |  --- | --- | --- |
 |  [exec(input, logger)](./tsrpc-base-client.flow.exec.md) |  | Execute all node function one by one, the previous output is the next input, until the last output would be return to the caller. |
 |  [push(node)](./tsrpc-base-client.flow.push.md) |  | Append a node function to the last |
+|  [remove(node)](./tsrpc-base-client.flow.remove.md) |  | Remove a node function |
 

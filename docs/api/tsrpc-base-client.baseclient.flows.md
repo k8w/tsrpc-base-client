@@ -23,5 +23,10 @@ readonly flows: {
             buf: Uint8Array;
             sn?: number | undefined;
         }>;
+        readonly postConnectFlow: Flow<{}>;
+        readonly postDisconnectFlow: Flow<{
+            reason?: string | undefined;
+            isByClient?: boolean | undefined;
+        }>;
     };
 ```

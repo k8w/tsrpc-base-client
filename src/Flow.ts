@@ -80,4 +80,13 @@ export class Flow<T> {
         return this.nodes.push(node as any);
     }
 
+    /**
+     * Remove a node function
+     * @param node 
+     * @returns 
+     */
+    remove<K extends T>(node: FlowNode<K>) {
+        return this.nodes.remove(v => v === node as any);
+    }
+
 }
