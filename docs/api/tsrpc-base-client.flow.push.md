@@ -9,7 +9,7 @@ Append a node function to the last
 <b>Signature:</b>
 
 ```typescript
-push<K extends T>(node: FlowNode<K>): number;
+push<K extends T>(node: FlowNode<K>): FlowNode<K>;
 ```
 
 ## Parameters
@@ -20,6 +20,6 @@ push<K extends T>(node: FlowNode<K>): number;
 
 <b>Returns:</b>
 
-number
+[FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt;
 
 
