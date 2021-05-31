@@ -60,17 +60,19 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         preRecvBufferFlow: new Flow<{ buf: Uint8Array, sn?: number }>(),
 
         // Connection Flows (Only for WebSocket)
+        /** Before connect to WebSocket server */
+        preConnectFlow: new Flow<{}>(),
         /** After WebSocket connect successfully */
         postConnectFlow: new Flow<{}>(),
-        /** After WebSocket disconnected (from connected) */
+        /** After WebSocket disconnected (from connected status) */
         postDisconnectFlow: new Flow<{
             /** reason parameter from server-side `conn.close(reason)` */
             reason?: string,
-            /** 
-             * Disconnected because `client.disconnect()` is called manually,
-             * otherwise is disconnected by accidently. (e.g. network error, server closed...)
+            /**
+             * Whether is is disconnected manually by `client.disconnect()`,
+             * otherwise by accident. (e.g. network error, server closed...)
              */
-            isByClient?: boolean
+            isManual?: boolean
         }>(),
     } as const;
 
