@@ -23,7 +23,15 @@ readonly flows: {
             buf: Uint8Array;
             sn?: number | undefined;
         }>;
-        readonly preConnectFlow: Flow<{}>;
+        readonly preConnectFlow: Flow<{
+            return?: {
+                isSucc: true;
+                errMsg?: undefined;
+            } | {
+                isSucc: false;
+                errMsg: string;
+            } | undefined;
+        }>;
         readonly postConnectFlow: Flow<{}>;
         readonly postDisconnectFlow: Flow<{
             reason?: string | undefined;

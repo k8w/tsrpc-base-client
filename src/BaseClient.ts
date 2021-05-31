@@ -61,7 +61,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
         // Connection Flows (Only for WebSocket)
         /** Before connect to WebSocket server */
-        preConnectFlow: new Flow<{}>(),
+        preConnectFlow: new Flow<{
+            /** Return `res` to `client.connect()`, without latter connect procedure */
+            return?: { isSucc: true, errMsg?: undefined } | { isSucc: false, errMsg: string }
+        }>(),
         /** After WebSocket connect successfully */
         postConnectFlow: new Flow<{}>(),
         /** After WebSocket disconnected (from connected status) */
