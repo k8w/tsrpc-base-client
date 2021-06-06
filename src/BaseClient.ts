@@ -435,7 +435,13 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         }
         else {
             this.logger?.error('ParseServerOutputError: ' + opParsed.errMsg);
-            this.logger?.error('Please check if the proto be the same between server and client');
+            this.logger?.error('Please check whether the proto on the server is the same as that on the client');
+            if (pendingApiItem) {
+                pendingApiItem.onReturn?.({
+                    isSucc: false,
+                    err: new TsrpcError('Parse server output error', { type: TsrpcErrorType.ServerError })
+                })
+            }
         }
     }
 
