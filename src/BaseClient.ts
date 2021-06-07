@@ -493,7 +493,7 @@ export interface BaseClientOptions {
      * If it is assigned to `undefined`, all log would be hidden. (It may be useful when you want to encrypt the transportation)
      * @defaultValue `console`
      */
-    logger?: Logger;
+    logger?: Logger | null;
 
     /** 
      * Timeout time for `callApi` (ms)
