@@ -484,7 +484,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 }
 
 export const defaultBaseClientOptions: BaseClientOptions = {
-    logger: console
+
 }
 
 export interface BaseClientOptions {
@@ -494,6 +494,7 @@ export interface BaseClientOptions {
      * @defaultValue `console`
      */
     logger?: Logger;
+
     /** 
      * Timeout time for `callApi` (ms)
      * `undefined` or `0` means unlimited
