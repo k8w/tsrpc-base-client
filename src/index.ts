@@ -1,10 +1,10 @@
 import 'k8w-extend-native';
 
-export * from './BaseClient';
-export * from './ClientFlowData';
-export * from './Counter';
-export * from './Flow';
-export * from './MsgHandlerManager';
-export * from './ServiceMapUtil';
-export * from './TransportDataUtil';
-export * from './TransportOptions';
+export * from './client/BaseClient';
+export * from './client/ClientFlowData';
+export * from './models/Counter';
+export * from './models/Flow';
+export * from './models/MsgHandlerManager';
+export * from './models/ServiceMapUtil';
+export * from './models/TransportDataUtil';
+export * from './models/TransportOptions';
