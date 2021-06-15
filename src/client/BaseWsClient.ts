@@ -86,7 +86,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
 
     protected _onWsMessage = (data: Uint8Array | string) => {
         if (typeof data === 'string') {
-            this.logger?.log('[RecvText]', data)
+            this.logger?.warn('[RecvText]', data)
         }
         else {
             this._onRecvBuf(data);

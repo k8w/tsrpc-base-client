@@ -30,6 +30,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType = any> ext
 |  [\_wsp](./tsrpc-base-client.basewsclient._wsp.md) |  | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
 |  [isConnected](./tsrpc-base-client.basewsclient.isconnected.md) |  | boolean |  |
 |  [options](./tsrpc-base-client.basewsclient.options.md) |  | Readonly&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
+|  [status](./tsrpc-base-client.basewsclient.status.md) |  | [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
 |  [type](./tsrpc-base-client.basewsclient.type.md) |  | (not declared) |  |
 
 ## Methods

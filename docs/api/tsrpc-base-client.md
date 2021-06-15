@@ -17,6 +17,12 @@
 |  [ServiceMapUtil](./tsrpc-base-client.servicemaputil.md) | A utility for generate <code>ServiceMap</code> |
 |  [TransportDataUtil](./tsrpc-base-client.transportdatautil.md) |  |
 
+## Enumerations
+
+|  Enumeration | Description |
+|  --- | --- |
+|  [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
+
 ## Interfaces
 
 |  Interface | Description |
