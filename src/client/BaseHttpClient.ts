@@ -87,6 +87,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
                 data: buf,
                 method: 'POST',
                 timeout: options.timeout || this.options.timeout,
+                transportOptions: options,
                 responseType: 'arraybuffer',
             });
 
@@ -128,6 +129,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
                 method: 'POST',
                 timeout: options.timeout || this.options.timeout,
                 headers: { 'Content-Type': 'application/json' },
+                transportOptions: options,
                 responseType: 'text',
             });
 
@@ -228,6 +230,7 @@ export interface IHttpProxy {
         /** ms */
         timeout?: number,
         headers?: { [key: string]: string },
+        transportOptions: TransportOptions,
         responseType: 'text' | 'arraybuffer'
     }): {
         abort: () => void,
