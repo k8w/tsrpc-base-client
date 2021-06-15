@@ -115,7 +115,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             // Do Send
             let buffer = Buffer.from(buf);
             this.options.debugBuf && this.logger?.debug('[SendBuf]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${buffer.byteLength}`, buffer);
-            return this._wsp.send(buffer);
+            rs(this._wsp.send(buffer));
         });
     }
 
@@ -156,12 +156,11 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
 
         this._wsp.connect(this.options.server);
         this.logger?.log(`Start connecting ${this.options.server}...`);
+        this._connecting = {} as any;
         let promiseConnect = new Promise<{ isSucc: true } | { isSucc: false, errMsg: string }>(rs => {
-            this._connecting = {
-                promise: promiseConnect,
-                rs: rs
-            }
-        })
+            this._connecting!.rs = rs;
+        });
+        this._connecting!.promise = promiseConnect;
 
         return promiseConnect;
     }
