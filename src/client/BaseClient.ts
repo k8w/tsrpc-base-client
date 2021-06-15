@@ -1,6 +1,6 @@
 import { EncodeOutput, TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
-import { ServiceMap, MsgHandlerManager, Flow, Counter, ServiceMapUtil, TransportOptions, ApiService, TransportDataUtil, MsgService } from "..";
+import { ApiService, Counter, Flow, MsgHandlerManager, MsgService, ServiceMap, ServiceMapUtil, TransportDataUtil, TransportOptions } from "..";
 import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 /**
  * An abstract base class for TSRPC Client,
@@ -21,7 +21,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';
 
-    readonly options: BaseClientOptions;
+    readonly options: Readonly<BaseClientOptions>;
 
     /** The map of all services */
     readonly serviceMap: ServiceMap;

@@ -13,7 +13,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
     private _http: IHttpProxy;
     private _jsonServer: string;
 
-    readonly options!: BaseHttpClientOptions;
+    readonly options!: Readonly<BaseHttpClientOptions>;
     constructor(proto: ServiceProto<ServiceType>, http: IHttpProxy, options?: Partial<BaseHttpClientOptions>) {
         super(proto, {
             ...defaultBaseHttpClientOptions,
@@ -190,7 +190,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
     }
 }
 
-const defaultBaseHttpClientOptions: BaseHttpClientOptions = {
+export const defaultBaseHttpClientOptions: BaseHttpClientOptions = {
     ...defaultBaseClientOptions,
     server: 'http://localhost:3000',
     // logger: new TerminalColorLogger(),

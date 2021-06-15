@@ -12,7 +12,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
 
     protected _wsc: IWebSocketProxy;
 
-    readonly options!: BaseWsClientOptions;
+    readonly options!: Readonly<BaseWsClientOptions>;
     constructor(proto: ServiceProto<ServiceType>, wsc: IWebSocketProxy, options?: Partial<BaseWsClientOptions>) {
         super(proto, {
             ...defaultBaseWsClientOptions,
@@ -175,7 +175,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
     }
 }
 
-const defaultBaseWsClientOptions: BaseWsClientOptions = {
+export const defaultBaseWsClientOptions: BaseWsClientOptions = {
     ...defaultBaseClientOptions,
     server: 'ws://localhost:3000'
 }

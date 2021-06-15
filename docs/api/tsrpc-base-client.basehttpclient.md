@@ -23,7 +23,7 @@ export declare class BaseHttpClient<ServiceType extends BaseServiceType = any> e
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [options](./tsrpc-base-client.basehttpclient.options.md) |  | [BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md) |  |
+|  [options](./tsrpc-base-client.basehttpclient.options.md) |  | Readonly&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; |  |
 |  [type](./tsrpc-base-client.basehttpclient.type.md) |  | (not declared) |  |
 
 ## Methods

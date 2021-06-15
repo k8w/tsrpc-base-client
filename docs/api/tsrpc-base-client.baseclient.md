@@ -33,7 +33,7 @@ You can implement a client on a specific transportation protocol (like HTTP, Web
 |  [lastSN](./tsrpc-base-client.baseclient.lastsn.md) |  | number | The <code>SN</code> number of the last <code>callApi()</code>, which can be passed to <code>abort()</code> to abort an API request. |
 |  [logger?](./tsrpc-base-client.baseclient.logger.md) |  | Logger | <i>(Optional)</i> <code>Logger</code> to process API Request/Response, send message, send buffer... |
 |  [nextSN](./tsrpc-base-client.baseclient.nextsn.md) |  | number | The <code>SN</code> number of the next <code>callApi()</code>, which can be passed to <code>abort()</code> to abort an API request. |
-|  [options](./tsrpc-base-client.baseclient.options.md) |  | [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
+|  [options](./tsrpc-base-client.baseclient.options.md) |  | Readonly&lt;[BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)<!-- -->&gt; |  |
 |  [serviceMap](./tsrpc-base-client.baseclient.servicemap.md) |  | [ServiceMap](./tsrpc-base-client.servicemap.md) | The map of all services |
 |  [tsbuffer](./tsrpc-base-client.baseclient.tsbuffer.md) |  | TSBuffer | The <code>TSBuffer</code> instance for encoding, decoding, and type checking |
 |  [type](./tsrpc-base-client.baseclient.type.md) |  | 'SHORT' \| 'LONG' | The connection is long connection or short connection |

@@ -37,6 +37,8 @@
 |  Variable | Description |
 |  --- | --- |
 |  [defaultBaseClientOptions](./tsrpc-base-client.defaultbaseclientoptions.md) |  |
+|  [defaultBaseHttpClientOptions](./tsrpc-base-client.defaultbasehttpclientoptions.md) |  |
+|  [defaultBaseWsClientOptions](./tsrpc-base-client.defaultbasewsclientoptions.md) |  |
 
 ## Type Aliases
 

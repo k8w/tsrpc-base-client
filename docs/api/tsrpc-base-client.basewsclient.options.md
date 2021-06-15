@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-readonly options: BaseWsClientOptions;
+readonly options: Readonly<BaseWsClientOptions>;
 ```
