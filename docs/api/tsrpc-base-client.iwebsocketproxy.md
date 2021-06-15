@@ -14,10 +14,7 @@ export interface IWebSocketProxy
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [onClose](./tsrpc-base-client.iwebsocketproxy.onclose.md) | (code: number, reason: string) =&gt; void |  |
-|  [onError](./tsrpc-base-client.iwebsocketproxy.onerror.md) | (e: Error) =&gt; void |  |
-|  [onMessage](./tsrpc-base-client.iwebsocketproxy.onmessage.md) | (data: Uint8Array \| string) =&gt; void |  |
-|  [onOpen](./tsrpc-base-client.iwebsocketproxy.onopen.md) | () =&gt; void |  |
+|  [options](./tsrpc-base-client.iwebsocketproxy.options.md) | { onOpen: () =&gt; void; onClose: (code: number, reason: string) =&gt; void; onError: (e: Error) =&gt; void; onMessage: (data: Uint8Array \| string) =&gt; void; logger?: Logger; } |  |
 
 ## Methods
 

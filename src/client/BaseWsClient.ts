@@ -1,4 +1,4 @@
-import { BaseServiceType, ServiceProto, TsrpcError } from "tsrpc-proto";
+import { BaseServiceType, Logger, ServiceProto, TsrpcError } from "tsrpc-proto";
 import { TransportOptions } from "../models/TransportOptions";
 import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
 
@@ -21,10 +21,14 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
         });
 
         this._wsp = wsp;
-        wsp.onOpen = this._onWsOpen;
-        wsp.onClose = this._onWsClose;
-        wsp.onError = this._onWsError;
-        wsp.onMessage = this._onWsMessage;
+        wsp.options = {
+            onOpen: this._onWsOpen,
+            onClose: this._onWsClose,
+            onError: this._onWsError,
+            onMessage: this._onWsMessage,
+            logger: this.logger
+        }
+
 
         this.logger?.log('TSRPC WebSocket Client :', this.options.server);
     }
@@ -187,11 +191,14 @@ export interface BaseWsClientOptions extends BaseClientOptions {
 }
 
 export interface IWebSocketProxy {
-    // Events
-    onOpen: () => void;
-    onClose: (code: number, reason: string) => void;
-    onError: (e: Error) => void;
-    onMessage: (data: Uint8Array | string) => void;
+    // Options
+    options: {
+        onOpen: () => void;
+        onClose: (code: number, reason: string) => void;
+        onError: (e: Error) => void;
+        onMessage: (data: Uint8Array | string) => void;
+        logger?: Logger;
+    },
 
     // Create and connect (return ws client)
     connect(server: string): void;
