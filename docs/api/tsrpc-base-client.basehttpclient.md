@@ -17,7 +17,7 @@ export declare class BaseHttpClient<ServiceType extends BaseServiceType = any> e
 
 |  Constructor | Modifiers | Description |
 |  --- | --- | --- |
-|  [(constructor)(proto, fetch, options)](./tsrpc-base-client.basehttpclient._constructor_.md) |  | Constructs a new instance of the <code>BaseHttpClient</code> class |
+|  [(constructor)(proto, http, options)](./tsrpc-base-client.basehttpclient._constructor_.md) |  | Constructs a new instance of the <code>BaseHttpClient</code> class |
 
 ## Properties
 

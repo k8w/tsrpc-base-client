@@ -9,7 +9,7 @@ Constructs a new instance of the `BaseHttpClient` class
 <b>Signature:</b>
 
 ```typescript
-constructor(proto: ServiceProto<ServiceType>, fetch: IHttpFetch, options?: Partial<BaseHttpClientOptions>);
+constructor(proto: ServiceProto<ServiceType>, http: IHttpProxy, options?: Partial<BaseHttpClientOptions>);
 ```
 
 ## Parameters
@@ -17,6 +17,6 @@ constructor(proto: ServiceProto<ServiceType>, fetch: IHttpFetch, options?: Parti
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  proto | ServiceProto&lt;ServiceType&gt; |  |
-|  fetch | [IHttpFetch](./tsrpc-base-client.ihttpfetch.md) |  |
+|  http | [IHttpProxy](./tsrpc-base-client.ihttpproxy.md) |  |
 |  options | Partial&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; |  |
 

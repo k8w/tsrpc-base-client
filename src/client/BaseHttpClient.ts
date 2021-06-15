@@ -10,16 +10,16 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
 
     readonly type = 'SHORT';
 
-    private _fetch: IHttpFetch;
+    private _http: IHttpProxy;
     private _jsonServer: string;
 
     readonly options!: BaseHttpClientOptions;
-    constructor(proto: ServiceProto<ServiceType>, fetch: IHttpFetch, options?: Partial<BaseHttpClientOptions>) {
+    constructor(proto: ServiceProto<ServiceType>, http: IHttpProxy, options?: Partial<BaseHttpClientOptions>) {
         super(proto, {
             ...defaultBaseHttpClientOptions,
             ...options
         });
-        this._fetch = fetch;
+        this._http = http;
         this._jsonServer = this.options.server + (this.options.server.endsWith('/') ? '' : '/');
         this.logger?.log('TSRPC HTTP Client :', this.options.server);
     }
@@ -80,7 +80,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
 
             // Do Send
             this.options.debugBuf && this.logger?.debug('[SendBuf]' + (sn ? (' #' + sn) : ''), `length=${buf.length}`, buf);
-            let { promise: fetchPromise, abort } = this._fetch({
+            let { promise: fetchPromise, abort } = this._http.fetch({
                 url: this.options.server,
                 data: buf,
                 method: 'POST',
@@ -119,7 +119,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
 
     protected async _sendJSON(jsonStr: string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError | undefined; }> {
         return new Promise(async rs => {
-            let { promise: fetchPromise, abort } = this._fetch({
+            let { promise: fetchPromise, abort } = this._http.fetch({
                 url: this._jsonServer + this.serviceMap.id2Service[serviceId].name,
                 data: jsonStr,
                 method: 'POST',
@@ -185,7 +185,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
                     ret.err = new TsrpcError(ret.err);
                 }
                 pendingApiItem.onReturn?.(ret);
-            }            
+            }
         })
     }
 }
@@ -216,10 +216,16 @@ export interface BaseHttpClientOptions extends BaseClientOptions {
     jsonPrune: boolean;
 }
 
-export type IHttpFetch = (options: {
-    url: string,
-    data: string | Uint8Array,
-    method: string,
-    headers?: { [key: string]: string },
-    responseType: 'text' | 'arraybuffer'
-}) => { abort: () => void, promise: Promise<{ isSucc: true, res: string | Uint8Array } | { isSucc: false, err: TsrpcError }> };
+
+export interface IHttpProxy {
+    fetch(options: {
+        url: string,
+        data: string | Uint8Array,
+        method: string,
+        headers?: { [key: string]: string },
+        responseType: 'text' | 'arraybuffer'
+    }): {
+        abort: () => void,
+        promise: Promise<{ isSucc: true, res: string | Uint8Array } | { isSucc: false, err: TsrpcError }>
+    };
+}
