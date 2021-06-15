@@ -1,7 +1,7 @@
 import { EncodeOutput, TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { ServiceMap, MsgHandlerManager, Flow, Counter, ServiceMapUtil, TransportOptions, ApiService, TransportDataUtil, MsgService } from "..";
-import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "./ClientFlowData";
+import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 /**
  * An abstract base class for TSRPC Client,
  * which includes some common buffer process flows.
