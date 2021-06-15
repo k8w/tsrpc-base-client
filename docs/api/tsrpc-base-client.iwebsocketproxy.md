@@ -14,10 +14,10 @@ export interface IWebSocketProxy
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [onClose](./tsrpc-base-client.iwebsocketproxy.onclose.md) | (code: number, reason: string) =&gt; void |  |
-|  [onError](./tsrpc-base-client.iwebsocketproxy.onerror.md) | (e: Error) =&gt; void |  |
-|  [onMessage](./tsrpc-base-client.iwebsocketproxy.onmessage.md) | (data: Uint8Array \| string) =&gt; void |  |
-|  [onOpen](./tsrpc-base-client.iwebsocketproxy.onopen.md) | () =&gt; void |  |
+|  [onClose?](./tsrpc-base-client.iwebsocketproxy.onclose.md) | (code: number, reason: string) =&gt; void | <i>(Optional)</i> |
+|  [onError?](./tsrpc-base-client.iwebsocketproxy.onerror.md) | (e: Error) =&gt; void | <i>(Optional)</i> |
+|  [onMessage?](./tsrpc-base-client.iwebsocketproxy.onmessage.md) | (data: Uint8Array \| string) =&gt; void | <i>(Optional)</i> |
+|  [onOpen?](./tsrpc-base-client.iwebsocketproxy.onopen.md) | () =&gt; void | <i>(Optional)</i> |
 
 ## Methods
 

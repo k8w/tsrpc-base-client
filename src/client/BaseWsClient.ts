@@ -11,20 +11,20 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
 
     readonly type = 'LONG';
 
-    protected _wsc: IWebSocketProxy;
+    protected _wsp: IWebSocketProxy;
 
     readonly options!: Readonly<BaseWsClientOptions>;
-    constructor(proto: ServiceProto<ServiceType>, wsc: IWebSocketProxy, options?: Partial<BaseWsClientOptions>) {
+    constructor(proto: ServiceProto<ServiceType>, wsp: IWebSocketProxy, options?: Partial<BaseWsClientOptions>) {
         super(proto, {
             ...defaultBaseWsClientOptions,
             ...options
         });
 
-        this._wsc = wsc;
-        wsc.onOpen = this._onWsOpen;
-        wsc.onClose = this._onWsClose;
-        wsc.onError = this._onWsError;
-        wsc.onMessage = this._onWsMessage;
+        this._wsp = wsp;
+        wsp.onOpen = this._onWsOpen;
+        wsp.onClose = this._onWsClose;
+        wsp.onError = this._onWsError;
+        wsp.onMessage = this._onWsMessage;
 
         this.logger?.log('TSRPC WebSocket Client :', this.options.server);
     }
@@ -111,7 +111,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             // Do Send
             let buffer = Buffer.from(buf);
             this.options.debugBuf && this.logger?.debug('[SendBuf]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${buffer.byteLength}`, buffer);
-            return this._wsc.send(buffer);
+            return this._wsp.send(buffer);
         });
     }
 
@@ -150,7 +150,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             return new Promise(rs => { });
         }
 
-        this._wsc.connect(this.options.server);
+        this._wsp.connect(this.options.server);
         this.logger?.log(`Start connecting ${this.options.server}...`);
         let promiseConnect = new Promise<{ isSucc: true } | { isSucc: false, errMsg: string }>(rs => {
             this._connecting = {
@@ -171,7 +171,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
         this.logger?.log('Start disconnecting...');
         return new Promise<void>(rs => {
             this._rsDisconnecting = rs;
-            this._wsc.close();
+            this._wsp.close();
         })
     }
 }
@@ -188,10 +188,10 @@ export interface BaseWsClientOptions extends BaseClientOptions {
 
 export interface IWebSocketProxy {
     // Events
-    onOpen: () => void;
-    onClose: (code: number, reason: string) => void;
-    onError: (e: Error) => void;
-    onMessage: (data: Uint8Array | string) => void;
+    onOpen?: () => void;
+    onClose?: (code: number, reason: string) => void;
+    onError?: (e: Error) => void;
+    onMessage?: (data: Uint8Array | string) => void;
 
     // Create and connect (return ws client)
     connect(server: string): void;

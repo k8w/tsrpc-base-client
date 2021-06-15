@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-onClose: (code: number, reason: string) => void;
+onClose?: (code: number, reason: string) => void;
 ```

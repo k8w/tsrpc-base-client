@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-onOpen: () => void;
+onOpen?: () => void;
 ```
