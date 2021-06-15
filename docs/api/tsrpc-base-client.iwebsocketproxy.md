@@ -14,16 +14,16 @@ export interface IWebSocketProxy
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [onClose?](./tsrpc-base-client.iwebsocketproxy.onclose.md) | (code: number, reason: string) =&gt; void | <i>(Optional)</i> |
-|  [onError?](./tsrpc-base-client.iwebsocketproxy.onerror.md) | (e: Error) =&gt; void | <i>(Optional)</i> |
-|  [onMessage?](./tsrpc-base-client.iwebsocketproxy.onmessage.md) | (data: Uint8Array \| string) =&gt; void | <i>(Optional)</i> |
-|  [onOpen?](./tsrpc-base-client.iwebsocketproxy.onopen.md) | () =&gt; void | <i>(Optional)</i> |
+|  [onClose](./tsrpc-base-client.iwebsocketproxy.onclose.md) | (code: number, reason: string) =&gt; void |  |
+|  [onError](./tsrpc-base-client.iwebsocketproxy.onerror.md) | (e: Error) =&gt; void |  |
+|  [onMessage](./tsrpc-base-client.iwebsocketproxy.onmessage.md) | (data: Uint8Array \| string) =&gt; void |  |
+|  [onOpen](./tsrpc-base-client.iwebsocketproxy.onopen.md) | () =&gt; void |  |
 
 ## Methods
 
 |  Method | Description |
 |  --- | --- |
-|  [close()](./tsrpc-base-client.iwebsocketproxy.close.md) |  |
+|  [close(code, reason)](./tsrpc-base-client.iwebsocketproxy.close.md) |  |
 |  [connect(server)](./tsrpc-base-client.iwebsocketproxy.connect.md) |  |
 |  [send(data)](./tsrpc-base-client.iwebsocketproxy.send.md) |  |
 

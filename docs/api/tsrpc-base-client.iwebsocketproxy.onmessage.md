@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-onMessage?: (data: Uint8Array | string) => void;
+onMessage: (data: Uint8Array | string) => void;
 ```

@@ -9,8 +9,16 @@ Disconnect immediately
 <b>Signature:</b>
 
 ```typescript
-disconnect(): Promise<void>;
+disconnect(code?: number, reason?: string): Promise<void>;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  code | number |  |
+|  reason | string |  |
+
 <b>Returns:</b>
 
 Promise&lt;void&gt;

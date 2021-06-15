@@ -167,11 +167,11 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
      * Disconnect immediately
      * @throws never
      */
-    async disconnect() {
+    async disconnect(code?: number, reason?: string) {
         this.logger?.log('Start disconnecting...');
         return new Promise<void>(rs => {
             this._rsDisconnecting = rs;
-            this._wsp.close();
+            this._wsp.close(code, reason);
         })
     }
 }
@@ -188,13 +188,13 @@ export interface BaseWsClientOptions extends BaseClientOptions {
 
 export interface IWebSocketProxy {
     // Events
-    onOpen?: () => void;
-    onClose?: (code: number, reason: string) => void;
-    onError?: (e: Error) => void;
-    onMessage?: (data: Uint8Array | string) => void;
+    onOpen: () => void;
+    onClose: (code: number, reason: string) => void;
+    onError: (e: Error) => void;
+    onMessage: (data: Uint8Array | string) => void;
 
     // Create and connect (return ws client)
     connect(server: string): void;
-    close(): void;
+    close(code?: number, reason?: string): void;
     send(data: Uint8Array | string): Promise<{ err?: TsrpcError }>;
 }

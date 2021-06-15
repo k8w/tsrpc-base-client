@@ -9,7 +9,7 @@ Constructs a new instance of the `BaseWsClient` class
 <b>Signature:</b>
 
 ```typescript
-constructor(proto: ServiceProto<ServiceType>, wsc: IWebSocketProxy, options?: Partial<BaseWsClientOptions>);
+constructor(proto: ServiceProto<ServiceType>, wsp: IWebSocketProxy, options?: Partial<BaseWsClientOptions>);
 ```
 
 ## Parameters
@@ -17,6 +17,6 @@ constructor(proto: ServiceProto<ServiceType>, wsc: IWebSocketProxy, options?: Pa
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  proto | ServiceProto&lt;ServiceType&gt; |  |
-|  wsc | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
+|  wsp | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
 |  options | Partial&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
 

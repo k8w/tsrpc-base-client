@@ -17,7 +17,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType = any> ext
 
 |  Constructor | Modifiers | Description |
 |  --- | --- | --- |
-|  [(constructor)(proto, wsc, options)](./tsrpc-base-client.basewsclient._constructor_.md) |  | Constructs a new instance of the <code>BaseWsClient</code> class |
+|  [(constructor)(proto, wsp, options)](./tsrpc-base-client.basewsclient._constructor_.md) |  | Constructs a new instance of the <code>BaseWsClient</code> class |
 
 ## Properties
 
@@ -27,7 +27,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType = any> ext
 |  [\_onWsError](./tsrpc-base-client.basewsclient._onwserror.md) |  | (e: Error) =&gt; void |  |
 |  [\_onWsMessage](./tsrpc-base-client.basewsclient._onwsmessage.md) |  | (data: Uint8Array \| string) =&gt; void |  |
 |  [\_onWsOpen](./tsrpc-base-client.basewsclient._onwsopen.md) |  | () =&gt; void |  |
-|  [\_wsc](./tsrpc-base-client.basewsclient._wsc.md) |  | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
+|  [\_wsp](./tsrpc-base-client.basewsclient._wsp.md) |  | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
 |  [isConnected](./tsrpc-base-client.basewsclient.isconnected.md) |  | boolean |  |
 |  [options](./tsrpc-base-client.basewsclient.options.md) |  | Readonly&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
 |  [type](./tsrpc-base-client.basewsclient.type.md) |  | (not declared) |  |
@@ -38,5 +38,5 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType = any> ext
 |  --- | --- | --- |
 |  [\_sendBuf(buf, options, serviceId, pendingApiItem)](./tsrpc-base-client.basewsclient._sendbuf.md) |  |  |
 |  [connect()](./tsrpc-base-client.basewsclient.connect.md) |  | Start connecting, you must connect first before <code>callApi()</code> and <code>sendMsg()</code>. |
-|  [disconnect()](./tsrpc-base-client.basewsclient.disconnect.md) |  | Disconnect immediately |
+|  [disconnect(code, reason)](./tsrpc-base-client.basewsclient.disconnect.md) |  | Disconnect immediately |
 

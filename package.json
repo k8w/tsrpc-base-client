@@ -1,6 +1,6 @@
 {
   "name": "tsrpc-base-client",
-  "version": "1.0.2-dev.36",
+  "version": "1.0.2-dev.37",
   "description": "TSRPC Base Client",
   "main": "index.cjs",
   "exports": {

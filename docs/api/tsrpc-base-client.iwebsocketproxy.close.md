@@ -7,8 +7,16 @@
 <b>Signature:</b>
 
 ```typescript
-close(): void;
+close(code?: number, reason?: string): void;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  code | number |  |
+|  reason | string |  |
+
 <b>Returns:</b>
 
 void
