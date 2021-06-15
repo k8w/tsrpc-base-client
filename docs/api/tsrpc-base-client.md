@@ -9,6 +9,8 @@
 |  Class | Description |
 |  --- | --- |
 |  [BaseClient](./tsrpc-base-client.baseclient.md) | An abstract base class for TSRPC Client, which includes some common buffer process flows. |
+|  [BaseHttpClient](./tsrpc-base-client.basehttpclient.md) | Base HTTP Client |
+|  [BaseWsClient](./tsrpc-base-client.basewsclient.md) | WebSocket Client for TSRPC. It uses native <code>WebSocket</code> of browser. |
 |  [Counter](./tsrpc-base-client.counter.md) | An auto-increment counter |
 |  [Flow](./tsrpc-base-client.flow.md) | A <code>Flow</code> is consists of many <code>FlowNode</code>, which is function with the same input and output (like pipeline). |
 |  [MsgHandlerManager](./tsrpc-base-client.msghandlermanager.md) | A manager for TSRPC receiving messages |
@@ -21,6 +23,9 @@
 |  --- | --- |
 |  [ApiService](./tsrpc-base-client.apiservice.md) |  |
 |  [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
+|  [BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md) |  |
+|  [BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md) |  |
+|  [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
 |  [MsgService](./tsrpc-base-client.msgservice.md) |  |
 |  [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 |  [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
@@ -41,6 +46,7 @@
 |  [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md) |  |
 |  [FlowNode](./tsrpc-base-client.flownode.md) |  |
 |  [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md) |  |
+|  [IHttpFetch](./tsrpc-base-client.ihttpfetch.md) |  |
 |  [ParsedServerInput](./tsrpc-base-client.parsedserverinput.md) |  |
 |  [ParsedServerOutput](./tsrpc-base-client.parsedserveroutput.md) |  |
 |  [SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md) |  |
