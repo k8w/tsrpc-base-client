@@ -113,9 +113,10 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             }
 
             // Do Send
-            let buffer = Buffer.from(buf);
-            this.options.debugBuf && this.logger?.debug('[SendBuf]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${buffer.byteLength}`, buffer);
-            rs(this._wsp.send(buffer));
+            if (this.options.debugBuf && buf instanceof Uint8Array) {
+                this.logger?.debug('[SendBuf]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${buf.byteLength}`, buf);
+            }
+            rs(this._wsp.send(buf));
         });
     }
 
