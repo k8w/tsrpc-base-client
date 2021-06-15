@@ -38,7 +38,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             return;
         }
 
-        this._isConnected = true;
+        this._status = WsClientStatus.Opened;
         this._connecting.rs({ isSucc: true });
         this._connecting = undefined;
         this.logger?.log('WebSocket connection to server successful');
@@ -47,8 +47,8 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
     };
 
     protected _onWsClose = (code: number, reason: string) => {
-        let isConnectedBefore = this._isConnected;
-        this._isConnected = false;
+        let isConnectedBefore = this.isConnected;
+        this._status = WsClientStatus.Closed;
 
         // 连接中，返回连接失败
         if (this._connecting) {
@@ -119,9 +119,14 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
         });
     }
 
-    private _isConnected: boolean = false;
+
+    private _status: WsClientStatus = WsClientStatus.Closed;
+    public get status(): WsClientStatus {
+        return this._status;
+    }
+
     public get isConnected(): boolean {
-        return this._isConnected;
+        return this._status === WsClientStatus.Opened;
     }
 
     private _connecting?: {
@@ -154,6 +159,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             return new Promise(rs => { });
         }
 
+        this._status = WsClientStatus.Opening;
         this._wsp.connect(this.options.server);
         this.logger?.log(`Start connecting ${this.options.server}...`);
         this._connecting = {} as any;
@@ -171,6 +177,11 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
      * @throws never
      */
     async disconnect(code?: number, reason?: string) {
+        if (this._status === WsClientStatus.Closed) {
+            return;
+        }
+
+        this._status = WsClientStatus.Closing;
         this.logger?.log('Start disconnecting...');
         return new Promise<void>(rs => {
             this._rsDisconnecting = rs;
@@ -203,4 +214,11 @@ export interface IWebSocketProxy {
     connect(server: string): void;
     close(code?: number, reason?: string): void;
     send(data: Uint8Array | string): Promise<{ err?: TsrpcError }>;
+}
+
+export enum WsClientStatus {
+    Opening = 'OPENING',
+    Opened = 'OPENED',
+    Closing = 'CLOSING',
+    Closed = 'CLOSED'
 }
