@@ -18,8 +18,7 @@ export default [
                     }
                 }
             })
-        ],
-        external: [/^core-js\//]
+        ]
     },
     {
         input: './src/index.ts',
@@ -38,7 +37,6 @@ export default [
                     }
                 }
             })
-        ],
-        external: [/^core-js\//]
+        ]
     }
 ]
