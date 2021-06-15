@@ -222,6 +222,8 @@ export interface IHttpProxy {
         url: string,
         data: string | Uint8Array,
         method: string,
+        /** ms */
+        timeout?: number,
         headers?: { [key: string]: string },
         responseType: 'text' | 'arraybuffer'
     }): {

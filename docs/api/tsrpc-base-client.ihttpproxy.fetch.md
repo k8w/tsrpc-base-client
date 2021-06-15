@@ -11,6 +11,7 @@ fetch(options: {
         url: string;
         data: string | Uint8Array;
         method: string;
+        timeout?: number;
         headers?: {
             [key: string]: string;
         };
@@ -31,7 +32,7 @@ fetch(options: {
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  options | { url: string; data: string \| Uint8Array; method: string; headers?: { \[key: string\]: string; }; responseType: 'text' \| 'arraybuffer'; } |  |
+|  options | { url: string; data: string \| Uint8Array; method: string; timeout?: number; headers?: { \[key: string\]: string; }; responseType: 'text' \| 'arraybuffer'; } |  |
 
 <b>Returns:</b>
 
