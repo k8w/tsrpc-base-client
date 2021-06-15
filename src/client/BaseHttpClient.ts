@@ -84,6 +84,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
                 url: this.options.server,
                 data: buf,
                 method: 'POST',
+                timeout: options.timeout || this.options.timeout,
                 responseType: 'arraybuffer',
             });
 
@@ -123,6 +124,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
                 url: this._jsonServer + this.serviceMap.id2Service[serviceId].name,
                 data: jsonStr,
                 method: 'POST',
+                timeout: options.timeout || this.options.timeout,
                 headers: { 'Content-Type': 'application/json' },
                 responseType: 'text',
             });
@@ -211,7 +213,6 @@ export interface BaseHttpClientOptions extends BaseClientOptions {
     /**
      * Whether to automatically delete excess properties that not defined in the protocol.
      * @defaultValue `true`
-     * @internal
      */
     jsonPrune: boolean;
 }

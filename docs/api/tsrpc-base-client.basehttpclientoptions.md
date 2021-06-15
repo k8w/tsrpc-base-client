@@ -16,5 +16,6 @@ export interface BaseHttpClientOptions extends BaseClientOptions
 |  Property | Type | Description |
 |  --- | --- | --- |
 |  [json](./tsrpc-base-client.basehttpclientoptions.json.md) | boolean | Use JSON instead of binary as transfering |
+|  [jsonPrune](./tsrpc-base-client.basehttpclientoptions.jsonprune.md) | boolean | Whether to automatically delete excess properties that not defined in the protocol. |
 |  [server](./tsrpc-base-client.basehttpclientoptions.server.md) | string | Server URL, starts with <code>http://</code> or <code>https://</code>. |
 
