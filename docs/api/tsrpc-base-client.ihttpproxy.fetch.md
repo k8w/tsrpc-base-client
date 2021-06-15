@@ -15,6 +15,7 @@ fetch(options: {
         headers?: {
             [key: string]: string;
         };
+        transportOptions: TransportOptions;
         responseType: 'text' | 'arraybuffer';
     }): {
         abort: () => void;
@@ -32,7 +33,7 @@ fetch(options: {
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  options | { url: string; data: string \| Uint8Array; method: string; timeout?: number; headers?: { \[key: string\]: string; }; responseType: 'text' \| 'arraybuffer'; } |  |
+|  options | { url: string; data: string \| Uint8Array; method: string; timeout?: number; headers?: { \[key: string\]: string; }; transportOptions: [TransportOptions](./tsrpc-base-client.transportoptions.md)<!-- -->; responseType: 'text' \| 'arraybuffer'; } |  |
 
 <b>Returns:</b>
 
