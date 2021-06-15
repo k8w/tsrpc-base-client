@@ -1,6 +1,8 @@
 import { EncodeOutput } from "tsbuffer";
 import { ApiReturn, BaseServiceType, ServiceProto, TsrpcError } from "tsrpc-proto";
-import { ApiService, MsgService, TransportDataUtil, TransportOptions } from "..";
+import { ApiService, MsgService } from "../models/ServiceMapUtil";
+import { TransportDataUtil } from "../models/TransportDataUtil";
+import { TransportOptions } from "../models/TransportOptions";
 import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
 
 /**

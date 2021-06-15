@@ -1,5 +1,6 @@
 import { BaseServiceType, ServiceProto, TsrpcError } from "tsrpc-proto";
-import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem, TransportOptions } from "..";
+import { TransportOptions } from "../models/TransportOptions";
+import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
 
 /**
  * WebSocket Client for TSRPC.
