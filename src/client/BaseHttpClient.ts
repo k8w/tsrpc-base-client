@@ -112,7 +112,8 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
             this._onRecvBuf(fetchRes.res as Uint8Array, pendingApiItem)
         });
 
-        promise.finally(() => {
+        // Finally
+        promise.catch(e => { }).then(() => {
             if (pendingApiItem) {
                 pendingApiItem.onAbort = undefined;
             }

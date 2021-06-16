@@ -11,3 +11,6 @@ export * from './models/ServiceMapUtil';
 export * from './models/TransportDataUtil';
 export * from './models/TransportOptions';
 
+let a = Math.random() > 0.5 ? 'yes' : undefined;
+let b = Math.random() > 0.5 ? 'yes' : undefined;
+console.log(a ?? b);
