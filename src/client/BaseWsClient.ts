@@ -160,9 +160,15 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             return new Promise(rs => { });
         }
 
+        try {
+            this._wsp.connect(this.options.server);
+        }
+        catch (e) {
+            return { isSucc: false, errMsg: e.message }
+        }
         this._status = WsClientStatus.Opening;
-        this._wsp.connect(this.options.server);
         this.logger?.log(`Start connecting ${this.options.server}...`);
+
         this._connecting = {} as any;
         let promiseConnect = new Promise<{ isSucc: true } | { isSucc: false, errMsg: string }>(rs => {
             this._connecting!.rs = rs;
