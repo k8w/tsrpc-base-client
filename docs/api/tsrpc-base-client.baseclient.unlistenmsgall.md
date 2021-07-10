@@ -9,14 +9,14 @@ Remove all handlers from a message
 <b>Signature:</b>
 
 ```typescript
-unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T): void;
+unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T | RegExp): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  msgName | T |  |
+|  msgName | T \| RegExp |  |
 
 <b>Returns:</b>
 
