@@ -87,6 +87,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends B
                 data: buf,
                 method: 'POST',
                 timeout: options.timeout || this.options.timeout,
+                headers: { 'Content-Type': 'application/octet-stream' },
                 transportOptions: options,
                 responseType: 'arraybuffer',
             });
