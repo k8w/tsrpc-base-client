@@ -332,21 +332,43 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @param handler
      * @returns
      */
-    listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType['msg'][T], this>): ClientMsgHandler<ServiceType['msg'][T], this> {
-        this._msgHandlers.addHandler(msgName as string, handler)
+    listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: ClientMsgHandler<ServiceType['msg'][T], this>): ClientMsgHandler<ServiceType['msg'][T], this> {
+        if (msgName instanceof RegExp) {
+            Object.keys(this.serviceMap.msgName2Service).filter(k => msgName.test(k)).forEach(k => {
+                this._msgHandlers.addHandler(k, handler)
+            })
+        }
+        else {
+            this._msgHandlers.addHandler(msgName as string, handler)
+        }
+
         return handler;
     }
     /**
      * Remove a message handler
      */
-    unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: Function) {
-        this._msgHandlers.removeHandler(msgName as string, handler)
+    unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: Function) {
+        if (msgName instanceof RegExp) {
+            Object.keys(this.serviceMap.msgName2Service).filter(k => msgName.test(k)).forEach(k => {
+                this._msgHandlers.removeHandler(k, handler)
+            })
+        }
+        else {
+            this._msgHandlers.removeHandler(msgName as string, handler)
+        }
     }
     /**
      * Remove all handlers from a message
      */
-    unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T) {
-        this._msgHandlers.removeAllHandlers(msgName as string)
+    unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T | RegExp) {
+        if (msgName instanceof RegExp) {
+            Object.keys(this.serviceMap.msgName2Service).filter(k => msgName.test(k)).forEach(k => {
+                this._msgHandlers.removeAllHandlers(k)
+            })
+        }
+        else {
+            this._msgHandlers.removeAllHandlers(msgName as string)
+        }
     }
 
     /**
