@@ -164,6 +164,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
             this._wsp.connect(this.options.server);
         }
         catch (e) {
+            this.logger?.error(e);
             return { isSucc: false, errMsg: e.message }
         }
         this._status = WsClientStatus.Opening;
