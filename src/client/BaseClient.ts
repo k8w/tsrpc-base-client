@@ -238,7 +238,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
                 this.logger?.log(`[ApiRes] #${pendingItem.sn} ${apiName}`, ret.res);
             }
             else {
-                this.logger?.log(`[ApiErr] #${pendingItem.sn} ${apiName}`, ret.err);
+                this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${apiName}`, ret.err);
             }
 
             rs(ret);
