@@ -454,7 +454,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
             else if (parsed.type === 'msg') {
                 this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
-                this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, this);
+                this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name, this);
             }
         }
         else {
