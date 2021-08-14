@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type ClientMsgHandler<Msg, Client extends BaseClient<any> = BaseClient<any>> = (msg: Msg, client: Client) => void | Promise<void>;
+export declare type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg'], Client extends BaseClient<any> = BaseClient<any>> = (msg: ServiceType['msg'][MsgName], msgName: MsgName, client: Client) => void | Promise<void>;
 ```
 <b>References:</b> [BaseClient](./tsrpc-base-client.baseclient.md)
 

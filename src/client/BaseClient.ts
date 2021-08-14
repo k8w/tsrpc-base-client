@@ -332,7 +332,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @param handler
      * @returns
      */
-    listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: ClientMsgHandler<ServiceType['msg'][T], this>): ClientMsgHandler<ServiceType['msg'][T], this> {
+    // listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType, T, this>): ClientMsgHandler<ServiceType, T, this>;
+    // listenMsg(msgName: RegExp, handler: ClientMsgHandler<ServiceType, keyof ServiceType['msg'], this>): ClientMsgHandler<ServiceType, keyof ServiceType['msg'], this>;
+    // listenMsg(msgName: string | RegExp, handler: ClientMsgHandler<ServiceType, string, this>): ClientMsgHandler<ServiceType, string, this> {
+    listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: ClientMsgHandler<ServiceType, T, this>): ClientMsgHandler<ServiceType, T, this> {
         if (msgName instanceof RegExp) {
             Object.keys(this.serviceMap.msgName2Service).filter(k => msgName.test(k)).forEach(k => {
                 this._msgHandlers.addHandler(k, handler)
@@ -538,4 +541,5 @@ export interface PendingApiItem {
     onReturn?: (ret: ApiReturn<any>) => void
 }
 
-export type ClientMsgHandler<Msg, Client extends BaseClient<any> = BaseClient<any>> = (msg: Msg, client: Client) => void | Promise<void>;
+export type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg'], Client extends BaseClient<any> = BaseClient<any>>
+    = (msg: ServiceType['msg'][MsgName], msgName: MsgName, client: Client) => void | Promise<void>;
