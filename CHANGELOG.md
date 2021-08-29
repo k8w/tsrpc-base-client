@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.0.9] - 2021-08-30
+### Fixed
+- `logger.error` when `sendBuf` error
+
 ## [1.0.8] - 2021-08-14
 
 ### Changed

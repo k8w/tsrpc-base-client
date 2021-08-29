@@ -221,6 +221,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             let promiseSend = this._sendBuf(opEncode.buf, options, service.id, pendingItem);
             let opSend = await promiseSend;
             if (opSend.err) {
+                this.logger?.[opSend.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${apiName}`, opSend.err);
                 rs({
                     isSucc: false,
                     err: opSend.err
