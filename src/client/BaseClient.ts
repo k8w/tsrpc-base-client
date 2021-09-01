@@ -336,7 +336,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     // listenMsg<T extends keyof ServiceType['msg']>(msgName: T, handler: ClientMsgHandler<ServiceType, T, this>): ClientMsgHandler<ServiceType, T, this>;
     // listenMsg(msgName: RegExp, handler: ClientMsgHandler<ServiceType, keyof ServiceType['msg'], this>): ClientMsgHandler<ServiceType, keyof ServiceType['msg'], this>;
     // listenMsg(msgName: string | RegExp, handler: ClientMsgHandler<ServiceType, string, this>): ClientMsgHandler<ServiceType, string, this> {
-    listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: ClientMsgHandler<ServiceType, T, this>): ClientMsgHandler<ServiceType, T, this> {
+    listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: ClientMsgHandler<ServiceType, T>): ClientMsgHandler<ServiceType, T> {
         if (msgName instanceof RegExp) {
             Object.keys(this.serviceMap.msgName2Service).filter(k => msgName.test(k)).forEach(k => {
                 this._msgHandlers.addHandler(k, handler)
@@ -455,7 +455,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
             else if (parsed.type === 'msg') {
                 this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
-                this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name, this);
+                this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name);
             }
         }
         else {
@@ -542,5 +542,5 @@ export interface PendingApiItem {
     onReturn?: (ret: ApiReturn<any>) => void
 }
 
-export type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg'], Client extends BaseClient<any> = BaseClient<any>>
-    = (msg: ServiceType['msg'][MsgName], msgName: MsgName, client: Client) => void | Promise<void>;
+export type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg']>
+    = (msg: ServiceType['msg'][MsgName], msgName: MsgName) => void | Promise<void>;

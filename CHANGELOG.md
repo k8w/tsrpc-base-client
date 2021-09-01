@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.0.10] - 2021-09-01
+### Changed
+- `listenMsg` 的监听函数类型改为 `(msg, msgName)=>void` 
+
 ## [1.0.9] - 2021-08-30
 ### Fixed
 - `logger.error` when `sendBuf` error
