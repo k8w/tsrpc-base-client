@@ -20,6 +20,5 @@ client.callApi('xxx', { value: 'xxx' })
   .then(ret=>{ console.log('succ', ret) });
 let lastSN = client.lastSN;
 client.abort(lastSN);
-
 ```
 

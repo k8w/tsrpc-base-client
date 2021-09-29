@@ -1,4 +1,4 @@
-import { BaseServiceType, Logger, ServiceProto, TsrpcError } from "tsrpc-proto";
+import { BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { TransportOptions } from "../models/TransportOptions";
 import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
 
@@ -78,6 +78,14 @@ export class BaseWsClient<ServiceType extends BaseServiceType = any> extends Bas
                 isManual: isManual
             }, this.logger);
         }
+
+        // 对所有请求中的 API 报错
+        this._pendingApis.slice().forEach(v => {
+            v.onReturn?.({
+                isSucc: false,
+                err: new TsrpcError('Lost connection to server', { type: TsrpcErrorType.NetworkError, code: 'LOST_CONN' })
+            })
+        })
     };
 
     protected _onWsError = (e: Error) => {

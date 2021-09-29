@@ -27,6 +27,5 @@ client.callApi('SendData', { data: 'CCC' }, { abortKey: 'Session#123' });
 
 // And abort the at once
 client.abortByKey('Session#123');
-
 ```
 

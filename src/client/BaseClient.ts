@@ -509,7 +509,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 }
 
 export const defaultBaseClientOptions: BaseClientOptions = {
-
+    timeout: 15000
 }
 
 export interface BaseClientOptions {
@@ -523,7 +523,7 @@ export interface BaseClientOptions {
     /** 
      * Timeout time for `callApi` (ms)
      * `undefined` or `0` means unlimited
-     * @defaultValue `undefined`
+     * @defaultValue `15000`
      */
     timeout?: number;
     /**

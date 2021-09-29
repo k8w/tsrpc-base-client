@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.0.11] - 2021-09-29
+### Fixed
+- `WsClient` 断开连接后对所有未尽 API 请求返回错误
+### Changed
+- `timeout` 默认 15 秒
+
 ## [1.0.10] - 2021-09-01
 ### Changed
 - `listenMsg` 的监听函数类型改为 `(msg, msgName)=>void` 

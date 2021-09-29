@@ -18,6 +18,5 @@ get nextSN(): number;
 ```ts
 let nextSN = client.nextSN;
 client.callApi('xxx', { value: 'xxx' })
-
 ```
 
