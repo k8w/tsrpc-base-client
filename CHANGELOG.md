@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [1.0.12] - 2021-10-08
+### Changed
+- Rename `index.cjs` to `index.js` to fit webpack
+- Update `k8w-extend-native` to 1.4.6
+
 ## [1.0.11] - 2021-09-29
 ### Fixed
 - `WsClient` 断开连接后对所有未尽 API 请求返回错误
