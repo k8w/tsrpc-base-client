@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.0.13] - 2021-10-09
+### Fixed
+- Fixed missing log when encode error
+
 ## [1.0.12] - 2021-10-08
 ### Changed
 - Rename `index.cjs` to `index.js` to fit webpack
