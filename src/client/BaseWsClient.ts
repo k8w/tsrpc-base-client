@@ -7,7 +7,7 @@ import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem
  * It uses native `WebSocket` of browser.
  * @typeParam ServiceType - `ServiceType` from generated `proto.ts`
  */
-export class BaseWsClient<ServiceType extends BaseServiceType = any> extends BaseClient<ServiceType> {
+export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> {
 
     readonly type = 'LONG';
 

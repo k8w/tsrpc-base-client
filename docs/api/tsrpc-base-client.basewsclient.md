@@ -9,7 +9,7 @@ WebSocket Client for TSRPC. It uses native `WebSocket` of browser.
 <b>Signature:</b>
 
 ```typescript
-export declare class BaseWsClient<ServiceType extends BaseServiceType = any> extends BaseClient<ServiceType> 
+export declare class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> 
 ```
 <b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;ServiceType&gt;
 

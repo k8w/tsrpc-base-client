@@ -8,7 +8,7 @@ import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem
 /**
  * Base HTTP Client
  */
-export class BaseHttpClient<ServiceType extends BaseServiceType = any> extends BaseClient<ServiceType> {
+export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> {
 
     readonly type = 'SHORT';
 
