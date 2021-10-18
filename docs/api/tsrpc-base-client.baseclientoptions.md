@@ -14,6 +14,7 @@ export interface BaseClientOptions
 
 |  Property | Type | Description |
 |  --- | --- | --- |
+|  [customObjectIdClass?](./tsrpc-base-client.baseclientoptions.customobjectidclass.md) | { new (id?: any): any; } \| false | <i>(Optional)</i> 自定义 mongodb/ObjectId 的反序列化类型 传入 <code>String</code>，则会反序列化为字符串 传入 <code>ObjectId</code>, 则会反序列化为 <code>ObjectId</code> 实例 若为 <code>false</code>，则不会自动对 ObjectId 进行额外处理 将会针对 'mongodb/ObjectId' 'bson/ObjectId' 进行处理 |
 |  [debugBuf?](./tsrpc-base-client.baseclientoptions.debugbuf.md) | boolean | <i>(Optional)</i> If <code>true</code>, all sent and received raw buffer would be print into the log. It may be useful when you do something for buffer encryption/decryption, and want to debug them. |
 |  [logger?](./tsrpc-base-client.baseclientoptions.logger.md) | Logger | <i>(Optional)</i> <code>Logger</code> to process API Request/Response, send message, send buffer... If it is assigned to <code>undefined</code>, all log would be hidden. (It may be useful when you want to encrypt the transportation) |
 |  [timeout?](./tsrpc-base-client.baseclientoptions.timeout.md) | number | <i>(Optional)</i> Timeout time for <code>callApi</code> (ms) <code>undefined</code> or <code>0</code> means unlimited |

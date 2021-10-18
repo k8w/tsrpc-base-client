@@ -1,6 +1,6 @@
 import { CustomTypeSchema } from 'tsbuffer-schema';
 
-export function getCustomTypes(classObjectId: any): { [schemaId: string]: CustomTypeSchema } {
+export function getCustomObjectIdTypes(classObjectId: { new(id?: any): any }): { [schemaId: string]: CustomTypeSchema } {
     let output: { [schemaId: string]: CustomTypeSchema } = {};
 
     // string
@@ -17,8 +17,7 @@ export function getCustomTypes(classObjectId: any): { [schemaId: string]: Custom
                 return { isSucc: true };
             },
             encode: (value: string) => {
-                let u32Arr = new Uint32Array(Array.from({ length: 3 }, (_, i) => Number.parseInt('0x' + value.substr(i * 4, 4))));
-                return new Uint8Array(u32Arr.buffer, u32Arr.byteOffset, u32Arr.byteLength);
+                return new Uint8Array(Array.from({ length: 12 }, (_, i) => Number.parseInt('0x' + value.substr(i * 2, 2))));
             },
             decode: (buf: Uint8Array) => {
                 return Array.from(buf, v => {
@@ -43,6 +42,8 @@ export function getCustomTypes(classObjectId: any): { [schemaId: string]: Custom
         }
     }
     output['?mongodb/ObjectID'] = output['?mongodb/ObjectId'];
+    output['?bson/ObjectId'] = output['?mongodb/ObjectId'];
+    output['?bson/ObjectID'] = output['?mongodb/ObjectId'];
 
     return output;
 }

@@ -11,6 +11,7 @@ Start connecting, you must connect first before `callApi()` and `sendMsg()`<!-- 
 ```typescript
 connect(): Promise<{
         isSucc: true;
+        errMsg?: undefined;
     } | {
         isSucc: false;
         errMsg: string;
@@ -18,7 +19,7 @@ connect(): Promise<{
 ```
 <b>Returns:</b>
 
-Promise&lt;{ isSucc: true; } \| { isSucc: false; errMsg: string; }&gt;
+Promise&lt;{ isSucc: true; errMsg?: undefined; } \| { isSucc: false; errMsg: string; }&gt;
 
 ## Exceptions
 

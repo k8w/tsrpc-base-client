@@ -146,7 +146,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
      * Start connecting, you must connect first before `callApi()` and `sendMsg()`.
      * @throws never
      */
-    async connect(): Promise<{ isSucc: true } | { isSucc: false, errMsg: string }> {
+    async connect(): Promise<{ isSucc: true, errMsg?: undefined } | { isSucc: false, errMsg: string }> {
         // 已连接成功
         if (this.isConnected) {
             return { isSucc: true };

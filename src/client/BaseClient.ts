@@ -3,6 +3,7 @@ import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErro
 import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 import { Counter } from "../models/Counter";
 import { Flow } from "../models/Flow";
+import { getCustomObjectIdTypes } from "../models/getCustomObjectIdTypes";
 import { MsgHandlerManager } from "../models/MsgHandlerManager";
 import { ApiService, MsgService, ServiceMap, ServiceMapUtil } from "../models/ServiceMapUtil";
 import { TransportDataUtil } from "../models/TransportDataUtil";
@@ -114,7 +115,18 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions) {
         this.options = options;
         this.serviceMap = ServiceMapUtil.getServiceMap(proto);
-        this.tsbuffer = new TSBuffer(proto.types);
+
+        let types = { ...proto.types };
+
+        // Custom ObjectId handler
+        if (options.customObjectIdClass) {
+            types = {
+                ...types,
+                ...getCustomObjectIdTypes(options.customObjectIdClass)
+            }
+        }
+
+        this.tsbuffer = new TSBuffer(types);
         this.logger = this.options.logger;
     }
 
@@ -530,7 +542,16 @@ export interface BaseClientOptions {
      * If `true`, all sent and received raw buffer would be print into the log.
      * It may be useful when you do something for buffer encryption/decryption, and want to debug them.
      */
-    debugBuf?: boolean
+    debugBuf?: boolean,
+
+    /**
+     * 自定义 mongodb/ObjectId 的反序列化类型
+     * 传入 `String`，则会反序列化为字符串
+     * 传入 `ObjectId`, 则会反序列化为 `ObjectId` 实例
+     * 若为 `false`，则不会自动对 ObjectId 进行额外处理
+     * 将会针对 'mongodb/ObjectId' 'bson/ObjectId' 进行处理
+     */
+    customObjectIdClass?: { new(id?: any): any } | false;
 }
 
 export interface PendingApiItem {

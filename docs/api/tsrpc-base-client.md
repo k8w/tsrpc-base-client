@@ -27,7 +27,7 @@
 
 |  Function | Description |
 |  --- | --- |
-|  [getCustomTypes(classObjectId)](./tsrpc-base-client.getcustomtypes.md) |  |
+|  [getCustomObjectIdTypes(classObjectId)](./tsrpc-base-client.getcustomobjectidtypes.md) |  |
 
 ## Interfaces
 

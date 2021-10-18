@@ -1,9 +1,8 @@
 # CHANGELOG
 
-## [1.0.15-dev.1] - 2021-10-18
+## [1.0.15] - 2021-10-18
 ### Added
 - Support for `mongodb/ObjectId`
-- `dependencies` to `peerDependencies`
 
 ## [1.0.14] - 2021-10-13
 ### Changed
