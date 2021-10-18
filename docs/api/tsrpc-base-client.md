@@ -23,6 +23,12 @@
 |  --- | --- |
 |  [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
 
+## Functions
+
+|  Function | Description |
+|  --- | --- |
+|  [getCustomTypes(classObjectId)](./tsrpc-base-client.getcustomtypes.md) |  |
+
 ## Interfaces
 
 |  Interface | Description |

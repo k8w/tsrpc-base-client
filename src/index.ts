@@ -6,6 +6,7 @@ export * from './client/BaseWsClient';
 export * from './models/ClientFlowData';
 export * from './models/Counter';
 export * from './models/Flow';
+export * from './models/getCustomTypes';
 export * from './models/MsgHandlerManager';
 export * from './models/ServiceMapUtil';
 export * from './models/TransportDataUtil';

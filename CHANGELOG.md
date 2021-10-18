@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.0.15-dev.0] - 2021-10-18
+### Added
+- Support for `mongodb/ObjectId`
+
 ## [1.0.14] - 2021-10-13
 ### Changed
 - `BaseHttpClient` and `BaseWsClient` no longer have default type param
