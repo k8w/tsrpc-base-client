@@ -38,7 +38,8 @@ export function getCustomObjectIdTypes(classObjectId: { new(id?: any): any }): {
                 { isSucc: true } :
                 { isSucc: false, errMsg: `Expected to be instance of \`ObjectId\`, actually not.` },
             encode: (value: any) => new Uint8Array(value.id),
-            decode: (buf: Uint8Array) => new classObjectId(buf)
+            decode: (buf: Uint8Array) => new classObjectId(buf),
+            decodeJSON: (json: string) => new classObjectId(json)
         }
     }
     output['?mongodb/ObjectID'] = output['?mongodb/ObjectId'];

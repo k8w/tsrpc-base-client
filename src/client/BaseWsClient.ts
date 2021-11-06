@@ -93,12 +93,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
     };
 
     protected _onWsMessage = (data: Uint8Array | string) => {
-        if (typeof data === 'string') {
-            this.logger?.warn('[RecvText]', data)
-        }
-        else {
-            this._onRecvBuf(data);
-        }
+        this._onRecvData(data);
     };
 
     protected async _sendData(data: string | Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError; }> {
