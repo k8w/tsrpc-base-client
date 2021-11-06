@@ -83,7 +83,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         this._pendingApis.slice().forEach(v => {
             v.onReturn?.({
                 isSucc: false,
-                err: new TsrpcError('Lost connection to server', { type: TsrpcErrorType.NetworkError, code: 'LOST_CONN' })
+                err: new TsrpcError(reason || 'Lost connection to server', { type: TsrpcErrorType.NetworkError, code: 'LOST_CONN' })
             })
         })
     };
@@ -103,22 +103,6 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
 
     protected async _sendData(data: string | Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError; }> {
         return new Promise<{ err?: TsrpcError | undefined; }>(async rs => {
-            // Pre Flow
-            let pre = await this.flows.preSendDataFlow.exec({ data: data, sn: pendingApiItem?.sn }, this.logger);
-            if (!pre) {
-                return;
-            }
-            data = pre.data;
-
-            // @deprecated PreSendBufferFlow
-            if (typeof data !== 'string') {
-                let preBuf = await this.flows.preSendBufferFlow.exec({ buf: data, sn: pendingApiItem?.sn }, this.logger);
-                if (!preBuf) {
-                    return;
-                }
-                data = preBuf.buf;
-            }
-
             if (!this.isConnected) {
                 rs({
                     err: new TsrpcError('WebSocket is not connected', {

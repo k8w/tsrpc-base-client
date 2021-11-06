@@ -17,52 +17,10 @@ export class TransportDataUtil {
         return this._tsbuffer;
     }
 
-    static encodeApiReturn(tsbuffer: TSBuffer, service: ApiService, apiReturn: ApiReturn<any>, type: 'text', sn?: number): EncodeOutputText
-    static encodeApiReturn(tsbuffer: TSBuffer, service: ApiService, apiReturn: ApiReturn<any>, type: 'buffer', sn?: number): EncodeOutputBuf
-    static encodeApiReturn(tsbuffer: TSBuffer, service: ApiService, apiReturn: ApiReturn<any>, type: 'text' | 'buffer', sn?: number): EncodeOutputBuf | EncodeOutputText;
-    static encodeApiReturn(tsbuffer: TSBuffer, service: ApiService, apiReturn: ApiReturn<any>, type: 'text' | 'buffer', sn?: number): EncodeOutputBuf | EncodeOutputText {
-        if (type === 'buffer') {
-            let serverOutputData: ServerOutputData = {
-                sn: sn,
-                serviceId: sn !== undefined ? service.id : undefined
-            };
-            if (apiReturn.isSucc) {
-                let op = tsbuffer.encode(apiReturn.res, service.resSchemaId);
-                if (!op.isSucc) {
-                    return op;
-                }
-                serverOutputData.buffer = op.buf;
-            }
-            else {
-                serverOutputData.error = apiReturn.err;
-            }
-
-            let op = this.tsbuffer.encode(serverOutputData, 'ServerOutputData');
-            return op.isSucc ? { isSucc: true, output: op.buf } : { isSucc: false, errMsg: op.errMsg };
-        }
-        else {
-            apiReturn = { ...apiReturn };
-            if (apiReturn.isSucc) {
-                let op = tsbuffer.encodeJSON(apiReturn.res, service.resSchemaId);
-                if (!op.isSucc) {
-                    return op;
-                }
-                apiReturn.res = op.json;
-            }
-            else {
-                apiReturn.err = {
-                    ...apiReturn.err
-                }
-            }
-            let text = JSON.stringify(sn == undefined ? apiReturn : [service.name, apiReturn, sn]);
-            return { isSucc: true, output: text };
-        }
-    }
-
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf;
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', connType: BaseClient<any>['type']): EncodeOutputText;
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText;
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText {
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array>;
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', connType: BaseClient<any>['type']): EncodeOutput<string>;
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array> | EncodeOutput<string>;
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array> | EncodeOutput<string> {
         if (type === 'buffer') {
             let op = tsbuffer.encode(msg, service.msgSchemaId);
             if (!op.isSucc) {
@@ -84,10 +42,10 @@ export class TransportDataUtil {
         }
     }
 
-    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'buffer', sn?: number): EncodeOutputBuf;
-    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'text', sn?: number): EncodeOutputText;
-    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'text' | 'buffer', sn?: number): EncodeOutputBuf | EncodeOutputText;
-    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'text' | 'buffer', sn?: number): EncodeOutputBuf | EncodeOutputText {
+    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'buffer', sn?: number): EncodeOutput<Uint8Array>;
+    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'text', sn?: number): EncodeOutput<string>;
+    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'text' | 'buffer', sn?: number): EncodeOutput<Uint8Array> | EncodeOutput<string>;
+    static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'text' | 'buffer', sn?: number): EncodeOutput<Uint8Array> | EncodeOutput<string> {
         if (type === 'buffer') {
             let op = tsbuffer.encode(req, service.reqSchemaId);
             if (!op.isSucc) {
@@ -110,10 +68,10 @@ export class TransportDataUtil {
         }
     }
 
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf;
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', connType: BaseClient<any>['type']): EncodeOutputText;
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText;
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText {
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array>;
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', connType: BaseClient<any>['type']): EncodeOutput<string>;
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array> | EncodeOutput<string>;
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array> | EncodeOutput<string> {
         if (type === 'buffer') {
             let op = tsbuffer.encode(msg, service.msgSchemaId);
             if (!op.isSucc) {
@@ -170,9 +128,18 @@ export class TransportDataUtil {
             }
 
             if (service.type === 'api') {
-                let op = tsbuffer.decodeJSON(body, service.resSchemaId);
-                if (!op.isSucc) {
-                    return op;
+                if (body.isSucc && 'res' in body) {
+                    let op = tsbuffer.decodeJSON(body.res, service.resSchemaId);
+                    if (!op.isSucc) {
+                        return op;
+                    }
+                    body.res = op.value;
+                }
+                else if (body.err) {
+                    body.err = new TsrpcError(body.err)
+                }
+                else {
+                    return { isSucc: false, errMsg: `Invalid server output format` };
                 }
                 return {
                     isSucc: true,
@@ -180,7 +147,7 @@ export class TransportDataUtil {
                         type: 'api',
                         service: service,
                         sn: sn,
-                        ret: op.value as ApiReturn<any>
+                        ret: body
                     }
                 };
             }
@@ -278,22 +245,10 @@ export class TransportDataUtil {
 
 }
 
-/** @public */
-export declare type EncodeOutputText = {
+export declare type EncodeOutput<T> = {
     isSucc: true;
     /** Encoded binary buffer */
-    output: string;
-    errMsg?: undefined;
-} | {
-    isSucc: false;
-    /** Error message */
-    errMsg: string;
-    output?: undefined;
-};
-export declare type EncodeOutputBuf = {
-    isSucc: true;
-    /** Encoded binary buffer */
-    output: Uint8Array;
+    output: T;
     errMsg?: undefined;
 } | {
     isSucc: false;
