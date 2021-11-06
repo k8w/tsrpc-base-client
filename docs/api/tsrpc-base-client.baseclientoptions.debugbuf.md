@@ -9,5 +9,5 @@ If `true`<!-- -->, all sent and received raw buffer would be print into the log.
 <b>Signature:</b>
 
 ```typescript
-debugBuf?: boolean;
+debugBuf: boolean;
 ```

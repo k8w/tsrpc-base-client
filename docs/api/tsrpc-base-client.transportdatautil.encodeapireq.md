@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, sn?: number): EncodeOutput;
+static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'buffer', sn?: number): EncodeOutputBuf;
 ```
 
 ## Parameters
@@ -17,9 +17,10 @@ static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, sn?: numb
 |  tsbuffer | TSBuffer |  |
 |  service | [ApiService](./tsrpc-base-client.apiservice.md) |  |
 |  req | any |  |
+|  type | 'buffer' |  |
 |  sn | number |  |
 
 <b>Returns:</b>
 
-EncodeOutput
+[EncodeOutputBuf](./tsrpc-base-client.encodeoutputbuf.md)
 

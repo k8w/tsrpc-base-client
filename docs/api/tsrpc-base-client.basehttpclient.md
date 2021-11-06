@@ -30,8 +30,5 @@ export declare class BaseHttpClient<ServiceType extends BaseServiceType> extends
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [\_encodeApiReq(service, req, pendingItem)](./tsrpc-base-client.basehttpclient._encodeapireq.md) |  |  |
-|  [\_encodeClientMsg(service, msg)](./tsrpc-base-client.basehttpclient._encodeclientmsg.md) |  |  |
-|  [\_sendBuf(buf, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._sendbuf.md) |  |  |
-|  [\_sendJSON(jsonStr, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._sendjson.md) |  |  |
+|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._senddata.md) |  |  |
 

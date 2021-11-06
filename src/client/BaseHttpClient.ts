@@ -1,7 +1,4 @@
-import { EncodeOutput } from "tsbuffer";
 import { ApiReturn, BaseServiceType, ServiceProto, TsrpcError } from "tsrpc-proto";
-import { ApiService, MsgService } from "../models/ServiceMapUtil";
-import { TransportDataUtil } from "../models/TransportDataUtil";
 import { TransportOptions } from "../models/TransportOptions";
 import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
 
@@ -26,70 +23,36 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
         this.logger?.log('TSRPC HTTP Client :', this.options.server);
     }
 
-    // Hack for JSON compatibility
-    protected _encodeApiReq(service: ApiService, req: any, pendingItem: PendingApiItem): EncodeOutput {
-        if (this.options.json) {
-            if (this.options.jsonPrune) {
-                let opPrune = this.tsbuffer.prune(req, pendingItem.service.reqSchemaId);
-                if (!opPrune.isSucc) {
-                    return opPrune;
-                }
-                req = opPrune.pruneOutput;
-            }
-            return {
-                isSucc: true,
-                buf: JSON.stringify(req) as any
-            }
-        }
-        else {
-            return TransportDataUtil.encodeApiReq(this.tsbuffer, service, req, undefined);
-        }
-    }
-    // Hack for JSON compatibility
-    protected _encodeClientMsg(service: MsgService, msg: any): EncodeOutput {
-        if (this.options.json) {
-            if (this.options.jsonPrune) {
-                let opPrune = this.tsbuffer.prune(msg, service.msgSchemaId);
-                if (!opPrune.isSucc) {
-                    return opPrune;
-                }
-                msg = opPrune.pruneOutput;
-            }
-            return {
-                isSucc: true,
-                buf: JSON.stringify(msg) as any
-            }
-        }
-        else {
-            return TransportDataUtil.encodeClientMsg(this.tsbuffer, service, msg);
-        }
-    }
-
-    protected async _sendBuf(buf: Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError | undefined; }> {
-        // JSON Compatible Mode
-        if (this.options.json) {
-            return this._sendJSON(buf as any as string, options, serviceId, pendingApiItem);
-        }
-
+    protected async _sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError | undefined; }> {
         let sn = pendingApiItem?.sn;
         let promise = new Promise<{ err?: TsrpcError | undefined; }>(async rs => {
             // Pre Flow
-            let pre = await this.flows.preSendBufferFlow.exec({ buf: buf, sn: pendingApiItem?.sn }, this.logger);
+            let pre = await this.flows.preSendDataFlow.exec({ data: data, sn: pendingApiItem?.sn }, this.logger);
             if (!pre) {
                 return;
             }
-            buf = pre.buf;
+            data = pre.data;
+
+            // @deprecated PreSendBufferFlow
+            if (typeof data !== 'string') {
+                let preBuf = await this.flows.preSendBufferFlow.exec({ buf: data, sn: pendingApiItem?.sn }, this.logger);
+                if (!preBuf) {
+                    return;
+                }
+                data = preBuf.buf;
+            }
 
             // Do Send
-            this.options.debugBuf && this.logger?.debug('[SendBuf]' + (sn ? (' #' + sn) : ''), `length=${buf.length}`, buf);
+            this.options.debugBuf && this.logger?.debug((typeof data === 'string' ? '[SendText]' : '[SendBuf]')
+                + (sn ? (' #' + sn) : ''), `length=${data.length}`, data);
             let { promise: fetchPromise, abort } = this._http.fetch({
-                url: this.options.server,
-                data: buf,
+                url: typeof data === 'string' ? (this._jsonServer + this.serviceMap.id2Service[serviceId].name) : this.options.server,
+                data: data,
                 method: 'POST',
                 timeout: options.timeout || this.options.timeout,
-                headers: { 'Content-Type': 'application/octet-stream' },
+                headers: { 'Content-Type': typeof data === 'string' ? 'application/json' : 'application/octet-stream' },
                 transportOptions: options,
-                responseType: 'arraybuffer',
+                responseType: typeof data === 'string' ? 'text' : 'arraybuffer',
             });
 
             if (pendingApiItem) {
@@ -110,7 +73,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
             }
 
             rs({});
-            this._onRecvBuf(fetchRes.res as Uint8Array, pendingApiItem)
+            this._onRecvData(fetchRes.res, pendingApiItem)
         });
 
         // Finally
@@ -122,99 +85,18 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
 
         return promise;
     }
-
-    protected async _sendJSON(jsonStr: string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError | undefined; }> {
-        return new Promise(async rs => {
-            let { promise: fetchPromise, abort } = this._http.fetch({
-                url: this._jsonServer + this.serviceMap.id2Service[serviceId].name,
-                data: jsonStr,
-                method: 'POST',
-                timeout: options.timeout || this.options.timeout,
-                headers: { 'Content-Type': 'application/json' },
-                transportOptions: options,
-                responseType: 'text',
-            });
-
-            if (pendingApiItem) {
-                pendingApiItem.onAbort = () => {
-                    abort();
-                }
-            }
-
-            // Aborted
-            if (pendingApiItem?.isAborted) {
-                return;
-            }
-
-            let fetchRes = await fetchPromise;
-            if (!fetchRes.isSucc) {
-                rs({ err: fetchRes.err });
-                return;
-            }
-
-            rs({});
-
-            // Parse JSON
-            let ret: ApiReturn<any>
-            try {
-                ret = JSON.parse(fetchRes.res as string);
-            }
-            catch (e) {
-                ret = {
-                    isSucc: false,
-                    err: new TsrpcError({
-                        message: e.message,
-                        type: TsrpcError.Type.ServerError,
-                        res: fetchRes.res
-                    })
-                }
-            }
-
-            // API Return
-            if (pendingApiItem) {
-                if (ret.isSucc) {
-                    if (this.options.jsonPrune) {
-                        let opPrune = this.tsbuffer.prune(ret.res, pendingApiItem.service.resSchemaId);
-                        if (opPrune.isSucc) {
-                            ret.res = opPrune.pruneOutput;
-                        }
-                        else {
-                            ret = {
-                                isSucc: false,
-                                err: new TsrpcError('Invalid Server Output', {
-                                    type: TsrpcError.Type.ClientError,
-                                    innerErr: opPrune.errMsg
-                                })
-                            }
-                        }
-                    }
-                }
-                else {
-                    ret.err = new TsrpcError(ret.err);
-                }
-                pendingApiItem.onReturn?.(ret);
-            }
-        })
-    }
 }
 
 export const defaultBaseHttpClientOptions: BaseHttpClientOptions = {
     ...defaultBaseClientOptions,
     server: 'http://localhost:3000',
     // logger: new TerminalColorLogger(),
-    json: false,
     jsonPrune: true
 }
 
 export interface BaseHttpClientOptions extends BaseClientOptions {
     /** Server URL, starts with `http://` or `https://`. */
     server: string;
-
-    /** 
-     * Use JSON instead of binary as transfering
-     * @defaultValue false
-     */
-    json: boolean;
 
     /**
      * Whether to automatically delete excess properties that not defined in the protocol.

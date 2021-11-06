@@ -2,22 +2,15 @@
 
 [Home](./index.md) &gt; [tsrpc-base-client](./tsrpc-base-client.md) &gt; [BaseClient](./tsrpc-base-client.baseclient.md) &gt; [\_onRecvBuf](./tsrpc-base-client.baseclient._onrecvbuf.md)
 
-## BaseClient.\_onRecvBuf() method
+## BaseClient.\_onRecvBuf property
+
+> Warning: This API is now obsolete.
+> 
+> Please use `_onRecvData` instead
+> 
 
 <b>Signature:</b>
 
 ```typescript
-protected _onRecvBuf(buf: Uint8Array, pendingApiItem?: PendingApiItem): Promise<void>;
+protected _onRecvBuf: (buf: Uint8Array, pendingApiItem?: PendingApiItem) => Promise<void>;
 ```
-
-## Parameters
-
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  buf | Uint8Array |  |
-|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
-
-<b>Returns:</b>
-
-Promise&lt;void&gt;
-

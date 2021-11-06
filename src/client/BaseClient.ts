@@ -1,11 +1,11 @@
-import { EncodeOutput, TSBuffer } from "tsbuffer";
+import { TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 import { Counter } from "../models/Counter";
 import { Flow } from "../models/Flow";
 import { getCustomObjectIdTypes } from "../models/getCustomObjectIdTypes";
 import { MsgHandlerManager } from "../models/MsgHandlerManager";
-import { ApiService, MsgService, ServiceMap, ServiceMapUtil } from "../models/ServiceMapUtil";
+import { ApiService, ServiceMap, ServiceMapUtil } from "../models/ServiceMapUtil";
 import { TransportDataUtil } from "../models/TransportDataUtil";
 import { TransportOptions } from "../models/TransportOptions";
 /**
@@ -26,6 +26,8 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
     /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';
+
+    readonly dataType: 'text' | 'buffer';
 
     readonly options: Readonly<BaseClientOptions>;
 
@@ -56,7 +58,15 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         postSendMsgFlow: new Flow<SendMsgFlowData<ServiceType>>(),
 
         // buffer
+        preSendDataFlow: new Flow<{ data: Uint8Array | string, sn?: number }>(),
+        preRecvDataFlow: new Flow<{ data: Uint8Array | string, sn?: number }>(),
+        /**
+         * @deprecated Please use `preSendDataFlow` instead
+         */
         preSendBufferFlow: new Flow<{ buf: Uint8Array, sn?: number }>(),
+        /**
+         * @deprecated Please use `preRecvDataFlow` instead
+         */
         preRecvBufferFlow: new Flow<{ buf: Uint8Array, sn?: number }>(),
 
         // Connection Flows (Only for WebSocket)
@@ -115,6 +125,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions) {
         this.options = options;
         this.serviceMap = ServiceMapUtil.getServiceMap(proto);
+        this.dataType = this.options.json ? 'text' : 'buffer'
 
         let types = { ...proto.types };
 
@@ -225,7 +236,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             pendingItem.service = service;
 
             // Encode
-            let opEncode = this._encodeApiReq(service, req, pendingItem);
+            let opEncode = TransportDataUtil.encodeApiReq(this.tsbuffer, service, req, this.dataType, this.type === 'LONG' ? pendingItem.sn : undefined);
             if (!opEncode.isSucc) {
                 rs({
                     isSucc: false, err: new TsrpcError(opEncode.errMsg, {
@@ -238,7 +249,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
             // Send Buf...
             let promiseReturn = this._waitApiReturn(pendingItem, options.timeout ?? this.options.timeout);
-            let promiseSend = this._sendBuf(opEncode.buf, options, service.id, pendingItem);
+            let promiseSend = this._sendData(opEncode.output, options, service.id, pendingItem);
             let opSend = await promiseSend;
             if (opSend.err) {
                 rs({
@@ -258,10 +269,6 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         });
 
         return promise;
-    }
-
-    protected _encodeApiReq(service: ApiService, req: any, pendingItem: PendingApiItem): EncodeOutput {
-        return TransportDataUtil.encodeApiReq(this.tsbuffer, service, req, this.type === 'LONG' ? pendingItem.sn : undefined);
     }
 
     /**
@@ -302,7 +309,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
 
             // Encode
-            let opEncode = this._encodeClientMsg(service, msg);
+            let opEncode = TransportDataUtil.encodeClientMsg(this.tsbuffer, service, msg, this.dataType, this.type);
             if (!opEncode.isSucc) {
                 rs({
                     isSucc: false,
@@ -315,7 +322,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
 
             // Send Buf...
-            let promiseSend = this._sendBuf(opEncode.buf, options, service.id);
+            let promiseSend = this._sendData(opEncode.output, options, service.id);
             let opSend = await promiseSend;
             if (opSend.err) {
                 rs({
@@ -332,10 +339,6 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         });
 
         return promise;
-    }
-
-    protected _encodeClientMsg(service: MsgService, msg: any): EncodeOutput {
-        return TransportDataUtil.encodeClientMsg(this.tsbuffer, service, msg);
     }
 
     /**
@@ -435,29 +438,44 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     /**
-     * Send buffer
+     * Send data (binary or text)
      * @remarks
      * Long connection: wait res by listenning `conn.onmessage`
      * Short connection: wait res by waitting response
-     * @param buf 
+     * @param data 
      * @param options 
      * @param sn 
      */
-    protected abstract _sendBuf(buf: Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }>;
+    protected abstract _sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }>;
 
-    protected async _onRecvBuf(buf: Uint8Array, pendingApiItem?: PendingApiItem) {
+    // 信道可传输二进制或字符串
+    protected async _onRecvData(data: Uint8Array | string, pendingApiItem?: PendingApiItem) {
         let sn = pendingApiItem?.sn;
-        this.options.debugBuf && this.logger?.debug('[RecvBuf]' + (sn ? (' #' + sn) : ''), 'length=' + buf.length, buf);
 
         // Pre Flow
-        let pre = await this.flows.preRecvBufferFlow.exec({ buf: buf, sn: sn }, this.logger);
+        let pre = await this.flows.preRecvDataFlow.exec({ data: data, sn: sn }, this.logger);
         if (!pre) {
             return;
         }
-        buf = pre.buf;
+        data = pre.data;
+
+        if (typeof data === 'string') {
+            this.options.debugBuf && this.logger?.debug('[RecvText]' + (sn ? (' #' + sn) : ''), data);
+        }
+        else {
+            this.options.debugBuf && this.logger?.debug('[RecvBuf]' + (sn ? (' #' + sn) : ''), 'length=' + data.length, data);
+
+            // @deprecated
+            // Pre Flow
+            let pre = await this.flows.preRecvBufferFlow.exec({ buf: data, sn: sn }, this.logger);
+            if (!pre) {
+                return;
+            }
+            data = pre.buf;
+        }
 
         // Parse
-        let opParsed = TransportDataUtil.parseServerOutout(this.tsbuffer, this.serviceMap, buf, pendingApiItem?.service.id);
+        let opParsed = TransportDataUtil.parseServerOutout(this.tsbuffer, this.serviceMap, data, pendingApiItem?.service.id);
         if (opParsed.isSucc) {
             let parsed = opParsed.result;
             if (parsed.type === 'api') {
@@ -472,7 +490,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         }
         else {
             this.logger?.error('ParseServerOutputError: ' + opParsed.errMsg);
-            this.logger?.error('Please check whether the proto on the server is the same as that on the client');
+            if (typeof data !== 'string') {
+                this.logger?.error('Please check whether the proto on the server is the same as that on the client');
+            }
             if (pendingApiItem) {
                 pendingApiItem.onReturn?.({
                     isSucc: false,
@@ -481,6 +501,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
         }
     }
+
+    /** @deprecated Please use `_onRecvData` instead */
+    protected _onRecvBuf: (buf: Uint8Array, pendingApiItem?: PendingApiItem) => Promise<void> = this._onRecvData;
 
     /**
      * @param sn 
@@ -521,7 +544,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 }
 
 export const defaultBaseClientOptions: BaseClientOptions = {
-    timeout: 15000
+    json: false,
+    timeout: 15000,
+    debugBuf: false
 }
 
 export interface BaseClientOptions {
@@ -532,17 +557,25 @@ export interface BaseClientOptions {
      */
     logger?: Logger;
 
+    /**
+     * Use JSON instead of binary as transfering format.
+     * JSON transportation also support ArrayBuffer / Date / ObjectId.
+     * @defaultValue `false`
+     */
+    json: boolean;
+
     /** 
      * Timeout time for `callApi` (ms)
      * `undefined` or `0` means unlimited
      * @defaultValue `15000`
      */
-    timeout?: number;
+    timeout: number;
     /**
      * If `true`, all sent and received raw buffer would be print into the log.
      * It may be useful when you do something for buffer encryption/decryption, and want to debug them.
+     * @defaultValue `false`
      */
-    debugBuf?: boolean,
+    debugBuf: boolean,
 
     /**
      * 自定义 mongodb/ObjectId 的反序列化类型

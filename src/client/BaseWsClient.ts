@@ -101,14 +101,23 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         }
     };
 
-    protected async _sendBuf(buf: Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError; }> {
+    protected async _sendData(data: string | Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError; }> {
         return new Promise<{ err?: TsrpcError | undefined; }>(async rs => {
             // Pre Flow
-            let pre = await this.flows.preSendBufferFlow.exec({ buf: buf, sn: pendingApiItem?.sn }, this.logger);
+            let pre = await this.flows.preSendDataFlow.exec({ data: data, sn: pendingApiItem?.sn }, this.logger);
             if (!pre) {
                 return;
             }
-            buf = pre.buf;
+            data = pre.data;
+
+            // @deprecated PreSendBufferFlow
+            if (typeof data !== 'string') {
+                let preBuf = await this.flows.preSendBufferFlow.exec({ buf: data, sn: pendingApiItem?.sn }, this.logger);
+                if (!preBuf) {
+                    return;
+                }
+                data = preBuf.buf;
+            }
 
             if (!this.isConnected) {
                 rs({
@@ -121,10 +130,10 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
             }
 
             // Do Send
-            if (this.options.debugBuf && buf instanceof Uint8Array) {
-                this.logger?.debug('[SendBuf]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${buf.byteLength}`, buf);
-            }
-            rs(this._wsp.send(buf));
+            this.options.debugBuf && this.logger?.debug((typeof data === 'string' ? '[SendText]' : '[SendBuf]')
+                + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${data.length}`, data);
+
+            rs(this._wsp.send(data));
         });
     }
 

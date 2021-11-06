@@ -9,5 +9,5 @@ Timeout time for `callApi` (ms) `undefined` or `0` means unlimited
 <b>Signature:</b>
 
 ```typescript
-timeout?: number;
+timeout: number;
 ```

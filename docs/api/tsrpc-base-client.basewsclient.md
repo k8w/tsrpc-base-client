@@ -37,7 +37,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType> extends B
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [\_sendBuf(buf, options, serviceId, pendingApiItem)](./tsrpc-base-client.basewsclient._sendbuf.md) |  |  |
+|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basewsclient._senddata.md) |  |  |
 |  [connect()](./tsrpc-base-client.basewsclient.connect.md) |  | Start connecting, you must connect first before <code>callApi()</code> and <code>sendMsg()</code>. |
 |  [disconnect(code, reason)](./tsrpc-base-client.basewsclient.disconnect.md) |  | Disconnect immediately |
 

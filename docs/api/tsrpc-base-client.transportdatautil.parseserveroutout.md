@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, buf: Uint8Array, serviceId?: number): {
+static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, data: Uint8Array | string, serviceId?: number): {
         isSucc: true;
         result: ParsedServerOutput;
     } | {
@@ -22,7 +22,7 @@ static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, buf: Uint8A
 |  --- | --- | --- |
 |  tsbuffer | TSBuffer |  |
 |  serviceMap | [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
-|  buf | Uint8Array |  |
+|  data | Uint8Array \| string |  |
 |  serviceId | number |  |
 
 <b>Returns:</b>
