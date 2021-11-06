@@ -46,13 +46,14 @@ You can implement a client on a specific transportation protocol (like HTTP, Web
 |  --- | --- | --- |
 |  [\_doCallApi(apiName, req, options, pendingItem)](./tsrpc-base-client.baseclient._docallapi.md) |  |  |
 |  [\_onRecvData(data, pendingApiItem)](./tsrpc-base-client.baseclient._onrecvdata.md) |  |  |
-|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.baseclient._senddata.md) |  | Send data (binary or text) |
+|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.baseclient._senddata.md) |  |  |
 |  [\_waitApiReturn(pendingItem, timeout)](./tsrpc-base-client.baseclient._waitapireturn.md) |  |  |
 |  [abort(sn)](./tsrpc-base-client.baseclient.abort.md) |  | Abort a pending API request, it makes the promise returned by <code>callApi()</code> neither resolved nor rejected forever. |
 |  [abortAll()](./tsrpc-base-client.baseclient.abortall.md) |  | Abort all pending API requests. It makes the promise returned by <code>callApi</code> neither resolved nor rejected forever. |
 |  [abortByKey(abortKey)](./tsrpc-base-client.baseclient.abortbykey.md) |  | Abort all API requests that has the <code>abortKey</code>. It makes the promise returned by <code>callApi</code> neither resolved nor rejected forever. |
 |  [callApi(apiName, req, options)](./tsrpc-base-client.baseclient.callapi.md) |  | Send request and wait for the return |
 |  [listenMsg(msgName, handler)](./tsrpc-base-client.baseclient.listenmsg.md) |  | Add a message handler, duplicate handlers to the same <code>msgName</code> would be ignored. |
+|  [sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.baseclient.senddata.md) |  | Send data (binary or text) |
 |  [sendMsg(msgName, msg, options)](./tsrpc-base-client.baseclient.sendmsg.md) |  | Send message, without response, not ensuring the server is received and processed correctly. |
 |  [unlistenMsg(msgName, handler)](./tsrpc-base-client.baseclient.unlistenmsg.md) |  | Remove a message handler |
 |  [unlistenMsgAll(msgName)](./tsrpc-base-client.baseclient.unlistenmsgall.md) |  | Remove all handlers from a message |

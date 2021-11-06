@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf;
+static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf;
 ```
 
 ## Parameters
@@ -18,7 +18,7 @@ static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 
 |  service | [MsgService](./tsrpc-base-client.msgservice.md) |  |
 |  msg | any |  |
 |  type | 'buffer' |  |
-|  clientType | [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;any&gt;\['type'\] |  |
+|  connType | [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;any&gt;\['type'\] |  |
 
 <b>Returns:</b>
 

@@ -59,10 +59,10 @@ export class TransportDataUtil {
         }
     }
 
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf;
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', clientType: BaseClient<any>['type']): EncodeOutputText;
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText;
-    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText {
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf;
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', connType: BaseClient<any>['type']): EncodeOutputText;
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText;
+    static encodeClientMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText {
         if (type === 'buffer') {
             let op = tsbuffer.encode(msg, service.msgSchemaId);
             if (!op.isSucc) {
@@ -80,7 +80,7 @@ export class TransportDataUtil {
             if (!op.isSucc) {
                 return op;
             }
-            return { isSucc: true, output: JSON.stringify(clientType === 'SHORT' ? op.json : [service.name, op.json]) };
+            return { isSucc: true, output: JSON.stringify(connType === 'SHORT' ? op.json : [service.name, op.json]) };
         }
     }
 
@@ -110,10 +110,10 @@ export class TransportDataUtil {
         }
     }
 
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf;
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', clientType: BaseClient<any>['type']): EncodeOutputText;
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText;
-    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', clientType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText {
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf;
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text', connType: BaseClient<any>['type']): EncodeOutputText;
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText;
+    static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'text' | 'buffer', connType: BaseClient<any>['type']): EncodeOutputBuf | EncodeOutputText {
         if (type === 'buffer') {
             let op = tsbuffer.encode(msg, service.msgSchemaId);
             if (!op.isSucc) {
@@ -131,7 +131,7 @@ export class TransportDataUtil {
             if (!op.isSucc) {
                 return op;
             }
-            return { isSucc: true, output: JSON.stringify(clientType === 'SHORT' ? op.json : [service.name, op.json]) }
+            return { isSucc: true, output: JSON.stringify(connType === 'SHORT' ? op.json : [service.name, op.json]) }
         }
     }
 

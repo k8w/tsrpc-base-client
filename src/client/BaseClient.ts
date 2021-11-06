@@ -249,7 +249,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
             // Send Buf...
             let promiseReturn = this._waitApiReturn(pendingItem, options.timeout ?? this.options.timeout);
-            let promiseSend = this._sendData(opEncode.output, options, service.id, pendingItem);
+            let promiseSend = this.sendData(opEncode.output, options, service.id, pendingItem);
             let opSend = await promiseSend;
             if (opSend.err) {
                 rs({
@@ -322,7 +322,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
 
             // Send Buf...
-            let promiseSend = this._sendData(opEncode.output, options, service.id);
+            let promiseSend = this.sendData(opEncode.output, options, service.id);
             let opSend = await promiseSend;
             if (opSend.err) {
                 rs({
@@ -446,6 +446,25 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @param options 
      * @param sn 
      */
+    async sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }> {
+        // Pre Flow
+        let pre = await this.flows.preSendDataFlow.exec({ data: data, sn: pendingApiItem?.sn }, this.logger);
+        if (!pre) {
+            return new Promise(rs => { });
+        }
+        data = pre.data;
+
+        // @deprecated PreSendBufferFlow
+        if (typeof data !== 'string') {
+            let preBuf = await this.flows.preSendBufferFlow.exec({ buf: data, sn: pendingApiItem?.sn }, this.logger);
+            if (!preBuf) {
+                return new Promise(rs => { });
+            }
+            data = preBuf.buf;
+        }
+
+        return this._sendData(data, options, serviceId, pendingApiItem);
+    }
     protected abstract _sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }>;
 
     // 信道可传输二进制或字符串

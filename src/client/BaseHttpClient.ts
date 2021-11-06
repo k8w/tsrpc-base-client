@@ -1,4 +1,4 @@
-import { ApiReturn, BaseServiceType, ServiceProto, TsrpcError } from "tsrpc-proto";
+import { BaseServiceType, ServiceProto, TsrpcError } from "tsrpc-proto";
 import { TransportOptions } from "../models/TransportOptions";
 import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
 
@@ -25,23 +25,7 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
 
     protected async _sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError | undefined; }> {
         let sn = pendingApiItem?.sn;
-        let promise = new Promise<{ err?: TsrpcError | undefined; }>(async rs => {
-            // Pre Flow
-            let pre = await this.flows.preSendDataFlow.exec({ data: data, sn: pendingApiItem?.sn }, this.logger);
-            if (!pre) {
-                return;
-            }
-            data = pre.data;
-
-            // @deprecated PreSendBufferFlow
-            if (typeof data !== 'string') {
-                let preBuf = await this.flows.preSendBufferFlow.exec({ buf: data, sn: pendingApiItem?.sn }, this.logger);
-                if (!preBuf) {
-                    return;
-                }
-                data = preBuf.buf;
-            }
-
+        let promise = (async (): Promise<{ err: TsrpcError | undefined; res?: undefined } | { res: string | Uint8Array, err?: undefined }> => {
             // Do Send
             this.options.debugBuf && this.logger?.debug((typeof data === 'string' ? '[SendText]' : '[SendBuf]')
                 + (sn ? (' #' + sn) : ''), `length=${data.length}`, data);
@@ -63,18 +47,21 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
 
             // Aborted
             if (pendingApiItem?.isAborted) {
-                return;
+                return new Promise(rs => { });
             }
 
             let fetchRes = await fetchPromise;
             if (!fetchRes.isSucc) {
-                rs({ err: fetchRes.err });
-                return;
+                return { err: fetchRes.err };
             }
-
-            rs({});
-            this._onRecvData(fetchRes.res, pendingApiItem)
-        });
+            return { res: fetchRes.res };
+        })();
+        
+        promise.then(v => {
+            if (v.res) {
+                this._onRecvData(v.res, pendingApiItem);
+            }
+        })
 
         // Finally
         promise.catch(e => { }).then(() => {
