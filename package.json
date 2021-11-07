@@ -33,8 +33,10 @@
   "devDependencies": {
     "@microsoft/api-documenter": "^7.13.67",
     "@microsoft/api-extractor": "^7.18.19",
+    "mocha": "^9.1.3",
     "rollup": "^2.59.0",
     "rollup-plugin-typescript2": "^0.30.0",
+    "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
   }
 }
