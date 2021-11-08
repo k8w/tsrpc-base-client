@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [1.1.0-dev.0] - 2021-11-06
+## [1.1.0] - 2021-11-08
 ### Added
 - WebSocket Client support transfering as JSON
 - JSON transfering support extended types such as `ArrayBuffer`, `Date`, `ObjectId`
