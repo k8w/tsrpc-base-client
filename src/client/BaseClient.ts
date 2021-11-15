@@ -27,7 +27,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     /** The connection is long connection or short connection */
     abstract readonly type: 'SHORT' | 'LONG';
 
-    readonly dataType: 'text' | 'buffer';
+    readonly dataType: 'json' | 'text' | 'buffer';
 
     readonly options: Readonly<BaseClientOptions>;
 
@@ -58,8 +58,8 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         postSendMsgFlow: new Flow<SendMsgFlowData<ServiceType>>(),
 
         // buffer
-        preSendDataFlow: new Flow<{ data: Uint8Array | string, sn?: number }>(),
-        preRecvDataFlow: new Flow<{ data: Uint8Array | string, sn?: number }>(),
+        preSendDataFlow: new Flow<{ data: Uint8Array | string | object, sn?: number }>(),
+        preRecvDataFlow: new Flow<{ data: Uint8Array | string | object, sn?: number }>(),
         /**
          * @deprecated Please use `preSendDataFlow` instead
          */
@@ -446,7 +446,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @param options 
      * @param sn 
      */
-    async sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }> {
+    async sendData(data: Uint8Array | string | object, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }> {
         // Pre Flow
         let pre = await this.flows.preSendDataFlow.exec({ data: data, sn: pendingApiItem?.sn }, this.logger);
         if (!pre) {
@@ -455,7 +455,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         data = pre.data;
 
         // @deprecated PreSendBufferFlow
-        if (typeof data !== 'string') {
+        if (data instanceof Uint8Array) {
             let preBuf = await this.flows.preSendBufferFlow.exec({ buf: data, sn: pendingApiItem?.sn }, this.logger);
             if (!preBuf) {
                 return new Promise(rs => { });
@@ -465,10 +465,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
         return this._sendData(data, options, serviceId, pendingApiItem);
     }
-    protected abstract _sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }>;
+    protected abstract _sendData(data: Uint8Array | string | object, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }>;
 
     // 信道可传输二进制或字符串
-    protected async _onRecvData(data: Uint8Array | string, pendingApiItem?: PendingApiItem) {
+    protected async _onRecvData(data: Uint8Array | string | object, pendingApiItem?: PendingApiItem) {
         let sn = pendingApiItem?.sn;
 
         // Pre Flow
@@ -481,7 +481,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         if (typeof data === 'string') {
             this.options.debugBuf && this.logger?.debug('[RecvText]' + (sn ? (' #' + sn) : ''), data);
         }
-        else {
+        else if(data instanceof Uint8Array) {
             this.options.debugBuf && this.logger?.debug('[RecvBuf]' + (sn ? (' #' + sn) : ''), 'length=' + data.length, data);
 
             // @deprecated
@@ -491,6 +491,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
                 return;
             }
             data = pre.buf;
+        }
+        else {
+            this.options.debugBuf && this.logger?.debug('[RecvJSON]' + (sn ? (' #' + sn) : ''), data);
         }
 
         // Parse

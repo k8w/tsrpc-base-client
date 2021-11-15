@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.2.0-dev.0] - 2021-11-15
+### Added
+- Add new data type `json`
+
 ## [1.1.0] - 2021-11-08
 ### Added
 - WebSocket Client support transfering as JSON

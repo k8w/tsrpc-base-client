@@ -23,11 +23,14 @@ export declare class TransportDataUtil
 |  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq.md) | <code>static</code> |  |
 |  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_1.md) | <code>static</code> |  |
 |  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_2.md) | <code>static</code> |  |
+|  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_3.md) | <code>static</code> |  |
 |  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg.md) | <code>static</code> |  |
 |  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_1.md) | <code>static</code> |  |
 |  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_2.md) | <code>static</code> |  |
+|  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_3.md) | <code>static</code> |  |
 |  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg.md) | <code>static</code> |  |
 |  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_1.md) | <code>static</code> |  |
 |  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_2.md) | <code>static</code> |  |
+|  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_3.md) | <code>static</code> |  |
 |  [parseServerOutout(tsbuffer, serviceMap, data, serviceId)](./tsrpc-base-client.transportdatautil.parseserveroutout.md) | <code>static</code> |  |
 

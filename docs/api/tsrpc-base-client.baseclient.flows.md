@@ -16,11 +16,11 @@ readonly flows: {
         readonly preSendMsgFlow: Flow<SendMsgFlowData<ServiceType>>;
         readonly postSendMsgFlow: Flow<SendMsgFlowData<ServiceType>>;
         readonly preSendDataFlow: Flow<{
-            data: Uint8Array | string;
+            data: Uint8Array | string | object;
             sn?: number | undefined;
         }>;
         readonly preRecvDataFlow: Flow<{
-            data: Uint8Array | string;
+            data: Uint8Array | string | object;
             sn?: number | undefined;
         }>;
         readonly preSendBufferFlow: Flow<{

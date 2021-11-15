@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-readonly dataType: 'text' | 'buffer';
+readonly dataType: 'json' | 'text' | 'buffer';
 ```

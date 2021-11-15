@@ -9,7 +9,7 @@ Send data (binary or text)
 <b>Signature:</b>
 
 ```typescript
-sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{
+sendData(data: Uint8Array | string | object, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{
         err?: TsrpcError;
     }>;
 ```
@@ -18,7 +18,7 @@ sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  data | Uint8Array \| string |  |
+|  data | Uint8Array \| string \| object |  |
 |  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
 |  serviceId | number |  |
 |  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |

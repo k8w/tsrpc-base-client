@@ -7,14 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-protected _onRecvData(data: Uint8Array | string, pendingApiItem?: PendingApiItem): Promise<void>;
+protected _onRecvData(data: Uint8Array | string | object, pendingApiItem?: PendingApiItem): Promise<void>;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  data | Uint8Array \| string |  |
+|  data | Uint8Array \| string \| object |  |
 |  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
 
 <b>Returns:</b>
