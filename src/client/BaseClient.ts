@@ -463,6 +463,19 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             data = preBuf.buf;
         }
 
+        // debugBuf log
+        if (this.options.debugBuf) {
+            if (typeof data === 'string') {
+                this.logger?.debug('[SendText]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : '') + ` length=${data.length}`, data);
+            }
+            else if (data instanceof Uint8Array) {
+                this.logger?.debug('[SendBuf]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : '') + ` length=${data.length}`, data);
+            }
+            else {
+                this.logger?.debug('[SendJSON]' + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), data);
+            }
+        }
+
         return this._sendData(data, options, serviceId, pendingApiItem);
     }
     protected abstract _sendData(data: Uint8Array | string | object, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError }>;
@@ -481,7 +494,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         if (typeof data === 'string') {
             this.options.debugBuf && this.logger?.debug('[RecvText]' + (sn ? (' #' + sn) : ''), data);
         }
-        else if(data instanceof Uint8Array) {
+        else if (data instanceof Uint8Array) {
             this.options.debugBuf && this.logger?.debug('[RecvBuf]' + (sn ? (' #' + sn) : ''), 'length=' + data.length, data);
 
             // @deprecated

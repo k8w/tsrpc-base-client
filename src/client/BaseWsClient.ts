@@ -109,9 +109,6 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
             }
 
             // Do Send
-            this.options.debugBuf && this.logger?.debug((typeof data === 'string' ? '[SendText]' : '[SendBuf]')
-                + (pendingApiItem ? (' #' + pendingApiItem.sn) : ''), `length=${data.length}`, data);
-
             rs(this._wsp.send(data));
         });
     }

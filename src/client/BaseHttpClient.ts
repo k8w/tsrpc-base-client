@@ -27,8 +27,6 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
         let sn = pendingApiItem?.sn;
         let promise = (async (): Promise<{ err: TsrpcError | undefined; res?: undefined } | { res: string | Uint8Array, err?: undefined }> => {
             // Do Send
-            this.options.debugBuf && this.logger?.debug((typeof data === 'string' ? '[SendText]' : '[SendBuf]')
-                + (sn ? (' #' + sn) : ''), `length=${data.length}`, data);
             let { promise: fetchPromise, abort } = this._http.fetch({
                 url: typeof data === 'string' ? (this._jsonServer + this.serviceMap.id2Service[serviceId].name) : this.options.server,
                 data: data,
