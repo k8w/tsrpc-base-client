@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [1.2.0-dev.0] - 2021-11-15
+## [1.2.0] - 2021-11-15
 ### Added
 - Add new data type `json`
 
