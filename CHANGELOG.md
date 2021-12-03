@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.2.2] - 2021-12-03
+### Added
+- log `[SendMsgErr]`
+
 ## [1.2.0] - 2021-11-15
 ### Added
 - Add new data type `json`

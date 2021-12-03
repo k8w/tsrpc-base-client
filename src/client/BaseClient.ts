@@ -338,6 +338,12 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             this.flows.postSendMsgFlow.exec(pre, this.logger)
         });
 
+        promise.then(v => {
+            if (!v.isSucc) {
+                this.logger?.error('[SendMsgErr]', v.err);
+            }
+        })
+
         return promise;
     }
 
