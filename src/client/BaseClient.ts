@@ -340,7 +340,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
         promise.then(v => {
             if (!v.isSucc) {
-                this.logger?.error('[SendMsgErr]', v.err);
+                (this.logger ?? console).error('[SendMsgErr]', v.err);
             }
         })
 
