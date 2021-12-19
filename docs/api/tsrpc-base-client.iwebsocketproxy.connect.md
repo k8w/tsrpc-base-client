@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-connect(server: string): void;
+connect(server: string, protocols?: string[]): void;
 ```
 
 ## Parameters
@@ -15,6 +15,7 @@ connect(server: string): void;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  server | string |  |
+|  protocols | string\[\] |  |
 
 <b>Returns:</b>
 

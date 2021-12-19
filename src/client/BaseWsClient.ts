@@ -154,7 +154,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         }
 
         try {
-            this._wsp.connect(this.options.server);
+            this._wsp.connect(this.options.server, [this.options.json ? 'text' : 'buffer']);
         }
         catch (e) {
             this.logger?.error(e);
@@ -212,7 +212,7 @@ export interface IWebSocketProxy {
     },
 
     // Create and connect (return ws client)
-    connect(server: string): void;
+    connect(server: string, protocols?: string[]): void;
     close(code?: number, reason?: string): void;
     send(data: Uint8Array | string): Promise<{ err?: TsrpcError }>;
 }

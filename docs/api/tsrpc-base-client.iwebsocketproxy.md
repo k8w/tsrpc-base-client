@@ -21,6 +21,6 @@ export interface IWebSocketProxy
 |  Method | Description |
 |  --- | --- |
 |  [close(code, reason)](./tsrpc-base-client.iwebsocketproxy.close.md) |  |
-|  [connect(server)](./tsrpc-base-client.iwebsocketproxy.connect.md) |  |
+|  [connect(server, protocols)](./tsrpc-base-client.iwebsocketproxy.connect.md) |  |
 |  [send(data)](./tsrpc-base-client.iwebsocketproxy.send.md) |  |
 
