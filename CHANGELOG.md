@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [1.2.4-dev.1] - 2021-12-19
+## [1.2.4] - 2021-12-19
 ### Added
 - Websocket: attached `protocols` when `connect`
 ### Changed
