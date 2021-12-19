@@ -60,6 +60,7 @@
 |  [CallApiFlowData](./tsrpc-base-client.callapiflowdata.md) |  |
 |  [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md) |  |
 |  [EncodeOutput](./tsrpc-base-client.encodeoutput.md) |  |
+|  [FlowData](./tsrpc-base-client.flowdata.md) |  |
 |  [FlowNode](./tsrpc-base-client.flownode.md) |  |
 |  [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md) |  |
 |  [ParsedServerInput](./tsrpc-base-client.parsedserverinput.md) |  |

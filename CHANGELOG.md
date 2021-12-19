@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.2.4-dev.0] - 2021-12-19
+### Changed
+- Optimized code
+
 ## [1.2.3] - 2021-12-03
 ### Added
 - log `[SendMsgErr]`

@@ -17,7 +17,6 @@ export type FlowNode<T> = (item: T) => FlowNodeReturn<T> | Promise<FlowNodeRetur
  * The difference to event is it can be used to **interrupt** an action, by return `undefined` or `null` in a node.
  */
 export class Flow<T> {
-
     /**
      * All node functions, if you want to adjust the sort you can modify this.
      */
@@ -91,3 +90,5 @@ export class Flow<T> {
     }
 
 }
+
+export type FlowData<T extends Flow<any>> = T extends Flow<infer R> ? R : unknown;

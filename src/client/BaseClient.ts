@@ -517,22 +517,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
         // Parse
         let opParsed = TransportDataUtil.parseServerOutout(this.tsbuffer, this.serviceMap, data, pendingApiItem?.service.id);
-        if (opParsed.isSucc) {
-            let parsed = opParsed.result;
-            if (parsed.type === 'api') {
-                sn = sn ?? parsed.sn;
-                // call ApiReturn listeners
-                this._pendingApis.find(v => v.sn === sn)?.onReturn?.(parsed.ret);
-            }
-            else if (parsed.type === 'msg') {
-                this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
-                this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name);
-            }
-        }
-        else {
+        if (!opParsed.isSucc) {
             this.logger?.error('ParseServerOutputError: ' + opParsed.errMsg);
-            if (typeof data !== 'string') {
-                this.logger?.error('Please check whether the proto on the server is the same as that on the client');
+            if (data instanceof Uint8Array) {
+                this.logger?.error('Please check the version of serviceProto between server and client');
             }
             if (pendingApiItem) {
                 pendingApiItem.onReturn?.({
@@ -540,6 +528,18 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
                     err: new TsrpcError('Parse server output error', { type: TsrpcErrorType.ServerError })
                 })
             }
+            return;
+        }
+
+        let parsed = opParsed.result;
+        if (parsed.type === 'api') {
+            sn = sn ?? parsed.sn;
+            // call ApiReturn listeners
+            this._pendingApis.find(v => v.sn === sn)?.onReturn?.(parsed.ret);
+        }
+        else if (parsed.type === 'msg') {
+            this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
+            this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name);
         }
     }
 
