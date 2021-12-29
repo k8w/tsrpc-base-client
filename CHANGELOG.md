@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.2.5] - 2021-12-29
+### Changed
+- Error code change: `ENCODE_REQ_ERR` -> `INPUT_DATA_ERR`
+
 ## [1.2.4] - 2021-12-19
 ### Added
 - Websocket: attached `protocols` when `connect`
