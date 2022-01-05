@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [1.2.6] - 2022-01-06
+### Fixed
+- `cjs` to `js` to fix `react-scripts@5`
+
 ## [1.2.5] - 2021-12-29
 ### Changed
 - Error code change: `ENCODE_REQ_ERR` -> `INPUT_DATA_ERR`
