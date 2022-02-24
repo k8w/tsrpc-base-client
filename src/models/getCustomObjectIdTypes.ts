@@ -1,4 +1,4 @@
-import { CustomTypeSchema } from 'tsbuffer-schema';
+import { CustomTypeSchema, SchemaType } from 'tsbuffer-schema';
 
 export function getCustomObjectIdTypes(classObjectId: { new(id?: any): any }): { [schemaId: string]: CustomTypeSchema } {
     let output: { [schemaId: string]: CustomTypeSchema } = {};
@@ -6,7 +6,7 @@ export function getCustomObjectIdTypes(classObjectId: { new(id?: any): any }): {
     // string
     if (classObjectId === String) {
         output['?mongodb/ObjectId'] = {
-            type: 'Custom',
+            type: SchemaType.Custom,
             validate: (value: string) => {
                 if (typeof value !== 'string') {
                     return { isSucc: false, errMsg: `Expected type to be \`string\`, actually \`${typeof value}\`.` };
@@ -33,7 +33,7 @@ export function getCustomObjectIdTypes(classObjectId: { new(id?: any): any }): {
     // ObjectId
     else {
         output['?mongodb/ObjectId'] = {
-            type: 'Custom',
+            type: SchemaType.Custom,
             validate: (value: any) => (value instanceof classObjectId) ?
                 { isSucc: true } :
                 { isSucc: false, errMsg: `Expected to be instance of \`ObjectId\`, actually not.` },

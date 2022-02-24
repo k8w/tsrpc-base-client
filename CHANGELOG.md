@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.0.0-dev.0] - 2022-02-24
+### Changed
+- Update deps
+
 ## [1.2.6] - 2022-01-06
 ### Fixed
 - `cjs` to `js` to fix `react-scripts@5`
