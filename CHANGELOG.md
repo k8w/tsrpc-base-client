@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [2.0.0-dev.0] - 2022-02-24
+## [2.0.0] - 2022-02-24
 ### Changed
 - Update deps
 

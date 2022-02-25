@@ -1,6 +1,6 @@
 {
   "name": "tsrpc-base-client",
-  "version": "2.0.0-dev.0",
+  "version": "2.0.0",
   "description": "TSRPC Base Client",
   "main": "index.js",
   "exports": {
@@ -26,9 +26,9 @@
   "homepage": "https://github.com/k8w/tsrpc-base-client#readme",
   "dependencies": {
     "k8w-extend-native": "^1.4.6",
-    "tsbuffer": "^2.2.0-dev.0",
+    "tsbuffer": "^2.2.0",
     "tslib": "*",
-    "tsrpc-proto": "^1.4.0-dev.0"
+    "tsrpc-proto": "^1.4.0"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.15.3",
