@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.0.1-dev.0] - 2022-3-21
+### Fixed
+- `postDisconnectFlow` not executed when `disconnect()` manually
+
 ## [2.0.0] - 2022-02-24
 ### Changed
 - Update deps

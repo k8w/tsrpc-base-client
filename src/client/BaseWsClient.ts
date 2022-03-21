@@ -47,7 +47,8 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
     };
 
     protected _onWsClose = (code: number, reason: string) => {
-        let isConnectedBefore = this.isConnected;
+        let isManual = !!this._rsDisconnecting;
+        let isConnectedBefore = this.isConnected || isManual;
         this._status = WsClientStatus.Closed;
 
         // 连接中，返回连接失败
@@ -60,7 +61,6 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         }
 
         // disconnect中，返回成功
-        let isManual = !!this._rsDisconnecting;
         if (this._rsDisconnecting) {
             this._rsDisconnecting();
             this._rsDisconnecting = undefined;
