@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [2.0.2-dev.0] - 2022-03-25
+## [2.0.2] - 2022-03-25
 ### Fixed
 - Compatibility with Cocos Creator on Android, when using `disconnect` without parameters.
 
