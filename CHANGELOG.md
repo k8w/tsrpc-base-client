@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## [2.0.1-dev.0] - 2022-3-21
+## [2.0.2-dev.0] - 2022-03-25
+### Fixed
+- Compatibility with Cocos Creator on Android, when using `disconnect` without parameters.
+
+## [2.0.1] - 2022-3-21
 ### Fixed
 - `postDisconnectFlow` not executed when `disconnect()` manually
 

@@ -186,7 +186,16 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         this.logger?.log('Start disconnecting...');
         return new Promise<void>(rs => {
             this._rsDisconnecting = rs;
-            this._wsp.close(code, reason);
+            // 兼容 Cocos Creator 的原生实现
+            if (code === undefined && reason === undefined) {
+                this._wsp.close();
+            }
+            else if (reason === undefined) {
+                this._wsp.close(code);
+            }
+            else {
+                this._wsp.close(code, reason);
+            }
         })
     }
 }
