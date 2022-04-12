@@ -16,6 +16,6 @@ constructor(min?: number, max?: number);
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  min | number |  |
-|  max | number |  |
+|  min | number | <i>(Optional)</i> |
+|  max | number | <i>(Optional)</i> |
 

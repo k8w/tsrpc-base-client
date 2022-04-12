@@ -18,5 +18,5 @@ constructor(proto: ServiceProto<ServiceType>, wsp: IWebSocketProxy, options?: Pa
 |  --- | --- | --- |
 |  proto | ServiceProto&lt;ServiceType&gt; |  |
 |  wsp | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
-|  options | Partial&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
+|  options | Partial&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; | <i>(Optional)</i> |
 

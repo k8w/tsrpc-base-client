@@ -15,7 +15,7 @@ protected _onRecvData(data: Uint8Array | string | object, pendingApiItem?: Pendi
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  data | Uint8Array \| string \| object |  |
-|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
+|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

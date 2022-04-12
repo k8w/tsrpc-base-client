@@ -1,8 +1,8 @@
 # CHANGELOG
 
-## [2.0.3] - 2022-04-12
+## [2.0.4] - 2022-04-12
 ### Changed
-- Update `tsbuffer` to version `2.2.1`
+- Update `tsbuffer` to version `2.2.2`
 
 ## [2.0.2] - 2022-03-25
 ### Fixed

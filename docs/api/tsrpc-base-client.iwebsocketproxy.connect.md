@@ -15,7 +15,7 @@ connect(server: string, protocols?: string[]): void;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  server | string |  |
-|  protocols | string\[\] |  |
+|  protocols | string\[\] | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

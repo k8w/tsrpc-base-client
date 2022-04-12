@@ -18,7 +18,7 @@ callApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][
 |  --- | --- | --- |
 |  apiName | T |  |
 |  req | ServiceType\['api'\]\[T\]\['req'\] | Request body |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | Transport options |
+|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | <i>(Optional)</i> Transport options |
 
 <b>Returns:</b>
 

@@ -21,7 +21,7 @@ sendData(data: Uint8Array | string | object, options: TransportOptions, serviceI
 |  data | Uint8Array \| string \| object |  |
 |  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
 |  serviceId | number |  |
-|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
+|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

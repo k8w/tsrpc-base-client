@@ -19,7 +19,7 @@ protected _sendData(data: Uint8Array | string, options: TransportOptions, servic
 |  data | Uint8Array \| string |  |
 |  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
 |  serviceId | number |  |
-|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
+|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

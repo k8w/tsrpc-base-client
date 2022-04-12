@@ -18,5 +18,5 @@ constructor(proto: ServiceProto<ServiceType>, http: IHttpProxy, options?: Partia
 |  --- | --- | --- |
 |  proto | ServiceProto&lt;ServiceType&gt; |  |
 |  http | [IHttpProxy](./tsrpc-base-client.ihttpproxy.md) |  |
-|  options | Partial&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; |  |
+|  options | Partial&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; | <i>(Optional)</i> |
 

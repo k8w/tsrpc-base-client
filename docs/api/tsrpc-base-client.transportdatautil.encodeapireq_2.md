@@ -18,7 +18,7 @@ static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'js
 |  service | [ApiService](./tsrpc-base-client.apiservice.md) |  |
 |  req | any |  |
 |  type | 'json' |  |
-|  sn | number |  |
+|  sn | number | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

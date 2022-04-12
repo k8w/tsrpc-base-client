@@ -23,7 +23,7 @@ static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, data: Uint8
 |  tsbuffer | TSBuffer |  |
 |  serviceMap | [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
 |  data | Uint8Array \| string \| object |  |
-|  serviceId | number |  |
+|  serviceId | number | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

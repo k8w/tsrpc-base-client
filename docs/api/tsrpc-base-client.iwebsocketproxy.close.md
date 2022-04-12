@@ -14,8 +14,8 @@ close(code?: number, reason?: string): void;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  code | number |  |
-|  reason | string |  |
+|  code | number | <i>(Optional)</i> |
+|  reason | string | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

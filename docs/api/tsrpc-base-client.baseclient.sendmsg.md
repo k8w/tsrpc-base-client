@@ -23,7 +23,7 @@ sendMsg<T extends keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][
 |  --- | --- | --- |
 |  msgName | T |  |
 |  msg | ServiceType\['msg'\]\[T\] | Message body |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | Transport options |
+|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | <i>(Optional)</i> Transport options |
 
 <b>Returns:</b>
 

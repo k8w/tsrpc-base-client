@@ -11,7 +11,7 @@ Base HTTP Client
 ```typescript
 export declare class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> 
 ```
-<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;ServiceType&gt;
+<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)
 
 ## Constructors
 

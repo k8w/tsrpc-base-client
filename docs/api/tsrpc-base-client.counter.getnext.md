@@ -16,7 +16,7 @@ getNext(notInc?: boolean): number;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  notInc | boolean | Just get the next possible value, not actually increasing the sequence |
+|  notInc | boolean | <i>(Optional)</i> Just get the next possible value, not actually increasing the sequence |
 
 <b>Returns:</b>
 
