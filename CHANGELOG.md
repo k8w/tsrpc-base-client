@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.0.5-dev.0] - 2022-04-14
+### Added
+- New options `logApi` and `logMsg`
+
 ## [2.0.4] - 2022-04-12
 ### Changed
 - Update `tsbuffer` to version `2.2.2`

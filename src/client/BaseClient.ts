@@ -187,10 +187,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
             // Log Original Return
             if (ret.isSucc) {
-                this.logger?.log(`[ApiRes] #${pendingItem.sn} ${apiName}`, ret.res);
+                this.options.logApi && this.logger?.log(`[ApiRes] #${pendingItem.sn} ${apiName}`, ret.res);
             }
             else {
-                this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${apiName}`, ret.err);
+                this.options.logApi && this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${apiName}`, ret.err);
             }
 
             // Pre Return Flow
@@ -218,7 +218,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
     }
 
     protected async _doCallApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}, pendingItem: PendingApiItem): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
-        this.logger?.log(`[ApiReq] #${pendingItem.sn}`, apiName, req);
+        this.options.logApi && this.logger?.log(`[ApiReq] #${pendingItem.sn}`, apiName, req);
 
         let promise = new Promise<ApiReturn<ServiceType['api'][T]['res']>>(async rs => {
             // GetService
@@ -292,7 +292,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
 
             // The msg is not prevented by pre flow
-            this.logger?.log(`[SendMsg]`, msgName, msg);
+            this.options.logMsg && this.logger?.log(`[SendMsg]`, msgName, msg);
 
             // GetService
             let service = this.serviceMap.msgName2Service[msgName as string];
@@ -538,7 +538,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             this._pendingApis.find(v => v.sn === sn)?.onReturn?.(parsed.ret);
         }
         else if (parsed.type === 'msg') {
-            this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
+            this.options.logMsg && this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
             this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name);
         }
     }
@@ -585,6 +585,8 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 }
 
 export const defaultBaseClientOptions: BaseClientOptions = {
+    logApi: true,
+    logMsg: true,
     json: false,
     timeout: 15000,
     debugBuf: false
@@ -597,6 +599,21 @@ export interface BaseClientOptions {
      * @defaultValue `console`
      */
     logger?: Logger;
+
+
+    /**
+     * Whether to log [ApiReq] and [ApiRes] by the `logger`.
+     * NOTICE: if `logger` is `undefined`, no log would be printed.
+     * @defaultValue `true`
+     */
+    logApi?: boolean,
+
+    /**
+     * Whether to log [SendMsg] and [RecvMsg] by the `logger`.
+     * NOTICE: if `logger` is `undefined`, no log would be printed.
+     * @defaultValue `true`
+     */
+    logMsg?: boolean,
 
     /**
      * Use JSON instead of binary as transfering format.
