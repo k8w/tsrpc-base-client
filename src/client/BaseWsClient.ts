@@ -109,7 +109,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
     protected _onWsMessage = (data: Uint8Array | string) => {
         // 心跳包回包
         if (data instanceof Uint8Array && data.length === TransportDataUtil.HeartbeatPacket.length && data.every((v, i) => v === TransportDataUtil.HeartbeatPacket[i])) {
-            this._onHeartbeatAnswer();
+            this._onHeartbeatAnswer(data);
             return;
         }
 
@@ -164,17 +164,17 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
             }, this.options.heartbeat.timeout)
         };
 
-        this.options.debugBuf && this.logger?.log('[Heartbeat] Ping', TransportDataUtil.HeartbeatPacket);
+        this.options.debugBuf && this.logger?.log('[Heartbeat] Send ping', TransportDataUtil.HeartbeatPacket);
         this._sendData(TransportDataUtil.HeartbeatPacket);
     }
-    private _onHeartbeatAnswer() {
+    private _onHeartbeatAnswer(data: Uint8Array) {
         if (!this._pendingHeartbeat || this._status !== WsClientStatus.Opened || !this.options.heartbeat) {
             return;
         }
 
         // heartbeat succ
         this.lastHeartbeatLatency = Date.now() - this._pendingHeartbeat.startTime;
-        this.options.debugBuf && this.logger?.log(`[Heartbeat] Pong ${this.lastHeartbeatLatency}ms`)
+        this.options.debugBuf && this.logger?.log(`[Heartbeat] Recv pong, latency=${this.lastHeartbeatLatency}ms`, data)
         clearTimeout(this._pendingHeartbeat.timeoutTimer);
         this._pendingHeartbeat = undefined;
 
