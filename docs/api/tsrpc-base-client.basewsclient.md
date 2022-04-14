@@ -29,6 +29,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType> extends B
 |  [\_onWsOpen](./tsrpc-base-client.basewsclient._onwsopen.md) |  | () =&gt; void |  |
 |  [\_wsp](./tsrpc-base-client.basewsclient._wsp.md) |  | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
 |  [isConnected](./tsrpc-base-client.basewsclient.isconnected.md) |  | boolean |  |
+|  [lastHeartbeatLatency](./tsrpc-base-client.basewsclient.lastheartbeatlatency.md) |  | number | Last latency time (ms) of heartbeat test |
 |  [options](./tsrpc-base-client.basewsclient.options.md) |  | Readonly&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
 |  [status](./tsrpc-base-client.basewsclient.status.md) |  | [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
 |  [type](./tsrpc-base-client.basewsclient.type.md) |  | (not declared) |  |
@@ -37,7 +38,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType> extends B
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basewsclient._senddata.md) |  |  |
+|  [\_sendData(data)](./tsrpc-base-client.basewsclient._senddata.md) |  |  |
 |  [connect()](./tsrpc-base-client.basewsclient.connect.md) |  | Start connecting, you must connect first before <code>callApi()</code> and <code>sendMsg()</code>. |
 |  [disconnect(code, reason)](./tsrpc-base-client.basewsclient.disconnect.md) |  | Disconnect immediately |
 

@@ -26,13 +26,13 @@
   "homepage": "https://github.com/k8w/tsrpc-base-client#readme",
   "dependencies": {
     "k8w-extend-native": "^1.4.6",
-    "tsbuffer": "^2.2.1",
+    "tsbuffer": "^2.2.2",
     "tslib": "*",
-    "tsrpc-proto": "^1.4.0"
+    "tsrpc-proto": "^1.4.1"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.17.6",
-    "@microsoft/api-extractor": "^7.21.3",
+    "@microsoft/api-documenter": "^7.17.8",
+    "@microsoft/api-extractor": "^7.22.1",
     "mocha": "^9.2.2",
     "rollup": "^2.70.1",
     "rollup-plugin-typescript2": "^0.31.2",

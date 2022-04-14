@@ -8,6 +8,9 @@ export type ParsedServerOutput = { type: 'api', service: ApiService, sn?: number
 
 export class TransportDataUtil {
 
+    // 心跳包（Ping & Pong），所有开头为 0 的 Buffer，均为控制指令
+    static readonly HeartbeatPacket: Readonly<Uint8Array> = new Uint8Array([0]);
+
     private static _tsbuffer?: TSBuffer;
     static get tsbuffer(): TSBuffer {
         if (!this._tsbuffer) {
@@ -99,7 +102,7 @@ export class TransportDataUtil {
         }
     }
 
-    static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, data: Uint8Array | string|object, serviceId?: number): { isSucc: true, result: ParsedServerOutput } | { isSucc: false, errMsg: string } {
+    static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, data: Uint8Array | string | object, serviceId?: number): { isSucc: true, result: ParsedServerOutput } | { isSucc: false, errMsg: string } {
         if (data instanceof Uint8Array) {
             let opServerOutputData = this.tsbuffer.decode<ServerOutputData>(data, 'ServerOutputData');
             if (!opServerOutputData.isSucc) {
@@ -173,7 +176,7 @@ export class TransportDataUtil {
                     }
                 }
             }
-        }        
+        }
         else {
             let json: object;
             if (typeof data === 'string') {
@@ -187,7 +190,7 @@ export class TransportDataUtil {
             else {
                 json = data;
             }
-            
+
             let body: any;
             let sn: number | undefined;
 

@@ -1,5 +1,5 @@
 import { TSBuffer } from "tsbuffer";
-import { ApiReturn, BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
+import { ApiReturn, BaseServiceType, Logger, LogLevel, ServiceProto, setLogLevel, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 import { Counter } from "../models/Counter";
 import { Flow } from "../models/Flow";
@@ -139,6 +139,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
         this.tsbuffer = new TSBuffer(types);
         this.logger = this.options.logger;
+        this.logger && setLogLevel(this.logger, this.options.logLevel);
     }
 
     /**
@@ -585,6 +586,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 }
 
 export const defaultBaseClientOptions: BaseClientOptions = {
+    logLevel: 'debug',
     logApi: true,
     logMsg: true,
     json: false,
@@ -600,20 +602,25 @@ export interface BaseClientOptions {
      */
     logger?: Logger;
 
+    /**
+     * The minimum log level of `logger`
+     * @defaultValue `debug`
+     */
+    logLevel: LogLevel;
 
     /**
      * Whether to log [ApiReq] and [ApiRes] by the `logger`.
      * NOTICE: if `logger` is `undefined`, no log would be printed.
      * @defaultValue `true`
      */
-    logApi?: boolean,
+    logApi: boolean,
 
     /**
      * Whether to log [SendMsg] and [RecvMsg] by the `logger`.
      * NOTICE: if `logger` is `undefined`, no log would be printed.
      * @defaultValue `true`
      */
-    logMsg?: boolean,
+    logMsg: boolean,
 
     /**
      * Use JSON instead of binary as transfering format.

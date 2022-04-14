@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-protected _sendData(data: string | Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{
+protected _sendData(data: string | Uint8Array): Promise<{
         err?: TsrpcError;
     }>;
 ```
@@ -17,9 +17,6 @@ protected _sendData(data: string | Uint8Array, options: TransportOptions, servic
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  data | string \| Uint8Array |  |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
-|  serviceId | number |  |
-|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

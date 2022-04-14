@@ -2,7 +2,9 @@
 
 ## [2.0.5-dev.0] - 2022-04-14
 ### Added
+- Builtin heartbeat support
 - New options `logApi` and `logMsg`
+- New options `logLevel`
 
 ## [2.0.4] - 2022-04-12
 ### Changed

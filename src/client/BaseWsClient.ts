@@ -1,6 +1,6 @@
 import { BaseServiceType, Logger, ServiceProto, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
-import { TransportOptions } from "../models/TransportOptions";
-import { BaseClient, BaseClientOptions, defaultBaseClientOptions, PendingApiItem } from "./BaseClient";
+import { TransportDataUtil } from "../models/TransportDataUtil";
+import { BaseClient, BaseClientOptions, defaultBaseClientOptions } from "./BaseClient";
 
 /**
  * WebSocket Client for TSRPC.
@@ -44,6 +44,11 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         this.logger?.log('WebSocket connection to server successful');
 
         this.flows.postConnectFlow.exec({}, this.logger);
+
+        // First heartbeat
+        if (this.options.heartbeat) {
+            this._heartbeat();
+        }
     };
 
     protected _onWsClose = (code: number, reason: string) => {
@@ -58,6 +63,15 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
                 errMsg: 'WebSocket connection to server failed'
             });
             this._connecting = undefined;
+        }
+
+        // Clear heartbeat
+        if (this._pendingHeartbeat) {
+            clearTimeout(this._pendingHeartbeat.timeoutTimer);
+            this._pendingHeartbeat = undefined;
+        }
+        if (this._nextHeartbeatTimer) {
+            clearTimeout(this._nextHeartbeatTimer);
         }
 
         // disconnect中，返回成功
@@ -96,7 +110,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         this._onRecvData(data);
     };
 
-    protected async _sendData(data: string | Uint8Array, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError; }> {
+    protected async _sendData(data: string | Uint8Array): Promise<{ err?: TsrpcError; }> {
         return new Promise<{ err?: TsrpcError | undefined; }>(async rs => {
             if (!this.isConnected) {
                 rs({
@@ -113,6 +127,54 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         });
     }
 
+    // #region Heartbeat
+    /**
+     * Last latency time (ms) of heartbeat test
+     */
+    lastHeartbeatLatency: number = 0;
+
+    private _pendingHeartbeat?: {
+        startTime: number,
+        timeoutTimer: ReturnType<typeof setTimeout>
+    };
+    private _nextHeartbeatTimer?: ReturnType<typeof setTimeout>;
+    /**
+     * Send a heartbeat packet
+     */
+    private _heartbeat() {
+        if (this._pendingHeartbeat || this._status !== WsClientStatus.Opened || !this.options.heartbeat) {
+            return;
+        };
+
+        this._pendingHeartbeat = {
+            startTime: performance.now(),
+            timeoutTimer: setTimeout(() => {
+                this._pendingHeartbeat = undefined;
+                // heartbeat timeout, disconnect if still connected
+                if (this._status === WsClientStatus.Opened) {
+                    this._wsp.close(1001, 'Heartbeat timeout');
+                }
+            }, this.options.heartbeat.timeout)
+        };
+
+        this._sendData(TransportDataUtil.HeartbeatPacket);
+    }
+    private _onHeartbeatAnswer() {
+        if (!this._pendingHeartbeat || this._status !== WsClientStatus.Opened || !this.options.heartbeat) {
+            return;
+        }
+
+        // heartbeat succ
+        this.lastHeartbeatLatency = performance.now() - this._pendingHeartbeat.startTime;
+        clearTimeout(this._pendingHeartbeat.timeoutTimer);
+        this._pendingHeartbeat = undefined;
+
+        // next heartbeat timer
+        this._nextHeartbeatTimer = setTimeout(() => {
+            this._heartbeat();
+        }, this.options.heartbeat.interval)
+    }
+    // #endregion
 
     private _status: WsClientStatus = WsClientStatus.Closed;
     public get status(): WsClientStatus {
@@ -202,12 +264,24 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
 
 export const defaultBaseWsClientOptions: BaseWsClientOptions = {
     ...defaultBaseClientOptions,
-    server: 'ws://localhost:3000'
+    server: 'ws://localhost:3000',
 }
 
 export interface BaseWsClientOptions extends BaseClientOptions {
     /** Server URL, starts with `ws://` or `wss://`. */
     server: string;
+
+    /** 
+     * Heartbeat test
+     * `undefined` represent disable heartbeat test
+     * @defaultValue `undefined`
+     */
+    heartbeat?: {
+        /** Interval time between 2 heartbeat packet (unit: ms) */
+        interval: number,
+        /** If a heartbeat packet not got reply during this time, the connection would be closed (unit: ms) */
+        timeout: number
+    }
 }
 
 export interface IWebSocketProxy {
