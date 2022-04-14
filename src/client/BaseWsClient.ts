@@ -107,6 +107,12 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
     };
 
     protected _onWsMessage = (data: Uint8Array | string) => {
+        // 心跳包回包
+        if (data instanceof Uint8Array && data.length === TransportDataUtil.HeartbeatPacket.length && data.every((v, i) => v === TransportDataUtil.HeartbeatPacket[i])) {
+            this._onHeartbeatAnswer();
+            return;
+        }
+
         this._onRecvData(data);
     };
 
@@ -147,16 +153,18 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         };
 
         this._pendingHeartbeat = {
-            startTime: performance.now(),
+            startTime: Date.now(),
             timeoutTimer: setTimeout(() => {
                 this._pendingHeartbeat = undefined;
                 // heartbeat timeout, disconnect if still connected
+                this.logger?.error('[Heartbeat] Heartbeat timeout, the connection disconnected automatically.');
                 if (this._status === WsClientStatus.Opened) {
                     this._wsp.close(1001, 'Heartbeat timeout');
                 }
             }, this.options.heartbeat.timeout)
         };
 
+        this.options.debugBuf && this.logger?.log('[Heartbeat] Ping', TransportDataUtil.HeartbeatPacket);
         this._sendData(TransportDataUtil.HeartbeatPacket);
     }
     private _onHeartbeatAnswer() {
@@ -165,7 +173,8 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         }
 
         // heartbeat succ
-        this.lastHeartbeatLatency = performance.now() - this._pendingHeartbeat.startTime;
+        this.lastHeartbeatLatency = Date.now() - this._pendingHeartbeat.startTime;
+        this.options.debugBuf && this.logger?.log(`[Heartbeat] Pong ${this.lastHeartbeatLatency}ms`)
         clearTimeout(this._pendingHeartbeat.timeoutTimer);
         this._pendingHeartbeat = undefined;
 
