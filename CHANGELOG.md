@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [2.0.5-dev.0] - 2022-04-14
+## [2.0.5] - 2022-04-15
 ### Added
 - Builtin heartbeat support
 - New options `logApi` and `logMsg`

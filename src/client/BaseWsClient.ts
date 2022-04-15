@@ -159,7 +159,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
                 // heartbeat timeout, disconnect if still connected
                 this.logger?.error('[Heartbeat] Heartbeat timeout, the connection disconnected automatically.');
                 if (this._status === WsClientStatus.Opened) {
-                    this._wsp.close(1001, 'Heartbeat timeout');
+                    this._wsp.close(3000, 'Heartbeat timeout');
                 }
             }, this.options.heartbeat.timeout)
         };
