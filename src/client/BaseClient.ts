@@ -188,10 +188,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
             // Log Original Return
             if (ret.isSucc) {
-                this.options.logApi && this.logger?.log(`[ApiRes] #${pendingItem.sn} ${apiName}`, ret.res);
+                this.options.logApi && this.logger?.log(`[ApiRes] #${pendingItem.sn} ${String(apiName)}`, ret.res);
             }
             else {
-                this.options.logApi && this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${apiName}`, ret.err);
+                this.options.logApi && this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${String(apiName)}`, ret.err);
             }
 
             // Pre Return Flow
@@ -227,7 +227,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             if (!service) {
                 rs({
                     isSucc: false,
-                    err: new TsrpcError('Invalid api name: ' + apiName, {
+                    err: new TsrpcError('Invalid api name: ' + String(apiName), {
                         code: 'INVALID_API_NAME',
                         type: TsrpcErrorType.ClientError
                     })
@@ -298,10 +298,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             // GetService
             let service = this.serviceMap.msgName2Service[msgName as string];
             if (!service) {
-                this.logger?.error('Invalid msg name: ' + msgName)
+                this.logger?.error('Invalid msg name: ' + String(msgName))
                 rs({
                     isSucc: false,
-                    err: new TsrpcError('Invalid msg name: ' + msgName, {
+                    err: new TsrpcError('Invalid msg name: ' + String(msgName), {
                         code: 'INVALID_MSG_NAME',
                         type: TsrpcErrorType.ClientError
                     })

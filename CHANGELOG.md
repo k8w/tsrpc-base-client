@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.0.6] - 2022-06-01
+### Fixed
+- Update deps
+
 ## [2.0.5] - 2022-04-15
 ### Added
 - Builtin heartbeat support
