@@ -3,7 +3,7 @@ import { TransportOptions } from "./TransportOptions";
 
 export type CallApiFlowData<ServiceType extends BaseServiceType> = {
     [K in keyof ServiceType['api']]: {
-        apiName: K,
+        apiName: K & string,
         req: ServiceType['api'][K]['req'],
         options?: TransportOptions,
         // promise: SuperPromise<ServiceType['api'][K]['res']>,
@@ -12,7 +12,7 @@ export type CallApiFlowData<ServiceType extends BaseServiceType> = {
 }[keyof ServiceType['api']];
 export type ApiReturnFlowData<ServiceType extends BaseServiceType> = {
     [K in keyof ServiceType['api']]: {
-        apiName: K,
+        apiName: K & string,
         req: ServiceType['api'][K]['req'],
         options?: TransportOptions,
         // promise: SuperPromise<ServiceType['api'][K]['res']>,
@@ -22,7 +22,7 @@ export type ApiReturnFlowData<ServiceType extends BaseServiceType> = {
 
 export type SendMsgFlowData<ServiceType extends BaseServiceType> = {
     [K in keyof ServiceType['msg']]: {
-        msgName: K,
+        msgName: K & string,
         msg: ServiceType['msg'][K],
         options?: TransportOptions
     }

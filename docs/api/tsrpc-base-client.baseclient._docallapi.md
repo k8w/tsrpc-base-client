@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-protected _doCallApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions | undefined, pendingItem: PendingApiItem): Promise<ApiReturn<ServiceType['api'][T]['res']>>;
+protected _doCallApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions | undefined, pendingItem: PendingApiItem): Promise<ApiReturn<ServiceType['api'][T]['res']>>;
 ```
 
 ## Parameters

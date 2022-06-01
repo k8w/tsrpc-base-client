@@ -9,7 +9,7 @@ Send request and wait for the return
 <b>Signature:</b>
 
 ```typescript
-callApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options?: TransportOptions): Promise<ApiReturn<ServiceType['api'][T]['res']>>;
+callApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options?: TransportOptions): Promise<ApiReturn<ServiceType['api'][T]['res']>>;
 ```
 
 ## Parameters

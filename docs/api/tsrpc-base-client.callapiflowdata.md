@@ -9,7 +9,7 @@
 ```typescript
 export declare type CallApiFlowData<ServiceType extends BaseServiceType> = {
     [K in keyof ServiceType['api']]: {
-        apiName: K;
+        apiName: K & string;
         req: ServiceType['api'][K]['req'];
         options?: TransportOptions;
         return?: ApiReturn<ServiceType['api'][K]['res']>;

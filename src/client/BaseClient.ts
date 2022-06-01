@@ -150,7 +150,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @returns return a `ApiReturn`, all error (network error, business error, code exception...) is unified as `TsrpcError`.
      * The promise is never rejected, so you just need to process all error in one place.
      */
-    async callApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
+    async callApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
         // Add pendings
         let sn = this._apiSnCounter.getNext();
         let pendingItem: PendingApiItem = {
@@ -188,10 +188,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
             // Log Original Return
             if (ret.isSucc) {
-                this.options.logApi && this.logger?.log(`[ApiRes] #${pendingItem.sn} ${String(apiName)}`, ret.res);
+                this.options.logApi && this.logger?.log(`[ApiRes] #${pendingItem.sn} ${apiName}`, ret.res);
             }
             else {
-                this.options.logApi && this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${String(apiName)}`, ret.err);
+                this.options.logApi && this.logger?.[ret.err.type === TsrpcError.Type.ApiError ? 'log' : 'error'](`[ApiErr] #${pendingItem.sn} ${apiName}`, ret.err);
             }
 
             // Pre Return Flow
@@ -218,7 +218,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         return promise;
     }
 
-    protected async _doCallApi<T extends keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}, pendingItem: PendingApiItem): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
+    protected async _doCallApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions = {}, pendingItem: PendingApiItem): Promise<ApiReturn<ServiceType['api'][T]['res']>> {
         this.options.logApi && this.logger?.log(`[ApiReq] #${pendingItem.sn}`, apiName, req);
 
         let promise = new Promise<ApiReturn<ServiceType['api'][T]['res']>>(async rs => {
@@ -227,7 +227,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             if (!service) {
                 rs({
                     isSucc: false,
-                    err: new TsrpcError('Invalid api name: ' + String(apiName), {
+                    err: new TsrpcError('Invalid api name: ' + apiName, {
                         code: 'INVALID_API_NAME',
                         type: TsrpcErrorType.ClientError
                     })
@@ -280,7 +280,7 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
      * @returns If the promise is resolved, it means the request is sent to system kernel successfully.
      * Notice that not means the server received and processed the message correctly.
      */
-    sendMsg<T extends keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options: TransportOptions = {}): Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }> {
+    sendMsg<T extends string & keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options: TransportOptions = {}): Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }> {
         let promise = new Promise<{ isSucc: true } | { isSucc: false, err: TsrpcError }>(async rs => {
             // Pre Flow
             let pre = await this.flows.preSendMsgFlow.exec({
@@ -298,10 +298,10 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             // GetService
             let service = this.serviceMap.msgName2Service[msgName as string];
             if (!service) {
-                this.logger?.error('Invalid msg name: ' + String(msgName))
+                this.logger?.error('Invalid msg name: ' + msgName)
                 rs({
                     isSucc: false,
-                    err: new TsrpcError('Invalid msg name: ' + String(msgName), {
+                    err: new TsrpcError('Invalid msg name: ' + msgName, {
                         code: 'INVALID_MSG_NAME',
                         type: TsrpcErrorType.ClientError
                     })

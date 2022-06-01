@@ -9,7 +9,7 @@ Send message, without response, not ensuring the server is received and processe
 <b>Signature:</b>
 
 ```typescript
-sendMsg<T extends keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options?: TransportOptions): Promise<{
+sendMsg<T extends string & keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options?: TransportOptions): Promise<{
         isSucc: true;
     } | {
         isSucc: false;
