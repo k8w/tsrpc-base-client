@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.0.8-dev.1] - 2022-06-08
+### Changed
+- Add url search `?type=msg` when call `HttpClient.sendMsg()` in JSON mode
+### Fixed
+- Remove error log when call `HttpClient.sendMsg()`
+
 ## [2.0.7] - 2022-06-01
 ### Fixed
 - Update deps

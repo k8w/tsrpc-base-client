@@ -24,11 +24,15 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
     }
 
     protected async _sendData(data: Uint8Array | string, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{ err?: TsrpcError | undefined; }> {
-        let sn = pendingApiItem?.sn;
         let promise = (async (): Promise<{ err: TsrpcError | undefined; res?: undefined } | { res: string | Uint8Array, err?: undefined }> => {
+            // Send to this URL
+            const service = this.serviceMap.id2Service[serviceId];
+            const urlSearch = service.type === 'msg' ? '?type=msg' : '';
+            const url = typeof data === 'string' ? (this._jsonServer + service.name + urlSearch) : this.options.server;
+            
             // Do Send
             let { promise: fetchPromise, abort } = this._http.fetch({
-                url: typeof data === 'string' ? (this._jsonServer + this.serviceMap.id2Service[serviceId].name) : this.options.server,
+                url:url,
                 data: data,
                 method: 'POST',
                 timeout: options.timeout || this.options.timeout,
@@ -54,9 +58,10 @@ export class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseCli
             }
             return { res: fetchRes.res };
         })();
-        
+
         promise.then(v => {
-            if (v.res) {
+            // Msg 不需要 onRecvData
+            if (pendingApiItem && v.res) {
                 this._onRecvData(v.res, pendingApiItem);
             }
         })
