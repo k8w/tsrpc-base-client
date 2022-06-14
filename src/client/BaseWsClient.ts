@@ -102,7 +102,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         })
     };
 
-    protected _onWsError = (e: Error) => {
+    protected _onWsError = (e: unknown) => {
         this.logger?.error('[WebSocket Error]', e);
     };
 
@@ -298,7 +298,7 @@ export interface IWebSocketProxy {
     options: {
         onOpen: () => void;
         onClose: (code: number, reason: string) => void;
-        onError: (e: Error) => void;
+        onError: (e: unknown) => void;
         onMessage: (data: Uint8Array | string) => void;
         logger?: Logger;
     },

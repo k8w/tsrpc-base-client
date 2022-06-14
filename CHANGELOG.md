@@ -1,8 +1,9 @@
 # CHANGELOG
 
-## [2.0.8-dev.1] - 2022-06-08
+## [2.0.8-dev.2] - 2022-06-08
 ### Changed
 - Add url search `?type=msg` when call `HttpClient.sendMsg()` in JSON mode
+- Changed type of `WebSocketProxy.onError`
 ### Fixed
 - Remove error log when call `HttpClient.sendMsg()`
 
