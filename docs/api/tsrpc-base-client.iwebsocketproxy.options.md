@@ -10,7 +10,7 @@
 options: {
         onOpen: () => void;
         onClose: (code: number, reason: string) => void;
-        onError: (e: Error) => void;
+        onError: (e: unknown) => void;
         onMessage: (data: Uint8Array | string) => void;
         logger?: Logger;
     };

@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-protected _onWsError: (e: Error) => void;
+protected _onWsError: (e: unknown) => void;
 ```

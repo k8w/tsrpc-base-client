@@ -24,7 +24,7 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType> extends B
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [\_onWsClose](./tsrpc-base-client.basewsclient._onwsclose.md) |  | (code: number, reason: string) =&gt; void |  |
-|  [\_onWsError](./tsrpc-base-client.basewsclient._onwserror.md) |  | (e: Error) =&gt; void |  |
+|  [\_onWsError](./tsrpc-base-client.basewsclient._onwserror.md) |  | (e: unknown) =&gt; void |  |
 |  [\_onWsMessage](./tsrpc-base-client.basewsclient._onwsmessage.md) |  | (data: Uint8Array \| string) =&gt; void |  |
 |  [\_onWsOpen](./tsrpc-base-client.basewsclient._onwsopen.md) |  | () =&gt; void |  |
 |  [\_wsp](./tsrpc-base-client.basewsclient._wsp.md) |  | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
