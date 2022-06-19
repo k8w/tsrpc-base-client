@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.1] - 2022-06-19
+### Fixed
+- Return error when `WsClient` get `onError` event when connecting.
+
 ## [2.1.0] - 2022-06-14
 ### Changed
 - Add url search `?type=msg` when call `HttpClient.sendMsg()` in JSON mode

@@ -60,9 +60,10 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
         if (this._connecting) {
             this._connecting.rs({
                 isSucc: false,
-                errMsg: 'WebSocket connection to server failed'
+                errMsg: `Failed to connect to WebSocket server: ${this.options.server}`
             });
             this._connecting = undefined;
+            this.logger?.error(`Failed to connect to WebSocket server: ${this.options.server}`);
         }
 
         // Clear heartbeat
@@ -104,6 +105,16 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
 
     protected _onWsError = (e: unknown) => {
         this.logger?.error('[WebSocket Error]', e);
+
+        // 连接中，返回连接失败
+        if (this._connecting) {
+            this._connecting.rs({
+                isSucc: false,
+                errMsg: `Failed to connect to WebSocket server: ${this.options.server}`
+            });
+            this._connecting = undefined;
+            this.logger?.error(`Failed to connect to WebSocket server: ${this.options.server}`);
+        }
     };
 
     protected _onWsMessage = (data: Uint8Array | string) => {
