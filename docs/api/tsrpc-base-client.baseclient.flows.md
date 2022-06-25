@@ -15,6 +15,8 @@ readonly flows: {
         readonly postApiReturnFlow: Flow<ApiReturnFlowData<ServiceType>>;
         readonly preSendMsgFlow: Flow<SendMsgFlowData<ServiceType>>;
         readonly postSendMsgFlow: Flow<SendMsgFlowData<ServiceType>>;
+        readonly preRecvMsgFlow: Flow<RecvMsgFlowData<ServiceType>>;
+        readonly postRecvMsgFlow: Flow<RecvMsgFlowData<ServiceType>>;
         readonly preSendDataFlow: Flow<{
             data: Uint8Array | string | object;
             sn?: number | undefined;

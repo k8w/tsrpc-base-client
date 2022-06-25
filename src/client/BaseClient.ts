@@ -1,6 +1,6 @@
 import { TSBuffer } from "tsbuffer";
 import { ApiReturn, BaseServiceType, Logger, LogLevel, ServiceProto, setLogLevel, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
-import { ApiReturnFlowData, CallApiFlowData, SendMsgFlowData } from "../models/ClientFlowData";
+import { ApiReturnFlowData, CallApiFlowData, RecvMsgFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 import { Counter } from "../models/Counter";
 import { Flow } from "../models/Flow";
 import { getCustomObjectIdTypes } from "../models/getCustomObjectIdTypes";
@@ -56,6 +56,8 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         // sendMsg
         preSendMsgFlow: new Flow<SendMsgFlowData<ServiceType>>(),
         postSendMsgFlow: new Flow<SendMsgFlowData<ServiceType>>(),
+        preRecvMsgFlow: new Flow<RecvMsgFlowData<ServiceType>>(),
+        postRecvMsgFlow: new Flow<RecvMsgFlowData<ServiceType>>(),
 
         // buffer
         preSendDataFlow: new Flow<{ data: Uint8Array | string | object, sn?: number }>(),
@@ -540,7 +542,17 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
         }
         else if (parsed.type === 'msg') {
             this.options.logMsg && this.logger?.log(`[RecvMsg] ${parsed.service.name}`, parsed.msg)
-            this._msgHandlers.forEachHandler(parsed.service.name, this.logger, parsed.msg, parsed.service.name);
+
+            // Pre Flow
+            let pre = await this.flows.preRecvMsgFlow.exec({ msgName: parsed.service.name, msg: parsed.msg }, this.logger);
+            if (!pre) {
+                return;
+            }
+
+            this._msgHandlers.forEachHandler(pre.msgName, this.logger, pre.msg, pre.msgName);
+
+            // Post Flow
+            await this.flows.postRecvMsgFlow.exec(pre, this.logger);
         }
     }
 

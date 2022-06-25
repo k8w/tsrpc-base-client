@@ -65,5 +65,6 @@
 |  [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md) |  |
 |  [ParsedServerInput](./tsrpc-base-client.parsedserverinput.md) |  |
 |  [ParsedServerOutput](./tsrpc-base-client.parsedserveroutput.md) |  |
+|  [RecvMsgFlowData](./tsrpc-base-client.recvmsgflowdata.md) |  |
 |  [SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md) |  |
 

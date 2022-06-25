@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.2] - 2022-06-25
+### Added
+- Add `preRecvMsgFlow` and `postRecvMsgFlow`
+
 ## [2.1.1] - 2022-06-19
 ### Fixed
 - Return error when `WsClient` get `onError` event when connecting.
