@@ -52,6 +52,11 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
     };
 
     protected _onWsClose = (code: number, reason: string) => {
+        // 防止重复执行
+        if (this._status === WsClientStatus.Closed) {
+            return;
+        }
+
         let isManual = !!this._rsDisconnecting;
         let isConnectedBefore = this.isConnected || isManual;
         this._status = WsClientStatus.Closed;
