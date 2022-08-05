@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.1.3] - 2022-08-05
+### Added
+- Protect `WebSocketProxy.onClose` executed duplicately.
+### Fixed
+- Bug: `WebSocketProxy.onClose` is not executed when heartbeat timeout when WIFI is broken
+
 ## [2.1.2] - 2022-06-25
 ### Added
 - Add `preRecvMsgFlow` and `postRecvMsgFlow`
