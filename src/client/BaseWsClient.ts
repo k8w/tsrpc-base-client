@@ -123,6 +123,10 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
     };
 
     protected _onWsMessage = (data: Uint8Array | string) => {
+        if (this._status !== WsClientStatus.Opened) {
+            return;
+        }
+
         // 心跳包回包
         if (data instanceof Uint8Array && data.length === TransportDataUtil.HeartbeatPacket.length && data.every((v, i) => v === TransportDataUtil.HeartbeatPacket[i])) {
             this._onHeartbeatAnswer(data);

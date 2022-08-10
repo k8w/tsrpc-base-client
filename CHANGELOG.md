@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [2.1.4] - 2022-08-10
+### Fixed
+- Ignore incoming data after heartbeat timeout
 ## [2.1.3] - 2022-08-05
 ### Added
 - Protect `WebSocketProxy.onClose` executed duplicately.
