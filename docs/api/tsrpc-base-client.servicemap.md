@@ -12,9 +12,9 @@ export interface ServiceMap
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [apiName2Service](./tsrpc-base-client.servicemap.apiname2service.md) | { \[apiName: string\]: [ApiService](./tsrpc-base-client.apiservice.md) \| undefined; } |  |
-|  [id2Service](./tsrpc-base-client.servicemap.id2service.md) | { \[serviceId: number\]: [ApiService](./tsrpc-base-client.apiservice.md) \| [MsgService](./tsrpc-base-client.msgservice.md)<!-- -->; } |  |
-|  [msgName2Service](./tsrpc-base-client.servicemap.msgname2service.md) | { \[msgName: string\]: [MsgService](./tsrpc-base-client.msgservice.md) \| undefined; } |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [apiName2Service](./tsrpc-base-client.servicemap.apiname2service.md) |  | { \[apiName: string\]: [ApiService](./tsrpc-base-client.apiservice.md) \| undefined; } |  |
+|  [id2Service](./tsrpc-base-client.servicemap.id2service.md) |  | { \[serviceId: number\]: [ApiService](./tsrpc-base-client.apiservice.md) \| [MsgService](./tsrpc-base-client.msgservice.md)<!-- -->; } |  |
+|  [msgName2Service](./tsrpc-base-client.servicemap.msgname2service.md) |  | { \[msgName: string\]: [MsgService](./tsrpc-base-client.msgservice.md) \| undefined; } |  |
 

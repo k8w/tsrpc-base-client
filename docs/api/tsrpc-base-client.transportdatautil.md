@@ -14,8 +14,8 @@ export declare class TransportDataUtil
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [HeartbeatPacket](./tsrpc-base-client.transportdatautil.heartbeatpacket.md) | <code>static</code> | Readonly&lt;Uint8Array&gt; |  |
-|  [tsbuffer](./tsrpc-base-client.transportdatautil.tsbuffer.md) | <code>static</code> | TSBuffer |  |
+|  [HeartbeatPacket](./tsrpc-base-client.transportdatautil.heartbeatpacket.md) | <p><code>readonly</code></p><p><code>static</code></p> | Readonly&lt;Uint8Array&gt; |  |
+|  [tsbuffer](./tsrpc-base-client.transportdatautil.tsbuffer.md) | <p><code>readonly</code></p><p><code>static</code></p> | TSBuffer |  |
 
 ## Methods
 

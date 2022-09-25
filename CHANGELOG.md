@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.5] - 2022-09-25
+### Fixed
+- Update deps
+
 ## [2.1.4] - 2022-08-10
 ### Fixed
 - Ignore incoming data after heartbeat timeout

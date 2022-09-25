@@ -11,7 +11,7 @@ WebSocket Client for TSRPC. It uses native `WebSocket` of browser.
 ```typescript
 export declare class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> 
 ```
-<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)
+<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;ServiceType&gt;
 
 ## Constructors
 
@@ -23,22 +23,22 @@ export declare class BaseWsClient<ServiceType extends BaseServiceType> extends B
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [\_onWsClose](./tsrpc-base-client.basewsclient._onwsclose.md) |  | (code: number, reason: string) =&gt; void |  |
-|  [\_onWsError](./tsrpc-base-client.basewsclient._onwserror.md) |  | (e: unknown) =&gt; void |  |
-|  [\_onWsMessage](./tsrpc-base-client.basewsclient._onwsmessage.md) |  | (data: Uint8Array \| string) =&gt; void |  |
-|  [\_onWsOpen](./tsrpc-base-client.basewsclient._onwsopen.md) |  | () =&gt; void |  |
-|  [\_wsp](./tsrpc-base-client.basewsclient._wsp.md) |  | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
-|  [isConnected](./tsrpc-base-client.basewsclient.isconnected.md) |  | boolean |  |
+|  [\_onWsClose](./tsrpc-base-client.basewsclient._onwsclose.md) | <code>protected</code> | (code: number, reason: string) =&gt; void |  |
+|  [\_onWsError](./tsrpc-base-client.basewsclient._onwserror.md) | <code>protected</code> | (e: unknown) =&gt; void |  |
+|  [\_onWsMessage](./tsrpc-base-client.basewsclient._onwsmessage.md) | <code>protected</code> | (data: Uint8Array \| string) =&gt; void |  |
+|  [\_onWsOpen](./tsrpc-base-client.basewsclient._onwsopen.md) | <code>protected</code> | () =&gt; void |  |
+|  [\_wsp](./tsrpc-base-client.basewsclient._wsp.md) | <code>protected</code> | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
+|  [isConnected](./tsrpc-base-client.basewsclient.isconnected.md) | <code>readonly</code> | boolean |  |
 |  [lastHeartbeatLatency](./tsrpc-base-client.basewsclient.lastheartbeatlatency.md) |  | number | Last latency time (ms) of heartbeat test |
-|  [options](./tsrpc-base-client.basewsclient.options.md) |  | Readonly&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
-|  [status](./tsrpc-base-client.basewsclient.status.md) |  | [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
-|  [type](./tsrpc-base-client.basewsclient.type.md) |  | (not declared) |  |
+|  [options](./tsrpc-base-client.basewsclient.options.md) | <code>readonly</code> | Readonly&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; |  |
+|  [status](./tsrpc-base-client.basewsclient.status.md) | <code>readonly</code> | [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
+|  [type](./tsrpc-base-client.basewsclient.type.md) | <code>readonly</code> | (not declared) |  |
 
 ## Methods
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [\_sendData(data)](./tsrpc-base-client.basewsclient._senddata.md) |  |  |
+|  [\_sendData(data)](./tsrpc-base-client.basewsclient._senddata.md) | <code>protected</code> |  |
 |  [connect()](./tsrpc-base-client.basewsclient.connect.md) |  | Start connecting, you must connect first before <code>callApi()</code> and <code>sendMsg()</code>. |
 |  [disconnect(code, reason)](./tsrpc-base-client.basewsclient.disconnect.md) |  | Disconnect immediately |
 

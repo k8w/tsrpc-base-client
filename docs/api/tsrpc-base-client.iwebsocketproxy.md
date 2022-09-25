@@ -12,9 +12,9 @@ export interface IWebSocketProxy
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [options](./tsrpc-base-client.iwebsocketproxy.options.md) | { onOpen: () =&gt; void; onClose: (code: number, reason: string) =&gt; void; onError: (e: unknown) =&gt; void; onMessage: (data: Uint8Array \| string) =&gt; void; logger?: Logger; } |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [options](./tsrpc-base-client.iwebsocketproxy.options.md) |  | { onOpen: () =&gt; void; onClose: (code: number, reason: string) =&gt; void; onError: (e: unknown) =&gt; void; onMessage: (data: Uint8Array \| string) =&gt; void; logger?: Logger; } |  |
 
 ## Methods
 

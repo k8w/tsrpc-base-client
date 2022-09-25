@@ -13,7 +13,7 @@ export interface MsgService extends MsgServiceDef
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [msgSchemaId](./tsrpc-base-client.msgservice.msgschemaid.md) | string |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [msgSchemaId](./tsrpc-base-client.msgservice.msgschemaid.md) |  | string |  |
 

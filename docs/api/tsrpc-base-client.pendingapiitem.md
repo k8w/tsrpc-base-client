@@ -12,12 +12,12 @@ export interface PendingApiItem
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [abortKey](./tsrpc-base-client.pendingapiitem.abortkey.md) | string \| undefined |  |
-|  [isAborted?](./tsrpc-base-client.pendingapiitem.isaborted.md) | boolean | <i>(Optional)</i> |
-|  [onAbort?](./tsrpc-base-client.pendingapiitem.onabort.md) | () =&gt; void | <i>(Optional)</i> |
-|  [onReturn?](./tsrpc-base-client.pendingapiitem.onreturn.md) | (ret: ApiReturn&lt;any&gt;) =&gt; void | <i>(Optional)</i> |
-|  [service](./tsrpc-base-client.pendingapiitem.service.md) | [ApiService](./tsrpc-base-client.apiservice.md) |  |
-|  [sn](./tsrpc-base-client.pendingapiitem.sn.md) | number |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [abortKey](./tsrpc-base-client.pendingapiitem.abortkey.md) |  | string \| undefined |  |
+|  [isAborted?](./tsrpc-base-client.pendingapiitem.isaborted.md) |  | boolean | <i>(Optional)</i> |
+|  [onAbort?](./tsrpc-base-client.pendingapiitem.onabort.md) |  | () =&gt; void | <i>(Optional)</i> |
+|  [onReturn?](./tsrpc-base-client.pendingapiitem.onreturn.md) |  | (ret: ApiReturn&lt;any&gt;) =&gt; void | <i>(Optional)</i> |
+|  [service](./tsrpc-base-client.pendingapiitem.service.md) |  | [ApiService](./tsrpc-base-client.apiservice.md) |  |
+|  [sn](./tsrpc-base-client.pendingapiitem.sn.md) |  | number |  |
 

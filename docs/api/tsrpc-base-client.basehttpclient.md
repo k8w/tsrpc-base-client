@@ -11,7 +11,7 @@ Base HTTP Client
 ```typescript
 export declare class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> 
 ```
-<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)
+<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;ServiceType&gt;
 
 ## Constructors
 
@@ -23,12 +23,12 @@ export declare class BaseHttpClient<ServiceType extends BaseServiceType> extends
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [options](./tsrpc-base-client.basehttpclient.options.md) |  | Readonly&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; |  |
-|  [type](./tsrpc-base-client.basehttpclient.type.md) |  | (not declared) |  |
+|  [options](./tsrpc-base-client.basehttpclient.options.md) | <code>readonly</code> | Readonly&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; |  |
+|  [type](./tsrpc-base-client.basehttpclient.type.md) | <code>readonly</code> | (not declared) |  |
 
 ## Methods
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._senddata.md) |  |  |
+|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._senddata.md) | <code>protected</code> |  |
 

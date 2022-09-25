@@ -13,8 +13,8 @@ export interface BaseWsClientOptions extends BaseClientOptions
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [heartbeat?](./tsrpc-base-client.basewsclientoptions.heartbeat.md) | { interval: number; timeout: number; } | <i>(Optional)</i> Heartbeat test <code>undefined</code> represent disable heartbeat test |
-|  [server](./tsrpc-base-client.basewsclientoptions.server.md) | string | Server URL, starts with <code>ws://</code> or <code>wss://</code>. |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [heartbeat?](./tsrpc-base-client.basewsclientoptions.heartbeat.md) |  | { interval: number; timeout: number; } | <i>(Optional)</i> Heartbeat test <code>undefined</code> represent disable heartbeat test |
+|  [server](./tsrpc-base-client.basewsclientoptions.server.md) |  | string | Server URL, starts with <code>ws://</code> or <code>wss://</code>. |
 

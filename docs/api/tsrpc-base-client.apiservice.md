@@ -13,8 +13,8 @@ export interface ApiService extends ApiServiceDef
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [reqSchemaId](./tsrpc-base-client.apiservice.reqschemaid.md) | string |  |
-|  [resSchemaId](./tsrpc-base-client.apiservice.resschemaid.md) | string |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [reqSchemaId](./tsrpc-base-client.apiservice.reqschemaid.md) |  | string |  |
+|  [resSchemaId](./tsrpc-base-client.apiservice.resschemaid.md) |  | string |  |
 

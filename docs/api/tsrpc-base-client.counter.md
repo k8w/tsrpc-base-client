@@ -22,7 +22,7 @@ export declare class Counter
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [last](./tsrpc-base-client.counter.last.md) |  | number | Last return of <code>getNext()</code> |
+|  [last](./tsrpc-base-client.counter.last.md) | <code>readonly</code> | number | Last return of <code>getNext()</code> |
 
 ## Methods
 
