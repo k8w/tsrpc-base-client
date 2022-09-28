@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.6] - 2022-09-28
+### Fixed
+- Fixed issue that `logLevel` not works
+
 ## [2.1.5] - 2022-09-25
 ### Fixed
 - Update deps

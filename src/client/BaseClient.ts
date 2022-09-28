@@ -141,7 +141,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
 
         this.tsbuffer = new TSBuffer(types);
         this.logger = this.options.logger;
-        this.logger && setLogLevel(this.logger, this.options.logLevel);
+        if (this.logger) {
+            this.logger = setLogLevel(this.logger, this.options.logLevel);
+        }
     }
 
     /**
