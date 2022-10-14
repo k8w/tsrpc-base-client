@@ -276,19 +276,42 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
 
         this._status = WsClientStatus.Closing;
         this.logger?.log('Start disconnecting...');
-        return new Promise<void>(rs => {
-            this._rsDisconnecting = rs;
-            // 兼容 Cocos Creator 的原生实现
-            if (code === undefined && reason === undefined) {
-                this._wsp.close();
-            }
-            else if (reason === undefined) {
-                this._wsp.close(code);
-            }
-            else {
-                this._wsp.close(code, reason);
-            }
-        })
+        let isClosed = false;
+        return Promise.race([
+            // 正常等待 onClose 关闭
+            new Promise<void>(rs => {
+                this._rsDisconnecting = () => {
+                    if (isClosed) {
+                        return;
+                    }
+                    isClosed = true;
+
+                    rs();
+                };
+
+                // 兼容 Cocos Creator 的原生实现
+                if (code === undefined && reason === undefined) {
+                    this._wsp.close();
+                }
+                else if (reason === undefined) {
+                    this._wsp.close(code);
+                }
+                else {
+                    this._wsp.close(code, reason);
+                }
+            }),
+            // 超时保护，1 秒未收到关闭请求的，直接 onClose 掉
+            new Promise<void>(rs => {
+                setTimeout(() => {
+                    if (isClosed) {
+                        return;
+                    }
+                    isClosed = true;
+
+                    this._onWsClose(1005, 'Connection closed, but not received ws.onClose event.')
+                }, 1000)
+            })
+        ])
     }
 }
 

@@ -201,12 +201,14 @@ export class TransportDataUtil {
                     return { isSucc: false, errMsg: `Invalid server output format` };
                 }
                 let serviceName = json[0];
-                service = serviceMap.apiName2Service[serviceName] ?? serviceMap.msgName2Service[serviceName];
+                body = json[1];
+                sn = json[2];
+
+                // 有 SN 是 Api，没 SN 是 Msg
+                service = sn ? serviceMap.apiName2Service[serviceName] : serviceMap.msgName2Service[serviceName];
                 if (!service) {
                     return { isSucc: false, errMsg: `Invalid service name: ${serviceName} (from ServerOutputData)` };
                 }
-                body = json[1];
-                sn = json[2];
             }
             else {
                 service = serviceMap.id2Service[serviceId];
