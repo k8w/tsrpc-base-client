@@ -289,16 +289,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
                     rs();
                 };
 
-                // 兼容 Cocos Creator 的原生实现
-                if (code === undefined && reason === undefined) {
-                    this._wsp.close();
-                }
-                else if (reason === undefined) {
-                    this._wsp.close(code);
-                }
-                else {
-                    this._wsp.close(code, reason);
-                }
+                this._wsp.close(code ?? 1000, reason ?? '');
             }),
             // 超时保护，1 秒未收到关闭请求的，直接 onClose 掉
             new Promise<void>(rs => {
