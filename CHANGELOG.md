@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.8] - 2022-10-19
+### Fixed
+- `ws.close` must have code and reason
+
 ## [2.1.7] - 2022-10-14
 ### Fixed
 - Issue that `ws.onClose` is not called when `wsClient.disconnect()` manually at CocosCreator Android platform.
