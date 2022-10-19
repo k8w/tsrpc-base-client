@@ -179,7 +179,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
                 // heartbeat timeout, disconnect if still connected
                 this.logger?.error('[Heartbeat] Heartbeat timeout, the connection disconnected automatically.');
                 if (this._status === WsClientStatus.Opened) {
-                    this._wsp.close(3000, 'Heartbeat timeout');
+                    this._wsClose(3000, 'Heartbeat timeout');
                     this._wsp.options.onClose(3000, 'Heartbeat timeout');
                 }
             }, this.options.heartbeat.timeout)
@@ -289,7 +289,7 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
                     rs();
                 };
 
-                this._wsp.close(code ?? 1000, reason ?? '');
+                this._wsClose(code ?? 1000, reason ?? '');
             }),
             // 超时保护，1 秒未收到关闭请求的，直接 onClose 掉
             new Promise<void>(rs => {
@@ -303,6 +303,15 @@ export class BaseWsClient<ServiceType extends BaseServiceType> extends BaseClien
                 }, 1000)
             })
         ])
+    }
+
+    private _wsClose(code?: number, reason?: string) {
+        try {
+            this._wsp.close(code ?? 1000, reason ?? '');
+        }
+        catch (e) {
+            this.logger?.error('[WsCloseError]', e);
+        }
     }
 }
 

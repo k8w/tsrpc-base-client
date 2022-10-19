@@ -1,8 +1,9 @@
 # CHANGELOG
 
-## [2.1.9] - 2022-10-19
+## [2.1.10] - 2022-10-19
 ### Fixed
 - Update deps version of `tsbuffer`
+- Catch error throwed by `wsp.close()`
 
 ## [2.1.8] - 2022-10-19
 ### Fixed
