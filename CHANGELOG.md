@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.9] - 2022-10-19
+### Fixed
+- Update deps version of `tsbuffer`
+
 ## [2.1.8] - 2022-10-19
 ### Fixed
 - `ws.close` must have code and reason
