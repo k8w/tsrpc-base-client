@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type SendMsgFlowData<ServiceType extends BaseServiceType> = {
+export type SendMsgFlowData<ServiceType extends BaseServiceType> = {
     [K in keyof ServiceType['msg']]: {
         msgName: K & string;
         msg: ServiceType['msg'][K];

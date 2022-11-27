@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type FlowNode<T> = (item: T) => FlowNodeReturn<T> | Promise<FlowNodeReturn<T>>;
+export type FlowNode<T> = (item: T) => FlowNodeReturn<T> | Promise<FlowNodeReturn<T>>;
 ```
 <b>References:</b> [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md)
 

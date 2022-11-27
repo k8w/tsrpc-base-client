@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type ApiReturnFlowData<ServiceType extends BaseServiceType> = {
+export type ApiReturnFlowData<ServiceType extends BaseServiceType> = {
     [K in keyof ServiceType['api']]: {
         apiName: K & string;
         req: ServiceType['api'][K]['req'];

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.11] - 2022-11-26
+### Fixed
+- Update deps
+
 ## [2.1.10] - 2022-10-19
 ### Fixed
 - Update deps version of `tsbuffer`

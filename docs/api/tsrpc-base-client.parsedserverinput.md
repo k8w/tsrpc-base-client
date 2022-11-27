@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type ParsedServerInput = {
+export type ParsedServerInput = {
     type: 'api';
     service: ApiService;
     req: any;

@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type FlowData<T extends Flow<any>> = T extends Flow<infer R> ? R : unknown;
+export type FlowData<T extends Flow<any>> = T extends Flow<infer R> ? R : unknown;
 ```
 <b>References:</b> [Flow](./tsrpc-base-client.flow.md)
 

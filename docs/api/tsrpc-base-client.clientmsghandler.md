@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg']> = (msg: ServiceType['msg'][MsgName], msgName: MsgName) => void | Promise<void>;
+export type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg']> = (msg: ServiceType['msg'][MsgName], msgName: MsgName) => void | Promise<void>;
 ```

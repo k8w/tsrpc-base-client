@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type FlowNodeReturn<T> = T | null | undefined;
+export type FlowNodeReturn<T> = T | null | undefined;
 ```
