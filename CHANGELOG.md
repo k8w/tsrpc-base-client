@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.12] - 2023-01-11
+### Fixed
+- Possible issue that heartbeat timeout not trigger conn disconnect
+
 ## [2.1.11] - 2022-11-26
 ### Fixed
 - Update deps
