@@ -1,6 +1,6 @@
 {
   "name": "tsrpc-base-client",
-  "version": "2.1.12",
+  "version": "2.1.13",
   "description": "TSRPC Base Client",
   "main": "index.js",
   "exports": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "k8w-extend-native": "^1.4.6",
     "tsbuffer": "^2.2.7",
-    "tslib": "*",
+    "tslib": "=2.4.1",
     "tsrpc-proto": "^1.4.3"
   },
   "devDependencies": {

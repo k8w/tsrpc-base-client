@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.13] - 2023-05-23
+### Fixed
+- Fixed version of `tslib` at `2.4.1` for not supporting Cocos.
+
 ## [2.1.12] - 2023-01-11
 ### Fixed
 - Possible issue that heartbeat timeout not trigger conn disconnect
