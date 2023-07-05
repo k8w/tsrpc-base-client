@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [2.1.14] - 2023-05-23
+### Fixed
+- ObjectId should throw an Error when source string is beyond 24 chars.
+
 ## [2.1.13] - 2023-05-23
 ### Fixed
 - Fixed version of `tslib` at `2.4.1` for not supporting Cocos.
