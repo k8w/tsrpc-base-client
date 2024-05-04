@@ -4,7 +4,7 @@
 
 ## ParsedServerOutput type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ParsedServerOutput = {
@@ -18,5 +18,5 @@ export type ParsedServerOutput = {
     msg: any;
 };
 ```
-<b>References:</b> [ApiService](./tsrpc-base-client.apiservice.md)<!-- -->, [MsgService](./tsrpc-base-client.msgservice.md)
+**References:** [ApiService](./tsrpc-base-client.apiservice.md)<!-- -->, [MsgService](./tsrpc-base-client.msgservice.md)
 

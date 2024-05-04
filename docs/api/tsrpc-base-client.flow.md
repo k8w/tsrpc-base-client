@@ -6,7 +6,7 @@
 
 A `Flow` is consists of many `FlowNode`<!-- -->, which is function with the same input and output (like pipeline).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare class Flow<T> 
@@ -18,16 +18,125 @@ export declare class Flow<T>
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [nodes](./tsrpc-base-client.flow.nodes.md) |  | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;T&gt;\[\] | All node functions, if you want to adjust the sort you can modify this. |
-|  [onError](./tsrpc-base-client.flow.onerror.md) |  | (e: Error \| TsrpcError, last: T, input: T, logger: Logger \| undefined) =&gt; void | Event when error throwed from a <code>FlowNode</code> function. By default, it does nothing except print a <code>Uncaught FlowError</code> error log. |
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[nodes](./tsrpc-base-client.flow.nodes.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;T&gt;\[\]
+
+
+</td><td>
+
+All node functions, if you want to adjust the sort you can modify this.
+
+
+</td></tr>
+<tr><td>
+
+[onError](./tsrpc-base-client.flow.onerror.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(e: Error \| TsrpcError, last: T, input: T, logger: Logger \| undefined) =&gt; void
+
+
+</td><td>
+
+Event when error throwed from a `FlowNode` function. By default, it does nothing except print a `Uncaught FlowError` error log.
+
+
+</td></tr>
+</tbody></table>
 
 ## Methods
 
-|  Method | Modifiers | Description |
-|  --- | --- | --- |
-|  [exec(input, logger)](./tsrpc-base-client.flow.exec.md) |  | Execute all node function one by one, the previous output is the next input, until the last output would be return to the caller. |
-|  [push(node)](./tsrpc-base-client.flow.push.md) |  | Append a node function to the last |
-|  [remove(node)](./tsrpc-base-client.flow.remove.md) |  | Remove a node function |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[exec(input, logger)](./tsrpc-base-client.flow.exec.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Execute all node function one by one, the previous output is the next input, until the last output would be return to the caller.
+
+
+</td></tr>
+<tr><td>
+
+[push(node)](./tsrpc-base-client.flow.push.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Append a node function to the last
+
+
+</td></tr>
+<tr><td>
+
+[remove(node)](./tsrpc-base-client.flow.remove.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Remove a node function
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,7 @@
 
 `Logger` to process API Request/Response, send message, send buffer... If it is assigned to `undefined`<!-- -->, all log would be hidden. (It may be useful when you want to encrypt the transportation)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 logger?: Logger;

@@ -4,7 +4,7 @@
 
 ## PendingApiItem.onReturn property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 onReturn?: (ret: ApiReturn<any>) => void;

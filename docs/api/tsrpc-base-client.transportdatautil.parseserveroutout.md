@@ -4,7 +4,7 @@
 
 ## TransportDataUtil.parseServerOutout() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, data: Uint8Array | string | object, serviceId?: number): {
@@ -18,14 +18,82 @@ static parseServerOutout(tsbuffer: TSBuffer, serviceMap: ServiceMap, data: Uint8
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  tsbuffer | TSBuffer |  |
-|  serviceMap | [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
-|  data | Uint8Array \| string \| object |  |
-|  serviceId | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+tsbuffer
+
+
+</td><td>
+
+TSBuffer
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+serviceMap
+
+
+</td><td>
+
+[ServiceMap](./tsrpc-base-client.servicemap.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+data
+
+
+</td><td>
+
+Uint8Array \| string \| object
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+serviceId
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 { isSucc: true; result: [ParsedServerOutput](./tsrpc-base-client.parsedserveroutput.md)<!-- -->; } \| { isSucc: false; errMsg: string; }
 

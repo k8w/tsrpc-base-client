@@ -4,7 +4,7 @@
 
 ## BaseHttpClient.options property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly options: Readonly<BaseHttpClientOptions>;

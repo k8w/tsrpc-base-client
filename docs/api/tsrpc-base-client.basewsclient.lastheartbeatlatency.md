@@ -6,7 +6,7 @@
 
 Last latency time (ms) of heartbeat test
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lastHeartbeatLatency: number;

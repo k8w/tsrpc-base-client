@@ -4,7 +4,7 @@
 
 ## IWebSocketProxy interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface IWebSocketProxy 
@@ -12,15 +12,84 @@ export interface IWebSocketProxy
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [options](./tsrpc-base-client.iwebsocketproxy.options.md) |  | { onOpen: () =&gt; void; onClose: (code: number, reason: string) =&gt; void; onError: (e: unknown) =&gt; void; onMessage: (data: Uint8Array \| string) =&gt; void; logger?: Logger; } |  |
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[options](./tsrpc-base-client.iwebsocketproxy.options.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ onOpen: () =&gt; void; onClose: (code: number, reason: string) =&gt; void; onError: (e: unknown) =&gt; void; onMessage: (data: Uint8Array \| string) =&gt; void; logger?: Logger; }
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Methods
 
-|  Method | Description |
-|  --- | --- |
-|  [close(code, reason)](./tsrpc-base-client.iwebsocketproxy.close.md) |  |
-|  [connect(server, protocols)](./tsrpc-base-client.iwebsocketproxy.connect.md) |  |
-|  [send(data)](./tsrpc-base-client.iwebsocketproxy.send.md) |  |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[close(code, reason)](./tsrpc-base-client.iwebsocketproxy.close.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[connect(server, protocols)](./tsrpc-base-client.iwebsocketproxy.connect.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[send(data)](./tsrpc-base-client.iwebsocketproxy.send.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

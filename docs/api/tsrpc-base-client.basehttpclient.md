@@ -6,29 +6,140 @@
 
 Base HTTP Client
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare class BaseHttpClient<ServiceType extends BaseServiceType> extends BaseClient<ServiceType> 
 ```
-<b>Extends:</b> [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;ServiceType&gt;
+**Extends:** [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;ServiceType&gt;
 
 ## Constructors
 
-|  Constructor | Modifiers | Description |
-|  --- | --- | --- |
-|  [(constructor)(proto, http, options)](./tsrpc-base-client.basehttpclient._constructor_.md) |  | Constructs a new instance of the <code>BaseHttpClient</code> class |
+<table><thead><tr><th>
+
+Constructor
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[(constructor)(proto, http, options)](./tsrpc-base-client.basehttpclient._constructor_.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Constructs a new instance of the `BaseHttpClient` class
+
+
+</td></tr>
+</tbody></table>
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [options](./tsrpc-base-client.basehttpclient.options.md) | <code>readonly</code> | Readonly&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; |  |
-|  [type](./tsrpc-base-client.basehttpclient.type.md) | <code>readonly</code> | (not declared) |  |
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[options](./tsrpc-base-client.basehttpclient.options.md)
+
+
+</td><td>
+
+`readonly`
+
+
+</td><td>
+
+Readonly&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[type](./tsrpc-base-client.basehttpclient.type.md)
+
+
+</td><td>
+
+`readonly`
+
+
+</td><td>
+
+(not declared)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Methods
 
-|  Method | Modifiers | Description |
-|  --- | --- | --- |
-|  [\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._senddata.md) | <code>protected</code> |  |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[\_sendData(data, options, serviceId, pendingApiItem)](./tsrpc-base-client.basehttpclient._senddata.md)
+
+
+</td><td>
+
+`protected`
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## BaseWsClient.\_onWsMessage property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _onWsMessage: (data: Uint8Array | string) => void;

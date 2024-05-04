@@ -6,65 +6,425 @@
 
 ## Classes
 
-|  Class | Description |
-|  --- | --- |
-|  [BaseClient](./tsrpc-base-client.baseclient.md) | An abstract base class for TSRPC Client, which includes some common buffer process flows. |
-|  [BaseHttpClient](./tsrpc-base-client.basehttpclient.md) | Base HTTP Client |
-|  [BaseWsClient](./tsrpc-base-client.basewsclient.md) | WebSocket Client for TSRPC. It uses native <code>WebSocket</code> of browser. |
-|  [Counter](./tsrpc-base-client.counter.md) | An auto-increment counter |
-|  [Flow](./tsrpc-base-client.flow.md) | A <code>Flow</code> is consists of many <code>FlowNode</code>, which is function with the same input and output (like pipeline). |
-|  [MsgHandlerManager](./tsrpc-base-client.msghandlermanager.md) | A manager for TSRPC receiving messages |
-|  [ServiceMapUtil](./tsrpc-base-client.servicemaputil.md) | A utility for generate <code>ServiceMap</code> |
-|  [TransportDataUtil](./tsrpc-base-client.transportdatautil.md) |  |
+<table><thead><tr><th>
+
+Class
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[BaseHttpClient](./tsrpc-base-client.basehttpclient.md)
+
+
+</td><td>
+
+Base HTTP Client
+
+
+</td></tr>
+<tr><td>
+
+[BaseWsClient](./tsrpc-base-client.basewsclient.md)
+
+
+</td><td>
+
+WebSocket Client for TSRPC. It uses native `WebSocket` of browser.
+
+
+</td></tr>
+<tr><td>
+
+[Counter](./tsrpc-base-client.counter.md)
+
+
+</td><td>
+
+An auto-increment counter
+
+
+</td></tr>
+<tr><td>
+
+[Flow](./tsrpc-base-client.flow.md)
+
+
+</td><td>
+
+A `Flow` is consists of many `FlowNode`<!-- -->, which is function with the same input and output (like pipeline).
+
+
+</td></tr>
+<tr><td>
+
+[MsgHandlerManager](./tsrpc-base-client.msghandlermanager.md)
+
+
+</td><td>
+
+A manager for TSRPC receiving messages
+
+
+</td></tr>
+<tr><td>
+
+[ServiceMapUtil](./tsrpc-base-client.servicemaputil.md)
+
+
+</td><td>
+
+A utility for generate `ServiceMap`
+
+
+</td></tr>
+<tr><td>
+
+[TransportDataUtil](./tsrpc-base-client.transportdatautil.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+
+## Abstract Classes
+
+<table><thead><tr><th>
+
+Abstract Class
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[BaseClient](./tsrpc-base-client.baseclient.md)
+
+
+</td><td>
+
+An abstract base class for TSRPC Client, which includes some common buffer process flows.
+
+
+</td></tr>
+</tbody></table>
 
 ## Enumerations
 
-|  Enumeration | Description |
-|  --- | --- |
-|  [WsClientStatus](./tsrpc-base-client.wsclientstatus.md) |  |
+<table><thead><tr><th>
+
+Enumeration
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[WsClientStatus](./tsrpc-base-client.wsclientstatus.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Functions
 
-|  Function | Description |
-|  --- | --- |
-|  [getCustomObjectIdTypes(classObjectId)](./tsrpc-base-client.getcustomobjectidtypes.md) |  |
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[getCustomObjectIdTypes(classObjectId)](./tsrpc-base-client.getcustomobjectidtypes.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [ApiService](./tsrpc-base-client.apiservice.md) |  |
-|  [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
-|  [BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md) |  |
-|  [BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md) |  |
-|  [IHttpProxy](./tsrpc-base-client.ihttpproxy.md) |  |
-|  [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
-|  [MsgService](./tsrpc-base-client.msgservice.md) |  |
-|  [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
-|  [ServiceMap](./tsrpc-base-client.servicemap.md) |  |
-|  [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
+<table><thead><tr><th>
+
+Interface
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[ApiService](./tsrpc-base-client.apiservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[IHttpProxy](./tsrpc-base-client.ihttpproxy.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[MsgService](./tsrpc-base-client.msgservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[PendingApiItem](./tsrpc-base-client.pendingapiitem.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ServiceMap](./tsrpc-base-client.servicemap.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[TransportOptions](./tsrpc-base-client.transportoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Variables
 
-|  Variable | Description |
-|  --- | --- |
-|  [defaultBaseClientOptions](./tsrpc-base-client.defaultbaseclientoptions.md) |  |
-|  [defaultBaseHttpClientOptions](./tsrpc-base-client.defaultbasehttpclientoptions.md) |  |
-|  [defaultBaseWsClientOptions](./tsrpc-base-client.defaultbasewsclientoptions.md) |  |
+<table><thead><tr><th>
+
+Variable
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[defaultBaseClientOptions](./tsrpc-base-client.defaultbaseclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[defaultBaseHttpClientOptions](./tsrpc-base-client.defaultbasehttpclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[defaultBaseWsClientOptions](./tsrpc-base-client.defaultbasewsclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Type Aliases
 
-|  Type Alias | Description |
-|  --- | --- |
-|  [ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md) |  |
-|  [CallApiFlowData](./tsrpc-base-client.callapiflowdata.md) |  |
-|  [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md) |  |
-|  [EncodeOutput](./tsrpc-base-client.encodeoutput.md) |  |
-|  [FlowData](./tsrpc-base-client.flowdata.md) |  |
-|  [FlowNode](./tsrpc-base-client.flownode.md) |  |
-|  [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md) |  |
-|  [ParsedServerInput](./tsrpc-base-client.parsedserverinput.md) |  |
-|  [ParsedServerOutput](./tsrpc-base-client.parsedserveroutput.md) |  |
-|  [RecvMsgFlowData](./tsrpc-base-client.recvmsgflowdata.md) |  |
-|  [SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md) |  |
+<table><thead><tr><th>
 
+Type Alias
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[ApiReturnFlowData](./tsrpc-base-client.apireturnflowdata.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CallApiFlowData](./tsrpc-base-client.callapiflowdata.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[EncodeOutput](./tsrpc-base-client.encodeoutput.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[FlowData](./tsrpc-base-client.flowdata.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[FlowNode](./tsrpc-base-client.flownode.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[FlowNodeReturn](./tsrpc-base-client.flownodereturn.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ParsedServerInput](./tsrpc-base-client.parsedserverinput.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ParsedServerOutput](./tsrpc-base-client.parsedserveroutput.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[RecvMsgFlowData](./tsrpc-base-client.recvmsgflowdata.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[SendMsgFlowData](./tsrpc-base-client.sendmsgflowdata.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

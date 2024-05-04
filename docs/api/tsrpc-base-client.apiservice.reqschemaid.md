@@ -4,7 +4,7 @@
 
 ## ApiService.reqSchemaId property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 reqSchemaId: string;

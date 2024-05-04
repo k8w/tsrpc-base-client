@@ -6,7 +6,7 @@
 
 自定义 mongodb/ObjectId 的反序列化类型 传入 `String`<!-- -->，则会反序列化为字符串 传入 `ObjectId`<!-- -->, 则会反序列化为 `ObjectId` 实例 若为 `false`<!-- -->，则不会自动对 ObjectId 进行额外处理 将会针对 'mongodb/ObjectId' 'bson/ObjectId' 进行处理
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 customObjectIdClass?: {

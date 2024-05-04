@@ -6,7 +6,7 @@
 
 Whether to automatically delete excess properties that not defined in the protocol.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 jsonPrune: boolean;

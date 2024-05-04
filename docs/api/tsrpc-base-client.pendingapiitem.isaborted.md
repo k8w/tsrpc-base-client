@@ -4,7 +4,7 @@
 
 ## PendingApiItem.isAborted property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isAborted?: boolean;

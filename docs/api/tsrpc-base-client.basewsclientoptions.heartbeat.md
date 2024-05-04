@@ -6,7 +6,7 @@
 
 Heartbeat test `undefined` represent disable heartbeat test
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 heartbeat?: {

@@ -6,7 +6,7 @@
 
 Constructs a new instance of the `BaseClient` class
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions);
@@ -14,8 +14,48 @@ constructor(proto: ServiceProto<ServiceType>, options: BaseClientOptions);
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  proto | ServiceProto&lt;ServiceType&gt; |  |
-|  options | [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md) |  |
+<table><thead><tr><th>
 
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+proto
+
+
+</td><td>
+
+ServiceProto&lt;ServiceType&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,7 @@
 
 Timeout of this request（ms） `undefined` represents no timeout
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 timeout?: number;

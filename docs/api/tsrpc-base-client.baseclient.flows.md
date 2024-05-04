@@ -6,7 +6,7 @@
 
 [Flow](./tsrpc-base-client.flow.md) to process `callApi`<!-- -->, `sendMsg`<!-- -->, buffer input/output, etc...
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly flows: {

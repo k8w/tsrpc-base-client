@@ -4,7 +4,7 @@
 
 ## BaseClient.dataType property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly dataType: 'json' | 'text' | 'buffer';

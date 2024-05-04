@@ -6,7 +6,7 @@
 
 `Logger` to process API Request/Response, send message, send buffer...
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly logger?: Logger;

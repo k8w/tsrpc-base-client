@@ -6,7 +6,7 @@
 
 Whether to log \[SendMsg\] and \[RecvMsg\] by the `logger`<!-- -->. NOTICE: if `logger` is `undefined`<!-- -->, no log would be printed.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 logMsg: boolean;

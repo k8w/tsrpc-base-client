@@ -4,7 +4,7 @@
 
 ## BaseClient.\_apiSnCounter property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _apiSnCounter: Counter;

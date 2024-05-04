@@ -4,7 +4,7 @@
 
 ## ApiService.resSchemaId property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 resSchemaId: string;

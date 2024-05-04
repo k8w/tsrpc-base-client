@@ -6,7 +6,7 @@
 
 Append a node function to the last
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 push<K extends T>(node: FlowNode<K>): FlowNode<K>;
@@ -14,11 +14,38 @@ push<K extends T>(node: FlowNode<K>): FlowNode<K>;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  node | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt; |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+node
+
+
+</td><td>
+
+[FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt;
 

@@ -6,7 +6,7 @@
 
 Execute all handlers parallelly
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 forEachHandler(msgName: string, logger: Logger | undefined, ...args: any[]): (any | Promise<any>)[];
@@ -14,13 +14,66 @@ forEachHandler(msgName: string, logger: Logger | undefined, ...args: any[]): (an
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | string |  |
-|  logger | Logger \| undefined |  |
-|  args | any\[\] |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+logger
+
+
+</td><td>
+
+Logger \| undefined
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+args
+
+
+</td><td>
+
+any\[\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 (any \| Promise&lt;any&gt;)\[\]
 

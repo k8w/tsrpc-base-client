@@ -4,17 +4,72 @@
 
 ## BaseHttpClientOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BaseHttpClientOptions extends BaseClientOptions 
 ```
-<b>Extends:</b> [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)
+**Extends:** [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [jsonPrune](./tsrpc-base-client.basehttpclientoptions.jsonprune.md) |  | boolean | Whether to automatically delete excess properties that not defined in the protocol. |
-|  [server](./tsrpc-base-client.basehttpclientoptions.server.md) |  | string | Server URL, starts with <code>http://</code> or <code>https://</code>. |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[jsonPrune](./tsrpc-base-client.basehttpclientoptions.jsonprune.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+Whether to automatically delete excess properties that not defined in the protocol.
+
+
+</td></tr>
+<tr><td>
+
+[server](./tsrpc-base-client.basehttpclientoptions.server.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+Server URL, starts with `http://` or `https://`<!-- -->.
+
+
+</td></tr>
+</tbody></table>

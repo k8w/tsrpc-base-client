@@ -4,7 +4,7 @@
 
 ## BaseWsClient.\_onWsOpen property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _onWsOpen: () => void;

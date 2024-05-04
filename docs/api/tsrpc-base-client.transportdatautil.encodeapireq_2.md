@@ -4,7 +4,7 @@
 
 ## TransportDataUtil.encodeApiReq() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'json', sn?: number): EncodeOutput<object>;
@@ -12,15 +12,96 @@ static encodeApiReq(tsbuffer: TSBuffer, service: ApiService, req: any, type: 'js
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  tsbuffer | TSBuffer |  |
-|  service | [ApiService](./tsrpc-base-client.apiservice.md) |  |
-|  req | any |  |
-|  type | 'json' |  |
-|  sn | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+tsbuffer
+
+
+</td><td>
+
+TSBuffer
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+service
+
+
+</td><td>
+
+[ApiService](./tsrpc-base-client.apiservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+req
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+type
+
+
+</td><td>
+
+'json'
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+sn
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 [EncodeOutput](./tsrpc-base-client.encodeoutput.md)<!-- -->&lt;object&gt;
 

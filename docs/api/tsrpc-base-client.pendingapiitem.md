@@ -4,7 +4,7 @@
 
 ## PendingApiItem interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface PendingApiItem 
@@ -12,12 +12,133 @@ export interface PendingApiItem
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [abortKey](./tsrpc-base-client.pendingapiitem.abortkey.md) |  | string \| undefined |  |
-|  [isAborted?](./tsrpc-base-client.pendingapiitem.isaborted.md) |  | boolean | <i>(Optional)</i> |
-|  [onAbort?](./tsrpc-base-client.pendingapiitem.onabort.md) |  | () =&gt; void | <i>(Optional)</i> |
-|  [onReturn?](./tsrpc-base-client.pendingapiitem.onreturn.md) |  | (ret: ApiReturn&lt;any&gt;) =&gt; void | <i>(Optional)</i> |
-|  [service](./tsrpc-base-client.pendingapiitem.service.md) |  | [ApiService](./tsrpc-base-client.apiservice.md) |  |
-|  [sn](./tsrpc-base-client.pendingapiitem.sn.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[abortKey](./tsrpc-base-client.pendingapiitem.abortkey.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| undefined
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[isAborted?](./tsrpc-base-client.pendingapiitem.isaborted.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[onAbort?](./tsrpc-base-client.pendingapiitem.onabort.md)
+
+
+</td><td>
+
+
+</td><td>
+
+() =&gt; void
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[onReturn?](./tsrpc-base-client.pendingapiitem.onreturn.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(ret: ApiReturn&lt;any&gt;) =&gt; void
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[service](./tsrpc-base-client.pendingapiitem.service.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[ApiService](./tsrpc-base-client.apiservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[sn](./tsrpc-base-client.pendingapiitem.sn.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

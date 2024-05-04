@@ -4,7 +4,7 @@
 
 ## FlowNodeReturn type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type FlowNodeReturn<T> = T | null | undefined;

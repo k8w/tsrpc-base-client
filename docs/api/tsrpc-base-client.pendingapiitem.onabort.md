@@ -4,7 +4,7 @@
 
 ## PendingApiItem.onAbort property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 onAbort?: () => void;

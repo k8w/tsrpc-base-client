@@ -6,7 +6,7 @@
 
 Send message, without response, not ensuring the server is received and processed correctly.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 sendMsg<T extends string & keyof ServiceType['msg']>(msgName: T, msg: ServiceType['msg'][T], options?: TransportOptions): Promise<{
@@ -19,13 +19,70 @@ sendMsg<T extends string & keyof ServiceType['msg']>(msgName: T, msg: ServiceTyp
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | T |  |
-|  msg | ServiceType\['msg'\]\[T\] | Message body |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | <i>(Optional)</i> Transport options |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+T
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+msg
+
+
+</td><td>
+
+ServiceType\['msg'\]\[T\]
+
+
+</td><td>
+
+Message body
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[TransportOptions](./tsrpc-base-client.transportoptions.md)
+
+
+</td><td>
+
+_(Optional)_ Transport options
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;{ isSucc: true; } \| { isSucc: false; err: TsrpcError; }&gt;
 

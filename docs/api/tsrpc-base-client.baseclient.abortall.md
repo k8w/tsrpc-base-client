@@ -6,12 +6,12 @@
 
 Abort all pending API requests. It makes the promise returned by `callApi` neither resolved nor rejected forever.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 abortAll(): void;
 ```
-<b>Returns:</b>
+**Returns:**
 
 void
 

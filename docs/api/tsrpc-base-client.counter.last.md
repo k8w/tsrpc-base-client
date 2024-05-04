@@ -6,7 +6,7 @@
 
 Last return of `getNext()`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 get last(): number;

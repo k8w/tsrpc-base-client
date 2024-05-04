@@ -6,7 +6,7 @@
 
 Server URL, starts with `http://` or `https://`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 server: string;

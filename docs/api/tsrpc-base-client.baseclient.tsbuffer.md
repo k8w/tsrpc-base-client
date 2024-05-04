@@ -6,7 +6,7 @@
 
 The `TSBuffer` instance for encoding, decoding, and type checking
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly tsbuffer: TSBuffer;

@@ -4,7 +4,7 @@
 
 ## SendMsgFlowData type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type SendMsgFlowData<ServiceType extends BaseServiceType> = {
@@ -15,5 +15,5 @@ export type SendMsgFlowData<ServiceType extends BaseServiceType> = {
     };
 }[keyof ServiceType['msg']];
 ```
-<b>References:</b> [TransportOptions](./tsrpc-base-client.transportoptions.md)
+**References:** [TransportOptions](./tsrpc-base-client.transportoptions.md)
 

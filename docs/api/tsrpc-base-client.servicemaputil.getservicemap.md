@@ -4,7 +4,7 @@
 
 ## ServiceMapUtil.getServiceMap() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 static getServiceMap(proto: ServiceProto): ServiceMap;
@@ -12,11 +12,38 @@ static getServiceMap(proto: ServiceProto): ServiceMap;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  proto | ServiceProto |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+proto
+
+
+</td><td>
+
+ServiceProto
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 [ServiceMap](./tsrpc-base-client.servicemap.md)
 

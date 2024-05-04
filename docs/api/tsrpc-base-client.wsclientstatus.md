@@ -4,7 +4,7 @@
 
 ## WsClientStatus enum
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare enum WsClientStatus 
@@ -12,10 +12,76 @@ export declare enum WsClientStatus
 
 ## Enumeration Members
 
-|  Member | Value | Description |
-|  --- | --- | --- |
-|  Closed | <code>&quot;CLOSED&quot;</code> |  |
-|  Closing | <code>&quot;CLOSING&quot;</code> |  |
-|  Opened | <code>&quot;OPENED&quot;</code> |  |
-|  Opening | <code>&quot;OPENING&quot;</code> |  |
+<table><thead><tr><th>
 
+Member
+
+
+</th><th>
+
+Value
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+Closed
+
+
+</td><td>
+
+`"CLOSED"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Closing
+
+
+</td><td>
+
+`"CLOSING"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Opened
+
+
+</td><td>
+
+`"OPENED"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Opening
+
+
+</td><td>
+
+`"OPENING"`
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

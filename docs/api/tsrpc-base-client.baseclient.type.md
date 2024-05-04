@@ -6,7 +6,7 @@
 
 The connection is long connection or short connection
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 abstract readonly type: 'SHORT' | 'LONG';

@@ -4,7 +4,7 @@
 
 ## ServiceMap.apiName2Service property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 apiName2Service: {

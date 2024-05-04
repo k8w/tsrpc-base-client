@@ -4,7 +4,7 @@
 
 ## BaseClient.\_doCallApi() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _doCallApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options: TransportOptions | undefined, pendingItem: PendingApiItem): Promise<ApiReturn<ServiceType['api'][T]['res']>>;
@@ -12,14 +12,80 @@ protected _doCallApi<T extends string & keyof ServiceType['api']>(apiName: T, re
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  apiName | T |  |
-|  req | ServiceType\['api'\]\[T\]\['req'\] |  |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) \| undefined |  |
-|  pendingItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+apiName
+
+
+</td><td>
+
+T
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+req
+
+
+</td><td>
+
+ServiceType\['api'\]\[T\]\['req'\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[TransportOptions](./tsrpc-base-client.transportoptions.md) \| undefined
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+pendingItem
+
+
+</td><td>
+
+[PendingApiItem](./tsrpc-base-client.pendingapiitem.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;ApiReturn&lt;ServiceType\['api'\]\[T\]\['res'\]&gt;&gt;
 

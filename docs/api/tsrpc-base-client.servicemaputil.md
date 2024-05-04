@@ -6,7 +6,7 @@
 
 A utility for generate `ServiceMap`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare class ServiceMapUtil 
@@ -14,7 +14,34 @@ export declare class ServiceMapUtil
 
 ## Methods
 
-|  Method | Modifiers | Description |
-|  --- | --- | --- |
-|  [getServiceMap(proto)](./tsrpc-base-client.servicemaputil.getservicemap.md) | <code>static</code> |  |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[getServiceMap(proto)](./tsrpc-base-client.servicemaputil.getservicemap.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

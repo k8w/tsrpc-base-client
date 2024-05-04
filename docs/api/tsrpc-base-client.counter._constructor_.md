@@ -6,7 +6,7 @@
 
 Constructs a new instance of the `Counter` class
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 constructor(min?: number, max?: number);
@@ -14,8 +14,52 @@ constructor(min?: number, max?: number);
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  min | number | <i>(Optional)</i> |
-|  max | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+min
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+max
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

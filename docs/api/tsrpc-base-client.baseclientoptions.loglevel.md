@@ -6,7 +6,7 @@
 
 The minimum log level of `logger`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 logLevel: LogLevel;

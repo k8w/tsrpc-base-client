@@ -4,17 +4,72 @@
 
 ## BaseWsClientOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BaseWsClientOptions extends BaseClientOptions 
 ```
-<b>Extends:</b> [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)
+**Extends:** [BaseClientOptions](./tsrpc-base-client.baseclientoptions.md)
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [heartbeat?](./tsrpc-base-client.basewsclientoptions.heartbeat.md) |  | { interval: number; timeout: number; } | <i>(Optional)</i> Heartbeat test <code>undefined</code> represent disable heartbeat test |
-|  [server](./tsrpc-base-client.basewsclientoptions.server.md) |  | string | Server URL, starts with <code>ws://</code> or <code>wss://</code>. |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[heartbeat?](./tsrpc-base-client.basewsclientoptions.heartbeat.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ interval: number; timeout: number; }
+
+
+</td><td>
+
+_(Optional)_ Heartbeat test `undefined` represent disable heartbeat test
+
+
+</td></tr>
+<tr><td>
+
+[server](./tsrpc-base-client.basewsclientoptions.server.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+Server URL, starts with `ws://` or `wss://`<!-- -->.
+
+
+</td></tr>
+</tbody></table>

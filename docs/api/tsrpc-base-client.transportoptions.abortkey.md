@@ -6,7 +6,7 @@
 
 Which can be passed to `client.abortByKey(abortKey)`<!-- -->. Many requests can share the same `abortKey`<!-- -->, so that they can be aborted at once.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 abortKey?: string;

@@ -4,7 +4,7 @@
 
 ## IHttpProxy interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface IHttpProxy 
@@ -12,7 +12,24 @@ export interface IHttpProxy
 
 ## Methods
 
-|  Method | Description |
-|  --- | --- |
-|  [fetch(options)](./tsrpc-base-client.ihttpproxy.fetch.md) |  |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[fetch(options)](./tsrpc-base-client.ihttpproxy.fetch.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,7 @@
 
 Abort a pending API request, it makes the promise returned by `callApi()` neither resolved nor rejected forever.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 abort(sn: number): void;
@@ -14,11 +14,40 @@ abort(sn: number): void;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  sn | number | Every api request has a unique <code>sn</code> number, you can get it by <code>this.lastSN</code> |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+sn
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+Every api request has a unique `sn` number, you can get it by `this.lastSN`
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

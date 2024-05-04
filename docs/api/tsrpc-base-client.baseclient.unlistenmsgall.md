@@ -6,7 +6,7 @@
 
 Remove all handlers from a message
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T | RegExp): void;
@@ -14,11 +14,38 @@ unlistenMsgAll<T extends keyof ServiceType['msg']>(msgName: T | RegExp): void;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | T \| RegExp |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+T \| RegExp
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

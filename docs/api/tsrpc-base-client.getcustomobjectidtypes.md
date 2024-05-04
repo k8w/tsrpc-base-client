@@ -4,7 +4,7 @@
 
 ## getCustomObjectIdTypes() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function getCustomObjectIdTypes(classObjectId: {
@@ -16,11 +16,38 @@ export declare function getCustomObjectIdTypes(classObjectId: {
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  classObjectId | { new (id?: any): any; } |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+classObjectId
+
+
+</td><td>
+
+{ new (id?: any): any; }
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 { \[schemaId: string\]: CustomTypeSchema; }
 

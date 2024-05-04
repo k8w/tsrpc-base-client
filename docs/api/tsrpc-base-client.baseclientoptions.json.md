@@ -6,7 +6,7 @@
 
 Use JSON instead of binary as transfering format. JSON transportation also support ArrayBuffer / Date / ObjectId.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 json: boolean;

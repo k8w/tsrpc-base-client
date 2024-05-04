@@ -4,7 +4,7 @@
 
 ## TransportDataUtil.tsbuffer property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 static get tsbuffer(): TSBuffer;

@@ -9,7 +9,7 @@
 > Please use `_onRecvData` instead
 > 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _onRecvBuf: (buf: Uint8Array, pendingApiItem?: PendingApiItem) => Promise<void>;

@@ -6,7 +6,7 @@
 
 Abort all API requests that has the `abortKey`<!-- -->. It makes the promise returned by `callApi` neither resolved nor rejected forever.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 abortByKey(abortKey: string): void;
@@ -14,11 +14,40 @@ abortByKey(abortKey: string): void;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  abortKey | string | The <code>abortKey</code> of options when <code>callApi()</code>, see [TransportOptions.abortKey](./tsrpc-base-client.transportoptions.abortkey.md)<!-- -->. |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+abortKey
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+The `abortKey` of options when `callApi()`<!-- -->, see [TransportOptions.abortKey](./tsrpc-base-client.transportoptions.abortkey.md)<!-- -->.
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

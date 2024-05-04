@@ -6,7 +6,7 @@
 
 Constructs a new instance of the `BaseWsClient` class
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 constructor(proto: ServiceProto<ServiceType>, wsp: IWebSocketProxy, options?: Partial<BaseWsClientOptions>);
@@ -14,9 +14,64 @@ constructor(proto: ServiceProto<ServiceType>, wsp: IWebSocketProxy, options?: Pa
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  proto | ServiceProto&lt;ServiceType&gt; |  |
-|  wsp | [IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md) |  |
-|  options | Partial&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt; | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+proto
+
+
+</td><td>
+
+ServiceProto&lt;ServiceType&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+wsp
+
+
+</td><td>
+
+[IWebSocketProxy](./tsrpc-base-client.iwebsocketproxy.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+Partial&lt;[BaseWsClientOptions](./tsrpc-base-client.basewsclientoptions.md)<!-- -->&gt;
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## IWebSocketProxy.close() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 close(code?: number, reason?: string): void;
@@ -12,12 +12,56 @@ close(code?: number, reason?: string): void;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  code | number | <i>(Optional)</i> |
-|  reason | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+code
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+reason
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

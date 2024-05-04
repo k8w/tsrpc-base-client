@@ -4,7 +4,7 @@
 
 ## PendingApiItem.service property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 service: ApiService;

@@ -4,7 +4,7 @@
 
 ## BaseWsClient.\_sendData() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _sendData(data: string | Uint8Array): Promise<{
@@ -14,11 +14,38 @@ protected _sendData(data: string | Uint8Array): Promise<{
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  data | string \| Uint8Array |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+data
+
+
+</td><td>
+
+string \| Uint8Array
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;{ err?: TsrpcError; }&gt;
 

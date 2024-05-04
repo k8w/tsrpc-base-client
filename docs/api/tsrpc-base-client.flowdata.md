@@ -4,10 +4,10 @@
 
 ## FlowData type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type FlowData<T extends Flow<any>> = T extends Flow<infer R> ? R : unknown;
 ```
-<b>References:</b> [Flow](./tsrpc-base-client.flow.md)
+**References:** [Flow](./tsrpc-base-client.flow.md)
 

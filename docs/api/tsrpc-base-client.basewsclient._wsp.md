@@ -4,7 +4,7 @@
 
 ## BaseWsClient.\_wsp property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _wsp: IWebSocketProxy;

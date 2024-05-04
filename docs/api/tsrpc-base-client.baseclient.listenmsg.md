@@ -6,7 +6,7 @@
 
 Add a message handler, duplicate handlers to the same `msgName` would be ignored.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: ClientMsgHandler<ServiceType, T>): ClientMsgHandler<ServiceType, T>;
@@ -14,12 +14,52 @@ listenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: Clie
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | T \| RegExp |  |
-|  handler | [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md)<!-- -->&lt;ServiceType, T&gt; |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+T \| RegExp
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+handler
+
+
+</td><td>
+
+[ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md)<!-- -->&lt;ServiceType, T&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 [ClientMsgHandler](./tsrpc-base-client.clientmsghandler.md)<!-- -->&lt;ServiceType, T&gt;
 

@@ -4,7 +4,7 @@
 
 ## TransportDataUtil.encodeServerMsg() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 'buffer', connType: BaseClient<any>['type']): EncodeOutput<Uint8Array>;
@@ -12,15 +12,94 @@ static encodeServerMsg(tsbuffer: TSBuffer, service: MsgService, msg: any, type: 
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  tsbuffer | TSBuffer |  |
-|  service | [MsgService](./tsrpc-base-client.msgservice.md) |  |
-|  msg | any |  |
-|  type | 'buffer' |  |
-|  connType | [BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;any&gt;\['type'\] |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+tsbuffer
+
+
+</td><td>
+
+TSBuffer
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+service
+
+
+</td><td>
+
+[MsgService](./tsrpc-base-client.msgservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+msg
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+type
+
+
+</td><td>
+
+'buffer'
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+connType
+
+
+</td><td>
+
+[BaseClient](./tsrpc-base-client.baseclient.md)<!-- -->&lt;any&gt;\['type'\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 [EncodeOutput](./tsrpc-base-client.encodeoutput.md)<!-- -->&lt;Uint8Array&gt;
 

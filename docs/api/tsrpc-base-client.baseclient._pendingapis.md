@@ -6,7 +6,7 @@
 
 Pending API Requests
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _pendingApis: PendingApiItem[];

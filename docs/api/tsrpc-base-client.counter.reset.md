@@ -6,12 +6,12 @@
 
 Reset the counter, makes `getNext()` restart from `0`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 reset(): void;
 ```
-<b>Returns:</b>
+**Returns:**
 
 void
 

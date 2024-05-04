@@ -4,7 +4,7 @@
 
 ## BaseWsClient.\_onWsError property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _onWsError: (e: unknown) => void;

@@ -6,7 +6,7 @@
 
 Remove a message handler
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: Function): void;
@@ -14,12 +14,52 @@ unlistenMsg<T extends keyof ServiceType['msg']>(msgName: T | RegExp, handler: Fu
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | T \| RegExp |  |
-|  handler | Function |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+T \| RegExp
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+handler
+
+
+</td><td>
+
+Function
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

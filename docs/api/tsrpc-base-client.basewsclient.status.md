@@ -4,7 +4,7 @@
 
 ## BaseWsClient.status property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 get status(): WsClientStatus;

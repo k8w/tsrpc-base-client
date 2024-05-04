@@ -4,7 +4,7 @@
 
 ## TransportDataUtil class
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare class TransportDataUtil 
@@ -12,26 +12,269 @@ export declare class TransportDataUtil
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [HeartbeatPacket](./tsrpc-base-client.transportdatautil.heartbeatpacket.md) | <p><code>readonly</code></p><p><code>static</code></p> | Readonly&lt;Uint8Array&gt; |  |
-|  [tsbuffer](./tsrpc-base-client.transportdatautil.tsbuffer.md) | <p><code>readonly</code></p><p><code>static</code></p> | TSBuffer |  |
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[HeartbeatPacket](./tsrpc-base-client.transportdatautil.heartbeatpacket.md)
+
+
+</td><td>
+
+`static`
+
+`readonly`
+
+
+</td><td>
+
+Readonly&lt;Uint8Array&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[tsbuffer](./tsrpc-base-client.transportdatautil.tsbuffer.md)
+
+
+</td><td>
+
+`static`
+
+`readonly`
+
+
+</td><td>
+
+TSBuffer
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Methods
 
-|  Method | Modifiers | Description |
-|  --- | --- | --- |
-|  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq.md) | <code>static</code> |  |
-|  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_1.md) | <code>static</code> |  |
-|  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_2.md) | <code>static</code> |  |
-|  [encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_3.md) | <code>static</code> |  |
-|  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg.md) | <code>static</code> |  |
-|  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_1.md) | <code>static</code> |  |
-|  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_2.md) | <code>static</code> |  |
-|  [encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_3.md) | <code>static</code> |  |
-|  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg.md) | <code>static</code> |  |
-|  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_1.md) | <code>static</code> |  |
-|  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_2.md) | <code>static</code> |  |
-|  [encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_3.md) | <code>static</code> |  |
-|  [parseServerOutout(tsbuffer, serviceMap, data, serviceId)](./tsrpc-base-client.transportdatautil.parseserveroutout.md) | <code>static</code> |  |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_1.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_2.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeApiReq(tsbuffer, service, req, type, sn)](./tsrpc-base-client.transportdatautil.encodeapireq_3.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_1.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_2.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeClientMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeclientmsg_3.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_1.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_2.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[encodeServerMsg(tsbuffer, service, msg, type, connType)](./tsrpc-base-client.transportdatautil.encodeservermsg_3.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[parseServerOutout(tsbuffer, serviceMap, data, serviceId)](./tsrpc-base-client.transportdatautil.parseserveroutout.md)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## ApiReturnFlowData type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ApiReturnFlowData<ServiceType extends BaseServiceType> = {
@@ -16,5 +16,5 @@ export type ApiReturnFlowData<ServiceType extends BaseServiceType> = {
     };
 }[keyof ServiceType['api']];
 ```
-<b>References:</b> [TransportOptions](./tsrpc-base-client.transportoptions.md)
+**References:** [TransportOptions](./tsrpc-base-client.transportoptions.md)
 

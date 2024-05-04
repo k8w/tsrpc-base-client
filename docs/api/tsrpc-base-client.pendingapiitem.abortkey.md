@@ -4,7 +4,7 @@
 
 ## PendingApiItem.abortKey property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 abortKey: string | undefined;

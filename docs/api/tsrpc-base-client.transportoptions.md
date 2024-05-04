@@ -4,7 +4,7 @@
 
 ## TransportOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TransportOptions 
@@ -12,8 +12,63 @@ export interface TransportOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [abortKey?](./tsrpc-base-client.transportoptions.abortkey.md) |  | string | <i>(Optional)</i> Which can be passed to <code>client.abortByKey(abortKey)</code>. Many requests can share the same <code>abortKey</code>, so that they can be aborted at once. |
-|  [timeout?](./tsrpc-base-client.transportoptions.timeout.md) |  | number | <i>(Optional)</i> Timeout of this request（ms） <code>undefined</code> represents no timeout |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[abortKey?](./tsrpc-base-client.transportoptions.abortkey.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ Which can be passed to `client.abortByKey(abortKey)`<!-- -->. Many requests can share the same `abortKey`<!-- -->, so that they can be aborted at once.
+
+
+</td></tr>
+<tr><td>
+
+[timeout?](./tsrpc-base-client.transportoptions.timeout.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_ Timeout of this request（ms） `undefined` represents no timeout
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,24 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [tsrpc-base-client](./tsrpc-base-client.md) |  |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[tsrpc-base-client](./tsrpc-base-client.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

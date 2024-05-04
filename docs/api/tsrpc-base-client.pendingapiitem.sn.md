@@ -4,7 +4,7 @@
 
 ## PendingApiItem.sn property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 sn: number;

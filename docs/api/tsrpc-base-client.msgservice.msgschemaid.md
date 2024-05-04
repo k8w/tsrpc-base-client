@@ -4,7 +4,7 @@
 
 ## MsgService.msgSchemaId property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 msgSchemaId: string;

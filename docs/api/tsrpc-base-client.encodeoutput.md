@@ -4,7 +4,7 @@
 
 ## EncodeOutput type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare type EncodeOutput<T> = {

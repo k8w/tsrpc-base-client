@@ -6,7 +6,7 @@
 
 All node functions, if you want to adjust the sort you can modify this.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nodes: FlowNode<T>[];

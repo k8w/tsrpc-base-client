@@ -4,7 +4,7 @@
 
 ## BaseWsClient.\_onWsClose property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _onWsClose: (code: number, reason: string) => void;

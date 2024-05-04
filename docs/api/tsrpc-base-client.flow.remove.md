@@ -6,7 +6,7 @@
 
 Remove a node function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 remove<K extends T>(node: FlowNode<K>): FlowNode<T>[];
@@ -14,11 +14,38 @@ remove<K extends T>(node: FlowNode<K>): FlowNode<T>[];
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  node | [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt; |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+node
+
+
+</td><td>
+
+[FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;K&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 [FlowNode](./tsrpc-base-client.flownode.md)<!-- -->&lt;T&gt;\[\]
 

@@ -6,7 +6,7 @@
 
 Add message handler, duplicate handlers to the same `msgName` would be ignored.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 addHandler(msgName: string, handler: Function): void;
@@ -14,12 +14,52 @@ addHandler(msgName: string, handler: Function): void;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | string |  |
-|  handler | Function |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+handler
+
+
+</td><td>
+
+Function
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

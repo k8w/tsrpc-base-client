@@ -6,7 +6,7 @@
 
 Remove all handlers for the specific `msgName`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 removeAllHandlers(msgName: string): void;
@@ -14,11 +14,38 @@ removeAllHandlers(msgName: string): void;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  msgName | string |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+msgName
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 void
 

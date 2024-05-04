@@ -4,7 +4,7 @@
 
 ## ServiceMap interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ServiceMap 
@@ -12,9 +12,76 @@ export interface ServiceMap
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [apiName2Service](./tsrpc-base-client.servicemap.apiname2service.md) |  | { \[apiName: string\]: [ApiService](./tsrpc-base-client.apiservice.md) \| undefined; } |  |
-|  [id2Service](./tsrpc-base-client.servicemap.id2service.md) |  | { \[serviceId: number\]: [ApiService](./tsrpc-base-client.apiservice.md) \| [MsgService](./tsrpc-base-client.msgservice.md)<!-- -->; } |  |
-|  [msgName2Service](./tsrpc-base-client.servicemap.msgname2service.md) |  | { \[msgName: string\]: [MsgService](./tsrpc-base-client.msgservice.md) \| undefined; } |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[apiName2Service](./tsrpc-base-client.servicemap.apiname2service.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[apiName: string\]: [ApiService](./tsrpc-base-client.apiservice.md) \| undefined; }
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[id2Service](./tsrpc-base-client.servicemap.id2service.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[serviceId: number\]: [ApiService](./tsrpc-base-client.apiservice.md) \| [MsgService](./tsrpc-base-client.msgservice.md)<!-- -->; }
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[msgName2Service](./tsrpc-base-client.servicemap.msgname2service.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[msgName: string\]: [MsgService](./tsrpc-base-client.msgservice.md) \| undefined; }
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

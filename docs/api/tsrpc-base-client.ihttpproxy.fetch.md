@@ -4,7 +4,7 @@
 
 ## IHttpProxy.fetch() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 fetch(options: {
@@ -31,11 +31,38 @@ fetch(options: {
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  options | { url: string; data: string \| Uint8Array; method: string; timeout?: number; headers?: { \[key: string\]: string; }; transportOptions: [TransportOptions](./tsrpc-base-client.transportoptions.md)<!-- -->; responseType: 'text' \| 'arraybuffer'; } |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+
+</td><td>
+
+{ url: string; data: string \| Uint8Array; method: string; timeout?: number; headers?: { \[key: string\]: string; }; transportOptions: [TransportOptions](./tsrpc-base-client.transportoptions.md)<!-- -->; responseType: 'text' \| 'arraybuffer'; }
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 { abort: () =&gt; void; promise: Promise&lt;{ isSucc: true; res: string \| Uint8Array; } \| { isSucc: false; err: TsrpcError; }&gt;; }
 

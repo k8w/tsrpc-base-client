@@ -4,7 +4,7 @@
 
 ## BaseClient.\_waitApiReturn() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 protected _waitApiReturn(pendingItem: PendingApiItem, timeout?: number): Promise<ApiReturn<any>>;
@@ -12,12 +12,54 @@ protected _waitApiReturn(pendingItem: PendingApiItem, timeout?: number): Promise
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  pendingItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) |  |
-|  timeout | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+pendingItem
+
+
+</td><td>
+
+[PendingApiItem](./tsrpc-base-client.pendingapiitem.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+timeout
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;ApiReturn&lt;any&gt;&gt;
 

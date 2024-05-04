@@ -6,7 +6,7 @@
 
 An auto-increment counter
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare class Counter 
@@ -14,20 +14,128 @@ export declare class Counter
 
 ## Constructors
 
-|  Constructor | Modifiers | Description |
-|  --- | --- | --- |
-|  [(constructor)(min, max)](./tsrpc-base-client.counter._constructor_.md) |  | Constructs a new instance of the <code>Counter</code> class |
+<table><thead><tr><th>
+
+Constructor
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[(constructor)(min, max)](./tsrpc-base-client.counter._constructor_.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Constructs a new instance of the `Counter` class
+
+
+</td></tr>
+</tbody></table>
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [last](./tsrpc-base-client.counter.last.md) | <code>readonly</code> | number | Last return of <code>getNext()</code> |
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[last](./tsrpc-base-client.counter.last.md)
+
+
+</td><td>
+
+`readonly`
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+Last return of `getNext()`
+
+
+</td></tr>
+</tbody></table>
 
 ## Methods
 
-|  Method | Modifiers | Description |
-|  --- | --- | --- |
-|  [getNext(notInc)](./tsrpc-base-client.counter.getnext.md) |  | Get next counter value, and auto increment <code>1</code> |
-|  [reset()](./tsrpc-base-client.counter.reset.md) |  | Reset the counter, makes <code>getNext()</code> restart from <code>0</code> |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[getNext(notInc)](./tsrpc-base-client.counter.getnext.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Get next counter value, and auto increment `1`
+
+
+</td></tr>
+<tr><td>
+
+[reset()](./tsrpc-base-client.counter.reset.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Reset the counter, makes `getNext()` restart from `0`
+
+
+</td></tr>
+</tbody></table>

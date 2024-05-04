@@ -6,7 +6,7 @@
 
 Constructs a new instance of the `BaseHttpClient` class
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 constructor(proto: ServiceProto<ServiceType>, http: IHttpProxy, options?: Partial<BaseHttpClientOptions>);
@@ -14,9 +14,64 @@ constructor(proto: ServiceProto<ServiceType>, http: IHttpProxy, options?: Partia
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  proto | ServiceProto&lt;ServiceType&gt; |  |
-|  http | [IHttpProxy](./tsrpc-base-client.ihttpproxy.md) |  |
-|  options | Partial&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt; | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+proto
+
+
+</td><td>
+
+ServiceProto&lt;ServiceType&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+http
+
+
+</td><td>
+
+[IHttpProxy](./tsrpc-base-client.ihttpproxy.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+Partial&lt;[BaseHttpClientOptions](./tsrpc-base-client.basehttpclientoptions.md)<!-- -->&gt;
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

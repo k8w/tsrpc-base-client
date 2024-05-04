@@ -6,7 +6,7 @@
 
 A manager for TSRPC receiving messages
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare class MsgHandlerManager 
@@ -14,10 +14,76 @@ export declare class MsgHandlerManager
 
 ## Methods
 
-|  Method | Modifiers | Description |
-|  --- | --- | --- |
-|  [addHandler(msgName, handler)](./tsrpc-base-client.msghandlermanager.addhandler.md) |  | Add message handler, duplicate handlers to the same <code>msgName</code> would be ignored. |
-|  [forEachHandler(msgName, logger, args)](./tsrpc-base-client.msghandlermanager.foreachhandler.md) |  | Execute all handlers parallelly |
-|  [removeAllHandlers(msgName)](./tsrpc-base-client.msghandlermanager.removeallhandlers.md) |  | Remove all handlers for the specific <code>msgName</code> |
-|  [removeHandler(msgName, handler)](./tsrpc-base-client.msghandlermanager.removehandler.md) |  | Remove handler from the specific <code>msgName</code> |
+<table><thead><tr><th>
 
+Method
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[addHandler(msgName, handler)](./tsrpc-base-client.msghandlermanager.addhandler.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Add message handler, duplicate handlers to the same `msgName` would be ignored.
+
+
+</td></tr>
+<tr><td>
+
+[forEachHandler(msgName, logger, args)](./tsrpc-base-client.msghandlermanager.foreachhandler.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Execute all handlers parallelly
+
+
+</td></tr>
+<tr><td>
+
+[removeAllHandlers(msgName)](./tsrpc-base-client.msghandlermanager.removeallhandlers.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Remove all handlers for the specific `msgName`
+
+
+</td></tr>
+<tr><td>
+
+[removeHandler(msgName, handler)](./tsrpc-base-client.msghandlermanager.removehandler.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Remove handler from the specific `msgName`
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,7 @@
 
 The map of all services
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly serviceMap: ServiceMap;

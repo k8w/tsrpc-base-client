@@ -4,7 +4,7 @@
 
 ## ClientMsgHandler type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ClientMsgHandler<ServiceType extends BaseServiceType, MsgName extends keyof ServiceType['msg']> = (msg: ServiceType['msg'][MsgName], msgName: MsgName) => void | Promise<void>;

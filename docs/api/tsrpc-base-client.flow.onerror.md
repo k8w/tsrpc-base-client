@@ -6,7 +6,7 @@
 
 Event when error throwed from a `FlowNode` function. By default, it does nothing except print a `Uncaught FlowError` error log.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 onError: (e: Error | TsrpcError, last: T, input: T, logger: Logger | undefined) => void;

@@ -4,7 +4,7 @@
 
 ## TransportDataUtil.HeartbeatPacket property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 static readonly HeartbeatPacket: Readonly<Uint8Array>;

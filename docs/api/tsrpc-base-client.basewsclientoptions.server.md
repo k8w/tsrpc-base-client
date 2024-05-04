@@ -6,7 +6,7 @@
 
 Server URL, starts with `ws://` or `wss://`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 server: string;

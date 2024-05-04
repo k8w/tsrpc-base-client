@@ -4,7 +4,7 @@
 
 ## defaultBaseClientOptions variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 defaultBaseClientOptions: BaseClientOptions

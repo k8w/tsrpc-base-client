@@ -4,7 +4,7 @@
 
 ## BaseHttpClient.type property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly type = "SHORT";

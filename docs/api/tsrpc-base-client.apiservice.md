@@ -4,17 +4,68 @@
 
 ## ApiService interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ApiService extends ApiServiceDef 
 ```
-<b>Extends:</b> ApiServiceDef
+**Extends:** ApiServiceDef
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [reqSchemaId](./tsrpc-base-client.apiservice.reqschemaid.md) |  | string |  |
-|  [resSchemaId](./tsrpc-base-client.apiservice.resschemaid.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[reqSchemaId](./tsrpc-base-client.apiservice.reqschemaid.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[resSchemaId](./tsrpc-base-client.apiservice.resschemaid.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

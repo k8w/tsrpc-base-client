@@ -4,7 +4,7 @@
 
 ## ServiceMap.msgName2Service property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 msgName2Service: {

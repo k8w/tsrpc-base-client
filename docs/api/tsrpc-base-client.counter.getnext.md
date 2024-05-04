@@ -6,7 +6,7 @@
 
 Get next counter value, and auto increment `1`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 getNext(notInc?: boolean): number;
@@ -14,11 +14,40 @@ getNext(notInc?: boolean): number;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  notInc | boolean | <i>(Optional)</i> Just get the next possible value, not actually increasing the sequence |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+notInc
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ Just get the next possible value, not actually increasing the sequence
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 number
 

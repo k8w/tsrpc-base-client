@@ -6,7 +6,7 @@
 
 The `SN` number of the last `callApi()`<!-- -->, which can be passed to `abort()` to abort an API request.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 get lastSN(): number;

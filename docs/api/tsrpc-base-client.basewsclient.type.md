@@ -4,7 +4,7 @@
 
 ## BaseWsClient.type property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly type = "LONG";

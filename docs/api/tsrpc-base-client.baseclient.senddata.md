@@ -6,7 +6,7 @@
 
 Send data (binary or text)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 sendData(data: Uint8Array | string | object, options: TransportOptions, serviceId: number, pendingApiItem?: PendingApiItem): Promise<{
@@ -16,14 +16,82 @@ sendData(data: Uint8Array | string | object, options: TransportOptions, serviceI
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  data | Uint8Array \| string \| object |  |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) |  |
-|  serviceId | number |  |
-|  pendingApiItem | [PendingApiItem](./tsrpc-base-client.pendingapiitem.md) | <i>(Optional)</i> |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+data
+
+
+</td><td>
+
+Uint8Array \| string \| object
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[TransportOptions](./tsrpc-base-client.transportoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+serviceId
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+pendingApiItem
+
+
+</td><td>
+
+[PendingApiItem](./tsrpc-base-client.pendingapiitem.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;{ err?: TsrpcError; }&gt;
 

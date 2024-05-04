@@ -6,7 +6,7 @@
 
 Send request and wait for the return
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 callApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceType['api'][T]['req'], options?: TransportOptions): Promise<ApiReturn<ServiceType['api'][T]['res']>>;
@@ -14,13 +14,70 @@ callApi<T extends string & keyof ServiceType['api']>(apiName: T, req: ServiceTyp
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  apiName | T |  |
-|  req | ServiceType\['api'\]\[T\]\['req'\] | Request body |
-|  options | [TransportOptions](./tsrpc-base-client.transportoptions.md) | <i>(Optional)</i> Transport options |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+apiName
+
+
+</td><td>
+
+T
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+req
+
+
+</td><td>
+
+ServiceType\['api'\]\[T\]\['req'\]
+
+
+</td><td>
+
+Request body
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[TransportOptions](./tsrpc-base-client.transportoptions.md)
+
+
+</td><td>
+
+_(Optional)_ Transport options
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;ApiReturn&lt;ServiceType\['api'\]\[T\]\['res'\]&gt;&gt;
 

@@ -6,7 +6,7 @@
 
 If `true`<!-- -->, all sent and received raw buffer would be print into the log. It may be useful when you do something for buffer encryption/decryption, and want to debug them.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 debugBuf: boolean;

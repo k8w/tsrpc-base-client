@@ -4,7 +4,7 @@
 
 ## IWebSocketProxy.send() method
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 send(data: Uint8Array | string): Promise<{
@@ -14,11 +14,38 @@ send(data: Uint8Array | string): Promise<{
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  data | Uint8Array \| string |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+data
+
+
+</td><td>
+
+Uint8Array \| string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 Promise&lt;{ err?: TsrpcError; }&gt;
 

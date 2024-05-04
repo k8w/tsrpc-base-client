@@ -6,7 +6,7 @@
 
 Start connecting, you must connect first before `callApi()` and `sendMsg()`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 connect(): Promise<{
@@ -17,7 +17,7 @@ connect(): Promise<{
         errMsg: string;
     }>;
 ```
-<b>Returns:</b>
+**Returns:**
 
 Promise&lt;{ isSucc: true; errMsg?: undefined; } \| { isSucc: false; errMsg: string; }&gt;
 

@@ -4,10 +4,10 @@
 
 ## FlowNode type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type FlowNode<T> = (item: T) => FlowNodeReturn<T> | Promise<FlowNodeReturn<T>>;
 ```
-<b>References:</b> [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md)
+**References:** [FlowNodeReturn](./tsrpc-base-client.flownodereturn.md)
 
