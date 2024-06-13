@@ -1,4 +1,5 @@
 import { TSBuffer } from "tsbuffer";
+import { CustomTypeSchema, } from "tsbuffer-schema";
 import { ApiReturn, BaseServiceType, Logger, LogLevel, ServiceProto, setLogLevel, TsrpcError, TsrpcErrorType } from "tsrpc-proto";
 import { ApiReturnFlowData, CallApiFlowData, RecvMsgFlowData, SendMsgFlowData } from "../models/ClientFlowData";
 import { Counter } from "../models/Counter";
@@ -139,7 +140,9 @@ export abstract class BaseClient<ServiceType extends BaseServiceType> {
             }
         }
 
-        this.tsbuffer = new TSBuffer(types);
+        this.tsbuffer = new TSBuffer(types, {
+            customTypes: this.options.customTypes,
+        });
         this.logger = this.options.logger;
         if (this.logger) {
             this.logger = setLogLevel(this.logger, this.options.logLevel);
@@ -664,6 +667,11 @@ export interface BaseClientOptions {
      * 将会针对 'mongodb/ObjectId' 'bson/ObjectId' 进行处理
      */
     customObjectIdClass?: { new(id?: any): any } | false;
+
+    /**
+     * Customize the protocol data type
+     */
+    customTypes?: { [schemaId: string]: CustomTypeSchema }
 }
 
 export interface PendingApiItem {
