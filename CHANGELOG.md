@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [2.1.16] - 2025-10-02
+
+### Fixed
+- Fixed bug that `Pick<Union,Date>[]` won't decode `Date` field
+
 ## [2.1.15] - 2024-05-05
 
 ### Fixed
