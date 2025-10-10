@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.1.17] - 2025-10-10
+
+### Fixed
+- Update `tsbufer` to version `2.2.22`
+
+
 ## [2.1.16] - 2025-10-02
 
 ### Fixed
